@@ -251,8 +251,8 @@ export default function App() {
         )}
       </header>
 
-      {/* 2. HERO SECTION MIT VIDEO BACKGROUND & PARALLAX OVERLAY */}
-      <section className="bg-[#0b1a3a] w-full min-h-[calc(100dvh-88px)] px-6 sm:px-12 lg:px-[64px] py-[48px] lg:py-[64px] text-white relative overflow-hidden flex items-center">
+      {/* 2. HERO + FÖRDERKONDITIONEN VIEWPORT CONTAINER */}
+      <div className="w-full min-h-[calc(100dvh-84px)] flex flex-col justify-between relative bg-[#0b1a3a] overflow-hidden">
         
         {/* Ambient Video Background Layer with Subtle Parallax */}
         <div 
@@ -272,108 +272,108 @@ export default function App() {
             <source src={heroVideo} type="video/mp4" />
           </video>
           {/* Blue Overlay (~25% opacity) so the video is clearly visible */}
-          <div className="absolute inset-0 bg-[#162d50]/25 bg-gradient-to-r from-[#0b1a3a]/60 via-[#162d50]/30 to-black/20"></div>
+          <div className="absolute inset-0 bg-[#162d50]/25 bg-gradient-to-r from-[#0b1a3a]/65 via-[#162d50]/35 to-black/25"></div>
         </div>
 
-        <div className="max-w-[1360px] w-full mx-auto flex flex-col gap-[32px] items-start relative z-10 my-auto">
-          
+        {/* Hero Content (Centered) */}
+        <div className="max-w-[1360px] w-full mx-auto px-6 sm:px-12 lg:px-[64px] py-6 sm:py-10 lg:py-12 relative z-10 my-auto">
           {/* Hero Box with gentle entry reveal and slight scroll parallax */}
           <div 
-            className="drop-shadow-[0px_0px_52.2px_rgba(0,0,0,0.5)] flex flex-col gap-[28px] items-start w-full max-w-4xl transition-opacity duration-300"
+            className="drop-shadow-[0px_0px_52.2px_rgba(0,0,0,0.5)] flex flex-col gap-5 sm:gap-6 items-start w-full max-w-4xl transition-opacity duration-300"
             style={{
               transform: `translate3d(0, ${scrollY * 0.12}px, 0)`,
               opacity: Math.max(0, 1 - scrollY / 700),
               willChange: 'transform, opacity',
             }}
           >
-            <div className="flex flex-col gap-[16px] items-start w-full font-bold">
-              <p className="text-[12px] uppercase text-[#d8e2f0] tracking-wider">
+            <div className="flex flex-col gap-3 items-start w-full font-bold">
+              <p className="text-[11px] sm:text-[12px] uppercase text-[#d8e2f0] tracking-wider">
                 DSEE-DIGITALFÖRDERUNG FÜR EHRENÄMTER
               </p>
-              <div className="text-4xl sm:text-5xl lg:text-[64px] leading-[1.05] tracking-tight">
+              <div className="text-3xl sm:text-4xl lg:text-5xl xl:text-[56px] leading-[1.08] tracking-tight text-white">
                 <p>Fördergelder für Vereine</p>
                 <p>im ländlichen Raum.</p>
               </div>
             </div>
 
-            <p className="text-[18px] leading-[1.6] text-white font-normal max-w-2xl">
+            <p className="text-[16px] sm:text-[17px] leading-[1.55] text-white font-normal max-w-2xl">
               100% digitalisiert, 0% Bürokratie – Bis zu 1.500 € Förderung durch die DSEE für Ihre professionelle digitale Sichtbarkeit im Kommunalraum.
             </p>
 
-            <div className="flex flex-wrap gap-[14px] items-center w-full sm:w-auto pt-2">
+            <div className="flex flex-wrap gap-3 sm:gap-3.5 items-center w-full sm:w-auto pt-1">
               <button
                 onClick={() => scrollToSection('kontakt')}
-                className="bg-[#2f5b7a] hover:bg-[#3b6d91] text-white text-[15px] font-bold px-[24px] py-[14px] flex items-center justify-center gap-[10px] whitespace-nowrap transition-colors shadow-sm cursor-pointer"
+                className="bg-[#2f5b7a] hover:bg-[#3b6d91] text-white text-[14px] sm:text-[15px] font-bold px-5 sm:px-6 py-3 sm:py-3.5 flex items-center justify-center gap-2 whitespace-nowrap transition-colors shadow-sm cursor-pointer"
               >
                 <span>Förderfähigkeit in 2 Min. prüfen</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
               <button
                 onClick={() => scrollToSection('antrag-assistent')}
-                className="bg-white/10 hover:bg-white/20 border border-white text-[15px] font-bold px-[22px] py-[14px] text-white flex items-center gap-2 whitespace-nowrap transition-colors cursor-pointer"
+                className="bg-white/10 hover:bg-white/20 border border-white text-[14px] sm:text-[15px] font-bold px-5 sm:px-6 py-3 sm:py-3.5 text-white flex items-center gap-2 whitespace-nowrap transition-colors cursor-pointer"
               >
                 <span>Antrag online erstellen</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
               <a
                 href="tel:0800000000"
-                className="bg-emerald-600/90 hover:bg-emerald-600 border border-emerald-400/40 text-[15px] font-bold px-[22px] py-[14px] text-white flex items-center gap-2.5 whitespace-nowrap transition-colors cursor-pointer shadow-sm"
+                className="bg-emerald-600/90 hover:bg-emerald-600 border border-emerald-400/40 text-[14px] sm:text-[15px] font-bold px-5 sm:px-6 py-3 sm:py-3.5 text-white flex items-center gap-2 whitespace-nowrap transition-colors cursor-pointer shadow-sm"
               >
                 <Phone className="w-4 h-4 text-emerald-100" />
                 <span>Jetzt anrufen</span>
               </a>
             </div>
           </div>
-
         </div>
-      </section>
 
-      {/* 3. AKTUELLE FÖRDERKONDITIONEN (HORIZONTALE BLAUE LEISTE) */}
-      <section className="bg-[#162d50] border-t border-b border-[#2f5b7a]/40 w-full px-6 sm:px-12 lg:px-[64px] py-[28px] text-white">
-        <div className="max-w-[1360px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-start justify-between">
-          
-          {/* 1. Trägerinstitution */}
-          <Reveal direction="up" delay={50}>
-            <div className="flex flex-col gap-[6px] items-start border-b sm:border-b-0 sm:border-r border-[#2f5b7a]/60 pb-4 sm:pb-0 sm:pr-6">
-              <p className="text-[#d8e2f0] text-[11px] font-bold uppercase tracking-wider">Trägerinstitution</p>
-              <p className="text-white text-[16px] font-bold leading-snug">DSEE (Deutsche Stiftung für Engagement und Ehrenamt)</p>
-            </div>
-          </Reveal>
-
-          {/* 2. Maximale Förderhöhe */}
-          <Reveal direction="up" delay={150}>
-            <div className="flex flex-col gap-[6px] items-start border-b sm:border-b-0 lg:border-r border-[#2f5b7a]/60 pb-4 sm:pb-0 sm:pr-6">
-              <p className="text-[#d8e2f0] text-[11px] font-bold uppercase tracking-wider">Maximale Förderhöhe</p>
-              <div className="flex items-baseline gap-2">
-                <p className="text-white text-[24px] font-bold leading-none">1.500,00 €</p>
-                <span className="text-xs text-emerald-400 font-semibold">(90% Quote)</span>
+        {/* 3. AKTUELLE FÖRDERKONDITIONEN (HORIZONTALE LEISTE AM BOTTOM DES VIEWPORTS) */}
+        <section className="bg-[#162d50]/95 backdrop-blur-md border-t border-[#2f5b7a]/40 w-full px-6 sm:px-12 lg:px-[64px] py-4 sm:py-5 text-white relative z-10">
+          <div className="max-w-[1360px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 items-center justify-between">
+            
+            {/* 1. Trägerinstitution */}
+            <Reveal direction="up" delay={50}>
+              <div className="flex flex-col gap-1 items-start border-b sm:border-b-0 sm:border-r border-[#2f5b7a]/60 pb-3 sm:pb-0 sm:pr-6">
+                <p className="text-[#d8e2f0] text-[10px] sm:text-[11px] font-bold uppercase tracking-wider">Trägerinstitution</p>
+                <p className="text-white text-[15px] sm:text-[16px] font-bold leading-snug">DSEE (Deutsche Stiftung für Engagement und Ehrenamt)</p>
               </div>
-              <p className="text-[#d8e2f0] text-[11px]">Bis zu 1.350 € Zuschuss</p>
-            </div>
-          </Reveal>
+            </Reveal>
 
-          {/* 3. Erforderlicher Eigenanteil */}
-          <Reveal direction="up" delay={250}>
-            <div className="flex flex-col gap-[6px] items-start border-b sm:border-b-0 sm:border-r border-[#2f5b7a]/60 pb-4 sm:pb-0 sm:pr-6">
-              <p className="text-[#d8e2f0] text-[11px] font-bold uppercase tracking-wider">Erforderlicher Eigenanteil</p>
-              <p className="text-white text-[20px] font-bold leading-none">
-                10% <span className="text-[14px] font-normal text-[#d8e2f0]">(max. 150,00 €)</span>
-              </p>
-              <p className="text-xs text-[#d8e2f0] mt-0.5">Erst nach Bewilligung fällig</p>
-            </div>
-          </Reveal>
+            {/* 2. Maximale Förderhöhe */}
+            <Reveal direction="up" delay={150}>
+              <div className="flex flex-col gap-1 items-start border-b sm:border-b-0 lg:border-r border-[#2f5b7a]/60 pb-3 sm:pb-0 sm:pr-6">
+                <p className="text-[#d8e2f0] text-[10px] sm:text-[11px] font-bold uppercase tracking-wider">Maximale Förderhöhe</p>
+                <div className="flex items-baseline gap-2">
+                  <p className="text-white text-[20px] sm:text-[22px] font-bold leading-none">1.500,00 €</p>
+                  <span className="text-[11px] text-emerald-400 font-semibold">(90% Quote)</span>
+                </div>
+                <p className="text-[#d8e2f0] text-[10px] sm:text-[11px]">Bis zu 1.350 € Zuschuss</p>
+              </div>
+            </Reveal>
 
-          {/* 4. Förderfähige Maßnahmen */}
-          <Reveal direction="up" delay={350}>
-            <div className="flex flex-col gap-[6px] items-start">
-              <p className="text-[#d8e2f0] text-[11px] font-bold uppercase tracking-wider">Förderfähige Maßnahmen</p>
-              <p className="text-white text-[16px] font-bold leading-snug">Websites, Social Media, Rekrutierung</p>
-              <p className="text-[#d8e2f0] text-[11px]">100% digital & bürokratiefrei</p>
-            </div>
-          </Reveal>
+            {/* 3. Erforderlicher Eigenanteil */}
+            <Reveal direction="up" delay={250}>
+              <div className="flex flex-col gap-1 items-start border-b sm:border-b-0 sm:border-r border-[#2f5b7a]/60 pb-3 sm:pb-0 sm:pr-6">
+                <p className="text-[#d8e2f0] text-[10px] sm:text-[11px] font-bold uppercase tracking-wider">Erforderlicher Eigenanteil</p>
+                <p className="text-white text-[18px] sm:text-[19px] font-bold leading-none">
+                  10% <span className="text-[13px] font-normal text-[#d8e2f0]">(max. 150,00 €)</span>
+                </p>
+                <p className="text-[10px] sm:text-[11px] text-[#d8e2f0] mt-0.5">Erst nach Bewilligung fällig</p>
+              </div>
+            </Reveal>
 
-        </div>
-      </section>
+            {/* 4. Förderfähige Maßnahmen */}
+            <Reveal direction="up" delay={350}>
+              <div className="flex flex-col gap-1 items-start">
+                <p className="text-[#d8e2f0] text-[10px] sm:text-[11px] font-bold uppercase tracking-wider">Förderfähige Maßnahmen</p>
+                <p className="text-white text-[15px] sm:text-[16px] font-bold leading-snug">Websites, Social Media, Rekrutierung</p>
+                <p className="text-[#d8e2f0] text-[10px] sm:text-[11px]">100% digital & bürokratiefrei</p>
+              </div>
+            </Reveal>
+
+          </div>
+        </section>
+
+      </div>
 
       {/* 4. SEKTION 01 / REGIONALER FÖRDERKOMPASS */}
       <section id="kompass" className="bg-white w-full px-6 sm:px-12 lg:px-[64px] py-[72px]">
