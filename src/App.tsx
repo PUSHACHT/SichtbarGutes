@@ -16,6 +16,7 @@ import {
   Monitor
 } from 'lucide-react';
 import imgRow from './assets/imgRow.svg';
+import heroVideo from './assets/header-video.mp4';
 import { 
   shortformReels, 
   longformProjects, 
@@ -227,7 +228,7 @@ export default function App() {
             playsInline
             className="absolute inset-0 w-full h-full object-cover scale-105"
           >
-            <source src="/header-video.mp4" type="video/mp4" />
+            <source src={heroVideo} type="video/mp4" />
           </video>
           {/* Blue Overlay (~25% opacity) so the video is clearly visible */}
           <div className="absolute inset-0 bg-[#162d50]/25 bg-gradient-to-r from-[#0b1a3a]/60 via-[#162d50]/30 to-black/20"></div>
