@@ -15,8 +15,7 @@ import {
   ExternalLink,
   Monitor,
   Globe,
-  Video,
-  Layers
+  Video
 } from 'lucide-react';
 import imgRow from './assets/imgRow.svg';
 import heroVideo from './assets/header-video.mp4';
@@ -448,15 +447,15 @@ export default function App() {
 
           <div className="flex flex-col gap-[16px] items-start w-full">
             <h2 className="text-[#162d50] text-3xl sm:text-[40px] font-bold tracking-tight">
-              3 maßgeschneiderte 1.500 € Förderpakete für Ihren Verein
+              Maßgeschneiderte 1.500 € Förderpakete für Ihren Verein
             </h2>
             <p className="text-[#706e65] text-[16px] leading-[1.6] max-w-3xl">
               Unsere Pakete schöpfen den maximalen DSEE-Förderrahmen von 1.500 € exakt aus. Ihr Verein profitiert von 90 % staatlicher Förderung (1.350 €) und trägt lediglich 10 % Eigenanteil (150 €) – fällig erst nach offizieller Bewilligung.
             </p>
           </div>
 
-          {/* 3 Package Cards Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-[24px] items-stretch w-full">
+          {/* 2 Package Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[24px] items-stretch w-full">
             
             {/* Paket 01: Digitale Vereins-Präsenz */}
             <div className="bg-white border-2 border-[#162d50] p-[32px] flex flex-col justify-between gap-[24px] relative shadow-md">
@@ -593,77 +592,6 @@ export default function App() {
                 <button
                   onClick={() => scrollToSection('kontakt')}
                   className="w-full bg-[#2f5b7a] hover:bg-[#162d50] text-white font-bold py-3 px-4 text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors cursor-pointer"
-                >
-                  <span>Paket im Schnell-Check anfragen</span>
-                  <ArrowRight className="size-3.5" />
-                </button>
-              </div>
-            </div>
-
-            {/* Paket 03: Full Service Digitalportal */}
-            <div className="bg-white border border-[#dcd8cf] hover:border-[#162d50] p-[32px] flex flex-col justify-between gap-[24px] relative shadow-sm transition-all">
-              <div className="flex flex-col gap-[20px] items-start">
-                <div className="flex items-center justify-between w-full">
-                  <span className="bg-[#4a6e8a] text-white text-[10px] font-bold px-2.5 py-1 uppercase tracking-wider">
-                    Full Service
-                  </span>
-                  <div className="size-8 bg-[#f4f7fa] border border-[#dcd8cf] flex items-center justify-center text-[#162d50]">
-                    <Layers className="size-4 text-[#2f5b7a]" />
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-1">
-                  <h3 className="text-[#162d50] text-[22px] font-bold leading-snug">
-                    Full Service Digitalportal
-                  </h3>
-                  <p className="text-[#706e65] text-[13px] leading-relaxed">
-                    Komplettes Vereinsportal mit Content-System und Schulung zur Entlastung Ihres Vorstands.
-                  </p>
-                </div>
-
-                {/* Price Box */}
-                <div className="bg-[#f4f7fa] border border-[#dcd8cf] p-4 w-full flex flex-col gap-2">
-                  <div className="flex items-baseline justify-between">
-                    <span className="text-xs text-[#706e65]">Gesamtprojektwert:</span>
-                    <span className="text-base font-bold text-[#162d50]">1.500,00 €</span>
-                  </div>
-                  <div className="flex items-baseline justify-between border-t border-[#dcd8cf] pt-2">
-                    <span className="text-xs text-[#2f5b7a] font-bold">DSEE-Zuschuss (90 %):</span>
-                    <span className="text-base font-bold text-emerald-700">1.350,00 €</span>
-                  </div>
-                  <div className="flex items-baseline justify-between border-t border-[#dcd8cf] pt-2">
-                    <span className="text-xs text-[#162d50] font-bold">Eigenanteil Verein (10 %):</span>
-                    <span className="text-base font-bold text-[#162d50]">150,00 €</span>
-                  </div>
-                  <p className="text-[10px] text-[#706e65] pt-1 border-t border-[#dcd8cf]">
-                    Eigenanteil erst nach Bewilligung fällig
-                  </p>
-                </div>
-
-                {/* Deliverables */}
-                <div className="flex flex-col gap-2.5 w-full pt-2">
-                  <p className="text-[11px] font-bold uppercase tracking-wider text-[#162d50]">Enthaltene Leistungen:</p>
-                  {[
-                    "Umfassendes Vereins-CMS (ohne monatliche Software-Lizenz)",
-                    "Design System & Corporate Identity Anpassung",
-                    "Terminkalender, Mitglieder-Downloadbereich & News-Modul",
-                    "Vorstands-Schulung zur einfachen, eigenständigen Pflege",
-                    "Technische Domain- & Hostingeinrichtung inklusive"
-                  ].map((feat, idx) => (
-                    <div key={idx} className="flex items-start gap-2 text-[13px] text-[#2b2a27]">
-                      <div className="bg-[#2f5b7a] flex items-center justify-center size-[16px] shrink-0 mt-0.5 text-white">
-                        <Check className="size-[10px] stroke-[3]" />
-                      </div>
-                      <span className="leading-tight">{feat}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-2 pt-4 border-t border-[#dcd8cf] w-full">
-                <button
-                  onClick={() => scrollToSection('kontakt')}
-                  className="w-full bg-[#162d50] hover:bg-[#2f5b7a] text-white font-bold py-3 px-4 text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors cursor-pointer"
                 >
                   <span>Paket im Schnell-Check anfragen</span>
                   <ArrowRight className="size-3.5" />
