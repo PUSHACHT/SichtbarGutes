@@ -23,6 +23,7 @@ import {
   webProjects, 
   testimonials 
 } from './data/portfolioData';
+import { AntragsAssistent } from './components/AntragsAssistent';
 
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -176,12 +177,22 @@ export default function App() {
         <nav className="hidden lg:flex items-center gap-[32px] text-[#d8e2f0] text-[15px] font-medium whitespace-nowrap">
           <button onClick={() => scrollToSection('massnahmen')} className="hover:text-white transition-colors">Leistungen</button>
           <button onClick={() => scrollToSection('ablauf')} className="hover:text-white transition-colors">So funktioniert's</button>
+          <button onClick={() => scrollToSection('antrag-assistent')} className="hover:text-white text-[#d8e2f0] transition-colors flex items-center gap-1.5 font-semibold">
+            <span className="size-2 rounded-full bg-emerald-400" />
+            <span>Antragsassistent</span>
+          </button>
           <button onClick={() => scrollToSection('faq')} className="hover:text-white transition-colors">FAQ</button>
           <button onClick={() => scrollToSection('kontakt')} className="hover:text-white transition-colors">Kontakt</button>
         </nav>
 
         {/* CTA Button */}
-        <div className="hidden sm:block">
+        <div className="hidden sm:flex items-center gap-3">
+          <button
+            onClick={() => scrollToSection('antrag-assistent')}
+            className="border border-[#d8e2f0] hover:bg-white hover:text-[#162d50] text-white text-[13px] font-bold px-[16px] py-[10px] whitespace-nowrap transition-colors"
+          >
+            Antrag erstellen
+          </button>
           <button
             onClick={() => scrollToSection('kontakt')}
             className="bg-[#2f5b7a] hover:bg-[#3b6d91] text-white text-[14px] font-bold px-[20px] py-[12px] whitespace-nowrap transition-colors"
@@ -204,11 +215,21 @@ export default function App() {
           <div className="lg:hidden absolute top-full left-0 w-full bg-[#0b1a3a] border-t border-[#2f5b7a] p-6 flex flex-col gap-4 text-[#d8e2f0] text-sm">
             <button onClick={() => scrollToSection('massnahmen')} className="text-left py-2 hover:text-white">Leistungen</button>
             <button onClick={() => scrollToSection('ablauf')} className="text-left py-2 hover:text-white">So funktioniert's</button>
+            <button onClick={() => scrollToSection('antrag-assistent')} className="text-left py-2 hover:text-white font-bold text-white flex items-center gap-2">
+              <span className="size-2 rounded-full bg-emerald-400" />
+              <span>DSEE-Antragsassistent (PDF)</span>
+            </button>
             <button onClick={() => scrollToSection('faq')} className="text-left py-2 hover:text-white">FAQ</button>
             <button onClick={() => scrollToSection('kontakt')} className="text-left py-2 hover:text-white">Kontakt</button>
             <button 
+              onClick={() => scrollToSection('antrag-assistent')}
+              className="bg-white text-[#162d50] text-center py-2.5 font-bold mt-2"
+            >
+              Antrag online vorbereiten
+            </button>
+            <button 
               onClick={() => scrollToSection('kontakt')}
-              className="bg-[#2f5b7a] text-white text-center py-3 font-bold mt-2"
+              className="bg-[#2f5b7a] text-white text-center py-3 font-bold"
             >
               Förderfähigkeit prüfen
             </button>
@@ -252,7 +273,7 @@ export default function App() {
               100% digitalisiert, 0% Bürokratie – Bis zu 1.500 € Förderung durch die DSEE für Ihre professionelle digitale Sichtbarkeit im Kommunalraum.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-[24px] items-start sm:items-center w-full sm:w-auto pt-2">
+            <div className="flex flex-col sm:flex-row gap-[16px] items-start sm:items-center w-full sm:w-auto pt-2">
               <button
                 onClick={() => scrollToSection('kontakt')}
                 className="bg-[#2f5b7a] hover:bg-[#3b6d91] text-white text-[15px] font-bold px-[28px] py-[14px] flex items-center justify-center gap-[10px] whitespace-nowrap transition-colors shadow-sm"
@@ -261,10 +282,11 @@ export default function App() {
                 <ArrowRight className="w-4 h-4" />
               </button>
               <button
-                onClick={() => scrollToSection('massnahmen')}
-                className="text-[16px] font-semibold text-white underline decoration-solid hover:text-[#d8e2f0] transition-colors whitespace-nowrap"
+                onClick={() => scrollToSection('antrag-assistent')}
+                className="bg-white/10 hover:bg-white/20 border border-white text-[15px] font-bold px-[24px] py-[14px] text-white flex items-center gap-2 whitespace-nowrap transition-colors"
               >
-                Leistungsübersicht ansehen
+                <span>Antrag online erstellen</span>
+                <ArrowRight className="w-4 h-4" />
               </button>
             </div>
           </div>
@@ -394,11 +416,21 @@ export default function App() {
 
               {/* Row: Box 02 (813px) & Box 03 (flexible) */}
               <div className="flex flex-col lg:flex-row gap-[24px] items-start w-full">
-                <div className="bg-white border border-[#dcd8cf] p-[32px] flex flex-col gap-[20px] items-start w-full lg:w-[813px]">
-                  <p className="text-[#162d50] text-[24px] font-bold">02</p>
-                  <p className="text-[#2b2a27] text-[16px] leading-[1.6]">
-                    SichtbarGutes übernimmt die vollständige Formulierung und Einreichung des bürokratischen Antrags.
-                  </p>
+                <div className="bg-white border border-[#dcd8cf] p-[32px] flex flex-col justify-between gap-[20px] items-start w-full lg:w-[813px]">
+                  <div className="flex flex-col gap-[12px] items-start">
+                    <p className="text-[#162d50] text-[24px] font-bold">02</p>
+                    <p className="text-[#162d50] text-[18px] font-bold">Antragserstellung & Einreichung</p>
+                    <p className="text-[#2b2a27] text-[16px] leading-[1.6]">
+                      SichtbarGutes übernimmt die vollständige Formulierung und Einreichung des bürokratischen Antrags – oder Sie nutzen direkt unseren interaktiven DSEE-Antragsassistenten.
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => scrollToSection('antrag-assistent')}
+                    className="text-xs bg-[#f4f7fa] hover:bg-[#162d50] text-[#162d50] hover:text-white font-bold px-4 py-2 border border-[#dcd8cf] hover:border-[#162d50] flex items-center gap-1.5 transition-colors cursor-pointer"
+                  >
+                    <span>Zum Online-Assistenten & PDF-Export</span>
+                    <ArrowRight className="size-3.5" />
+                  </button>
                 </div>
 
                 <div className="bg-white border border-[#dcd8cf] p-[24px] flex flex-col gap-[16px] items-start flex-1 w-full">
@@ -1175,12 +1207,35 @@ export default function App() {
         </div>
       </section>
 
-      {/* 9. SEKTION 05 / HÄUFIG GESTELLTE FRAGEN (FAQ) */}
+      {/* 9. SEKTION 06 / DSEE-ANTRAGSASSISTENT (GEFÜHRTER ONLINE-ANTRAG & PDF-EXPORT) */}
+      <section id="antrag-assistent" className="bg-[#f4f7fa] w-full px-6 sm:px-12 lg:px-[64px] py-[72px] border-t border-b border-[#dcd8cf]">
+        <div className="max-w-[1360px] mx-auto flex flex-col gap-[36px] items-start">
+          <div className="border-b-2 border-[#162d50] py-[12px] w-full">
+            <p className="text-[#162d50] text-[12px] font-bold uppercase tracking-wider">
+              06 / DSEE-MIKROANTRAG ONLINE-ASSISTENT
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-[12px] items-start w-full">
+            <h2 className="text-[#162d50] text-3xl sm:text-[40px] font-bold tracking-tight">
+              Förderantrag digital vorbereiten & als PDF exportieren
+            </h2>
+            <p className="text-[#706e65] text-[16px] leading-[1.6] max-w-3xl">
+              Sparen Sie sich das manuelle Ausfüllen des 14-seitigen DSEE-Antrags: Erfassen Sie Ihre Daten im Assistenten oder laden Sie mit einem Klick die Musterdaten zum Testen. Ihr fertiger Antrag steht sofort als druckfertiges DIN-A4-PDF bereit.
+            </p>
+          </div>
+
+          {/* Assistant Component */}
+          <AntragsAssistent />
+        </div>
+      </section>
+
+      {/* 10. SEKTION 07 / HÄUFIG GESTELLTE FRAGEN (FAQ) */}
       <section id="faq" className="bg-white w-full px-6 sm:px-12 lg:px-[64px] py-[72px]">
         <div className="max-w-[1360px] mx-auto flex flex-col gap-[40px] items-start">
           <div className="border-b-2 border-[#162d50] py-[12px] w-full">
             <p className="text-[#162d50] text-[12px] font-bold uppercase tracking-wider">
-              05 / HÄUFIG GESTELLTE FRAGEN
+              07 / HÄUFIG GESTELLTE FRAGEN
             </p>
           </div>
 
