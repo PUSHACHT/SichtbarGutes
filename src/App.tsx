@@ -252,7 +252,7 @@ export default function App() {
       </header>
 
       {/* 2. HERO SECTION MIT VIDEO BACKGROUND & PARALLAX OVERLAY */}
-      <section className="bg-[#0b1a3a] w-full px-6 sm:px-12 lg:px-[64px] py-[64px] lg:py-[104px] text-white relative overflow-hidden">
+      <section className="bg-[#0b1a3a] w-full min-h-[calc(100dvh-88px)] px-6 sm:px-12 lg:px-[64px] py-[48px] lg:py-[64px] text-white relative overflow-hidden flex items-center">
         
         {/* Ambient Video Background Layer with Subtle Parallax */}
         <div 
@@ -275,7 +275,7 @@ export default function App() {
           <div className="absolute inset-0 bg-[#162d50]/25 bg-gradient-to-r from-[#0b1a3a]/60 via-[#162d50]/30 to-black/20"></div>
         </div>
 
-        <div className="max-w-[1360px] mx-auto flex flex-col gap-[32px] items-start relative z-10">
+        <div className="max-w-[1360px] w-full mx-auto flex flex-col gap-[32px] items-start relative z-10 my-auto">
           
           {/* Hero Box with gentle entry reveal and slight scroll parallax */}
           <div 
