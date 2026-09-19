@@ -255,10 +255,10 @@ export default function App() {
           <div className="absolute inset-0 bg-[#162d50]/25 bg-gradient-to-r from-[#0b1a3a]/60 via-[#162d50]/30 to-black/20"></div>
         </div>
 
-        <div className="max-w-[1360px] mx-auto flex flex-col lg:flex-row gap-[32px] items-start relative z-10">
+        <div className="max-w-[1360px] mx-auto flex flex-col gap-[32px] items-start relative z-10">
           
-          {/* Left Hero Box (813px with exact Figma drop-shadow) */}
-          <div className="drop-shadow-[0px_0px_52.2px_rgba(0,0,0,0.5)] flex flex-col gap-[28px] items-start w-full lg:w-[813px] shrink-0">
+          {/* Hero Box */}
+          <div className="drop-shadow-[0px_0px_52.2px_rgba(0,0,0,0.5)] flex flex-col gap-[28px] items-start w-full max-w-4xl">
             <div className="flex flex-col gap-[16px] items-start w-full font-bold">
               <p className="text-[12px] uppercase text-[#d8e2f0] tracking-wider">
                 DSEE-DIGITALFÖRDERUNG FÜR EHRENÄMTER
@@ -276,14 +276,14 @@ export default function App() {
             <div className="flex flex-col sm:flex-row gap-[16px] items-start sm:items-center w-full sm:w-auto pt-2">
               <button
                 onClick={() => scrollToSection('kontakt')}
-                className="bg-[#2f5b7a] hover:bg-[#3b6d91] text-white text-[15px] font-bold px-[28px] py-[14px] flex items-center justify-center gap-[10px] whitespace-nowrap transition-colors shadow-sm"
+                className="bg-[#2f5b7a] hover:bg-[#3b6d91] text-white text-[15px] font-bold px-[28px] py-[14px] flex items-center justify-center gap-[10px] whitespace-nowrap transition-colors shadow-sm cursor-pointer"
               >
                 <span>Förderfähigkeit in 2 Min. prüfen</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
               <button
                 onClick={() => scrollToSection('antrag-assistent')}
-                className="bg-white/10 hover:bg-white/20 border border-white text-[15px] font-bold px-[24px] py-[14px] text-white flex items-center gap-2 whitespace-nowrap transition-colors"
+                className="bg-white/10 hover:bg-white/20 border border-white text-[15px] font-bold px-[24px] py-[14px] text-white flex items-center gap-2 whitespace-nowrap transition-colors cursor-pointer"
               >
                 <span>Antrag online erstellen</span>
                 <ArrowRight className="w-4 h-4" />
@@ -291,57 +291,45 @@ export default function App() {
             </div>
           </div>
 
-          {/* Right Box: Aktuelle Förderkonditionen (475px in Figma) */}
-          <div className="bg-[#162d50] border border-[#2f5b7a] p-[32px] flex flex-col gap-[24px] items-start w-full lg:w-[475px] shrink-0 shadow-2xl">
-            <p className="text-[#d8e2f0] text-[12px] font-bold uppercase tracking-wider">
-              AKTUELLE FÖRDERKONDITIONEN
-            </p>
-
-            <div className="flex flex-col gap-[16px] items-start w-full">
-              <div className="border-b border-[#2f5b7a] pb-[12px] flex flex-col gap-[4px] items-start w-full">
-                <p className="text-[#d8e2f0] text-[12px]">Trägerinstitution</p>
-                <p className="text-white text-[16px] font-bold">DSEE (Deutsche Stiftung für Engagement und Ehrenamt)</p>
-              </div>
-
-              <div className="border-b border-[#2f5b7a] pb-[12px] flex flex-col gap-[4px] items-start w-full">
-                <p className="text-[#d8e2f0] text-[12px]">Maximale Förderhöhe</p>
-                <p className="text-white text-[16px] font-bold">1.500,00 €</p>
-              </div>
-
-              <div className="border-b border-[#2f5b7a] pb-[12px] flex flex-col gap-[4px] items-start w-full">
-                <p className="text-[#d8e2f0] text-[12px]">Erforderlicher Eigenanteil</p>
-                <p className="text-white text-[16px] font-bold">10% (max. 150,00 €) <span className="text-xs font-normal text-[#d8e2f0]">· erst nach Bewilligung</span></p>
-              </div>
-
-              <div className="flex flex-col gap-[4px] items-start w-full">
-                <p className="text-[#d8e2f0] text-[12px]">Förderfähige Maßnahmen</p>
-                <p className="text-white text-[16px] font-bold">Websites, Social Media, Rekrutierung</p>
-              </div>
-            </div>
-          </div>
-
         </div>
       </section>
 
-      {/* 3. TRUST STRIP */}
-      <section className="bg-[#162d50] border-t border-[#2f5b7a]/40 w-full px-6 sm:px-12 lg:px-[64px] py-[24px] text-white">
-        <div className="max-w-[1360px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 items-center justify-between">
-          <div className="flex flex-col gap-[4px] items-start">
-            <p className="text-[26px] font-bold leading-none">90%</p>
-            <p className="text-[#d8e2f0] text-[12px] leading-normal">Förderquote für antragsberechtigte Vereine</p>
+      {/* 3. AKTUELLE FÖRDERKONDITIONEN (HORIZONTALE BLAUE LEISTE) */}
+      <section className="bg-[#162d50] border-t border-b border-[#2f5b7a]/40 w-full px-6 sm:px-12 lg:px-[64px] py-[28px] text-white">
+        <div className="max-w-[1360px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-start justify-between">
+          
+          {/* 1. Trägerinstitution */}
+          <div className="flex flex-col gap-[6px] items-start border-b sm:border-b-0 sm:border-r border-[#2f5b7a]/60 pb-4 sm:pb-0 sm:pr-6">
+            <p className="text-[#d8e2f0] text-[11px] font-bold uppercase tracking-wider">Trägerinstitution</p>
+            <p className="text-white text-[16px] font-bold leading-snug">DSEE (Deutsche Stiftung für Engagement und Ehrenamt)</p>
           </div>
-          <div className="flex flex-col gap-[4px] items-start">
-            <p className="text-[26px] font-bold leading-none">1.500 €</p>
-            <p className="text-[#d8e2f0] text-[12px] leading-normal">Maximale Förderung pro Projekt</p>
+
+          {/* 2. Maximale Förderhöhe */}
+          <div className="flex flex-col gap-[6px] items-start border-b sm:border-b-0 lg:border-r border-[#2f5b7a]/60 pb-4 sm:pb-0 sm:pr-6">
+            <p className="text-[#d8e2f0] text-[11px] font-bold uppercase tracking-wider">Maximale Förderhöhe</p>
+            <div className="flex items-baseline gap-2">
+              <p className="text-white text-[24px] font-bold leading-none">1.500,00 €</p>
+              <span className="text-xs text-emerald-400 font-semibold">(90% Quote)</span>
+            </div>
+            <p className="text-[#d8e2f0] text-[11px]">Bis zu 1.350 € Zuschuss</p>
           </div>
-          <div className="flex flex-col gap-[4px] items-start">
-            <p className="text-[26px] font-bold leading-none">100%</p>
-            <p className="text-[#d8e2f0] text-[12px] leading-normal">Digitalisierte Antragstellung und Umsetzung</p>
+
+          {/* 3. Erforderlicher Eigenanteil */}
+          <div className="flex flex-col gap-[6px] items-start border-b sm:border-b-0 sm:border-r border-[#2f5b7a]/60 pb-4 sm:pb-0 sm:pr-6">
+            <p className="text-[#d8e2f0] text-[11px] font-bold uppercase tracking-wider">Erforderlicher Eigenanteil</p>
+            <p className="text-white text-[20px] font-bold leading-none">
+              10% <span className="text-[14px] font-normal text-[#d8e2f0]">(max. 150,00 €)</span>
+            </p>
+            <p className="text-xs text-[#d8e2f0] mt-0.5">Erst nach Bewilligung fällig</p>
           </div>
-          <div className="flex flex-col gap-[4px] items-start">
-            <p className="text-[26px] font-bold leading-none">600k+</p>
-            <p className="text-[#d8e2f0] text-[12px] leading-normal">Potenziell förderfähige Vereine landesweit</p>
+
+          {/* 4. Förderfähige Maßnahmen */}
+          <div className="flex flex-col gap-[6px] items-start">
+            <p className="text-[#d8e2f0] text-[11px] font-bold uppercase tracking-wider">Förderfähige Maßnahmen</p>
+            <p className="text-white text-[16px] font-bold leading-snug">Websites, Social Media, Rekrutierung</p>
+            <p className="text-[#d8e2f0] text-[11px]">100% digital & bürokratiefrei</p>
           </div>
+
         </div>
       </section>
 
