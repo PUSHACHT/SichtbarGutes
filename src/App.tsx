@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Aperture, 
   ArrowRight, 
   Check, 
   Play, 
@@ -176,21 +175,14 @@ export default function App() {
       <header className="bg-[#162d50] w-full px-6 sm:px-12 lg:px-[64px] py-[20px] flex items-center justify-between sticky top-0 z-50">
         {/* Logo */}
         <div 
-          className="flex items-center gap-[15.8px] cursor-pointer" 
+          className="flex items-center cursor-pointer select-none group" 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          <div className="w-[47.5px] h-[47.5px] bg-[#162d50] flex items-center justify-center text-white shrink-0">
-            <Aperture className="w-8 h-8 text-white stroke-[1.5]" />
-          </div>
-          <div className="flex flex-col text-white whitespace-nowrap">
-            <p className="text-[26.4px] leading-tight font-medium">
-              <span>Sichtbar</span>
-              <span className="font-bold">Gutes</span>
-            </p>
-            <p className="text-[8px] font-semibold uppercase tracking-wider text-[#d8e2f0]">
-              Digitalisierung des Ehrenamts
-            </p>
-          </div>
+          <img 
+            src="/Logo Weiß.svg" 
+            alt="SichtbarGutes - Digitalisierung des Ehrenamts" 
+            className="h-[38px] sm:h-[44px] w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]" 
+          />
         </div>
 
         {/* Desktop Links */}
@@ -1630,10 +1622,11 @@ export default function App() {
       <footer className="bg-[#0b1a3a] text-white w-full px-6 sm:px-12 lg:px-[64px] pt-[40px] pb-[32px] flex flex-col gap-[24px] items-start">
         <div className="flex flex-col sm:flex-row items-start justify-between w-full gap-8">
           <div className="flex flex-col gap-[16px] items-start w-full max-w-[320px]">
-            <div className="flex items-center gap-[8px]">
-              <div className="bg-[#4a6e8a] size-[16px]"></div>
-              <p className="text-[18px] font-bold text-white">SichtbarGutes</p>
-            </div>
+            <img 
+              src="/Logo Weiß.svg" 
+              alt="SichtbarGutes" 
+              className="h-[34px] w-auto object-contain" 
+            />
             <p className="text-[#d8e2f0] text-[13px] leading-[1.5]">
               Initiative zur Stärkung der ländlichen Vereinskultur durch gezielten, digitalen Bürokratieabbau.
             </p>

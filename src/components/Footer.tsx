@@ -1,5 +1,4 @@
 import React from 'react';
-import { Aperture } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -8,12 +7,11 @@ export const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-8 border-b border-[#162d50]">
           {/* Brand */}
           <div className="flex flex-col gap-2 max-w-sm">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded bg-[#2f5b7a] flex items-center justify-center">
-                <Aperture className="w-5 h-5 text-white" />
-              </div>
-              <span className="font-bold text-lg">SichtbarGutes</span>
-            </div>
+            <img 
+              src="/Logo Weiß.svg" 
+              alt="SichtbarGutes" 
+              className="h-8 w-auto object-contain self-start" 
+            />
             <p className="text-xs text-[#d8e2f0] leading-relaxed">
               Initiative zur Stärkung der ländlichen Vereinskultur durch gezielten, digitalen Bürokratieabbau und Bundesförderung.
             </p>

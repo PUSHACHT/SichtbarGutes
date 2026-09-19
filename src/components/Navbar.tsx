@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Aperture, Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 
 interface NavbarProps {
   onCheckClick: () => void;
@@ -20,18 +20,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onCheckClick }) => {
     <header className="sticky top-0 z-50 bg-[#162d50] border-b border-[#2f5b7a]/40 backdrop-blur-md">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-8 lg:px-16 py-4 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center gap-3 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <div className="w-10 h-10 rounded-lg bg-[#2f5b7a] flex items-center justify-center text-white shadow-inner">
-            <Aperture className="w-6 h-6 text-[#d8e2f0]" />
-          </div>
-          <div className="flex flex-col">
-            <span className="text-white text-xl font-medium tracking-tight leading-none">
-              Sichtbar<span className="font-bold">Gutes</span>
-            </span>
-            <span className="text-[#d8e2f0] text-[9px] font-semibold uppercase tracking-wider mt-1">
-              Digitalisierung des Ehrenamts
-            </span>
-          </div>
+        <div 
+          className="flex items-center cursor-pointer select-none group" 
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        >
+          <img 
+            src="/Logo Weiß.svg" 
+            alt="SichtbarGutes - Digitalisierung des Ehrenamts" 
+            className="h-9 sm:h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]" 
+          />
         </div>
 
         {/* Desktop Links */}
