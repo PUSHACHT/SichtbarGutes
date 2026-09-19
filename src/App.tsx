@@ -14,7 +14,8 @@ import {
   ExternalLink,
   Monitor,
   Globe,
-  Video
+  Video,
+  Phone
 } from 'lucide-react';
 import imgRow from './assets/imgRow.svg';
 import heroVideo from './assets/header-video.mp4';
@@ -299,21 +300,28 @@ export default function App() {
               100% digitalisiert, 0% Bürokratie – Bis zu 1.500 € Förderung durch die DSEE für Ihre professionelle digitale Sichtbarkeit im Kommunalraum.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-[16px] items-start sm:items-center w-full sm:w-auto pt-2">
+            <div className="flex flex-wrap gap-[14px] items-center w-full sm:w-auto pt-2">
               <button
                 onClick={() => scrollToSection('kontakt')}
-                className="bg-[#2f5b7a] hover:bg-[#3b6d91] text-white text-[15px] font-bold px-[28px] py-[14px] flex items-center justify-center gap-[10px] whitespace-nowrap transition-colors shadow-sm cursor-pointer"
+                className="bg-[#2f5b7a] hover:bg-[#3b6d91] text-white text-[15px] font-bold px-[24px] py-[14px] flex items-center justify-center gap-[10px] whitespace-nowrap transition-colors shadow-sm cursor-pointer"
               >
                 <span>Förderfähigkeit in 2 Min. prüfen</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
               <button
                 onClick={() => scrollToSection('antrag-assistent')}
-                className="bg-white/10 hover:bg-white/20 border border-white text-[15px] font-bold px-[24px] py-[14px] text-white flex items-center gap-2 whitespace-nowrap transition-colors cursor-pointer"
+                className="bg-white/10 hover:bg-white/20 border border-white text-[15px] font-bold px-[22px] py-[14px] text-white flex items-center gap-2 whitespace-nowrap transition-colors cursor-pointer"
               >
                 <span>Antrag online erstellen</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
+              <a
+                href="tel:0800000000"
+                className="bg-emerald-600/90 hover:bg-emerald-600 border border-emerald-400/40 text-[15px] font-bold px-[22px] py-[14px] text-white flex items-center gap-2.5 whitespace-nowrap transition-colors cursor-pointer shadow-sm"
+              >
+                <Phone className="w-4 h-4 text-emerald-100" />
+                <span>Jetzt anrufen</span>
+              </a>
             </div>
           </div>
 
