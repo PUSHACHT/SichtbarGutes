@@ -19,3 +19,28 @@
 .btn-spring:active {
   transform: scale(0.96);
 }
+
+/* Custom Thin Scrollbar in CD Colors */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2f5b7a #0b1a3a;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b1a3a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2f5b7a;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4a6e8a;
+}
+
