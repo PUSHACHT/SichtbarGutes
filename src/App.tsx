@@ -698,7 +698,7 @@ export default function App() {
               Unsere realisierten Projekte & Video-Showcases
             </h2>
             <p className="text-[#706e65] text-[16px] leading-[1.6] max-w-3xl">
-              Authentische, DSEE-förderfähige Medienproduktionen für Vereine, Stiftungen und Kommunen im ländlichen Raum – mit messbaren Ergebnissen für Nachwuchs- und Mitgliedergewinnung.
+              Authentische, DSEE-förderfähige Medienproduktionen für Vereine, Stiftungen und Kommunen im ländlichen Raum – ehrenamtliches Engagement lebendig eingefangen und sichtbar gemacht.
             </p>
           </div>
 
@@ -838,7 +838,7 @@ export default function App() {
                               <div className="flex flex-col gap-1">
                                 <p className="text-[12px] font-bold uppercase tracking-wider text-[#d8e2f0] flex items-center gap-1.5">
                                   <TrendingUp className="size-4 text-[#d8e2f0]" />
-                                  <span>KPI & Reichweite:</span>
+                                  <span>Gutes sichtbar gemacht:</span>
                                 </p>
                                 <p className="text-white text-[16px] font-semibold leading-[1.4]">
                                   {project.kpi}
@@ -981,7 +981,7 @@ export default function App() {
                           <div className="pt-6 mt-4 border-t border-[#2f5b7a] flex flex-col gap-2">
                             <div className="flex items-center gap-2 text-[#d8e2f0] text-sm font-bold uppercase tracking-wider">
                               <ExternalLink className="size-4 text-[#d8e2f0]" />
-                              <span>Wirkung & KPI:</span>
+                              <span>Gutes sichtbar gemacht:</span>
                             </div>
                             <p className="text-white text-[15px] font-semibold">
                               {project.kpi}
@@ -1246,7 +1246,7 @@ export default function App() {
                             <div className="pt-3 border-t border-[#dcd8cf] flex flex-col gap-1 bg-[#f4f7fa] p-3">
                               <p className="text-[11px] font-bold uppercase tracking-wider text-[#2f5b7a] flex items-center gap-1.5">
                                 <TrendingUp className="size-3.5 text-[#2f5b7a]" />
-                                <span>Ergebnis & Performance:</span>
+                                <span>Gutes eingefangen & Wirkung:</span>
                               </p>
                               <p className="text-[#162d50] text-[13px] font-medium leading-[1.4]">
                                 {reel.kpi}

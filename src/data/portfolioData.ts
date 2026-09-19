@@ -57,7 +57,7 @@ export const shortformReels: ShortformReel[] = [
   {
     title: 'VEREINSSPORT & COMMUNITY DYNAMIK',
     desc: 'Mitreißende Sport- und Teameinblicke für Social Media zur gezielten Nachwuchs- & Mitgliedergewinnung.',
-    kpi: '+320% höhere Interaktionsrate & Reichweite',
+    kpi: 'Vereinsdynamik und Zusammenhalt emotional sichtbar gemacht',
     company: 'Sport & Gemeinschaft',
     badge: 'Vereinssport',
     videoId: 'E9DBcbFIn9s',
@@ -65,8 +65,8 @@ export const shortformReels: ShortformReel[] = [
   },
   {
     title: 'SPORTTREFF KAMPAGNE & RECRUITING',
-    desc: 'Moderner Einblick in das Sport- & Trainingserlebnis zur gezielten Neukundengewinnung.',
-    kpi: '85 Neumitglieder-Anfragen im Kampagnenzeitraum',
+    desc: 'Moderner Einblick in das Sport- & Trainingserlebnis zur gezielten Ansprache neuer Mitglieder.',
+    kpi: 'Sportbegeisterung spürbar eingefangen & Nachwuchs begeistert',
     company: 'Sport & Fitness Club',
     badge: 'Mitglieder',
     videoId: 'AN2gwlrf7UU',
@@ -75,7 +75,7 @@ export const shortformReels: ShortformReel[] = [
   {
     title: 'COMMUNITY EVENT & VEREINSFEST',
     desc: 'Community-Building & Event-Highlights mit packendem Social-Media-Schnitt für ländliche Veranstaltungen.',
-    kpi: 'Über 45.000 organische Videoaufrufe im Kommunalraum',
+    kpi: 'Gemeinschaftsfest im Ort lebendig und nahbar dokumentiert',
     company: 'Ehrenamt & Events',
     badge: 'Event',
     videoId: 'KDPfzfbX2KY',
@@ -83,8 +83,8 @@ export const shortformReels: ShortformReel[] = [
   },
   {
     title: 'ACHTSAMKEIT & GESUNDHEITSSPORT',
-    desc: 'Ästhetische Outdoor-Aufnahmen mit Fokus auf Entspannung, Vitalität und Gesundheit.',
-    kpi: 'Ausgebuchte Sommer-Kurse innerhalb von 48h',
+    desc: 'Ästhetische Outdoor-Aufnahmen mit Fokus auf Entspannung, Vitalität und Gesundheit im Verein.',
+    kpi: 'Präventionssport im Grünen erlebbar & attraktiv in Szene gesetzt',
     company: 'Gesundheit & Prävention',
     badge: 'Prävention',
     videoId: 'h367fM_YFbQ',
@@ -93,7 +93,7 @@ export const shortformReels: ShortformReel[] = [
   {
     title: 'KULTUR & REGIONALE IDENTITÄT',
     desc: 'Emotionales & ansprechendes Storytelling zur Stärkung der ländlichen Vereinskultur.',
-    kpi: '1.4M Impressionen auf Social-Media-Kanälen',
+    kpi: 'Tradition, Kultur und Heimatgefühl für alle Generationen eingefangen',
     company: 'Kultur & Tradition',
     badge: 'Kultur',
     videoId: '3sVGHKCd2pM',
@@ -101,8 +101,8 @@ export const shortformReels: ShortformReel[] = [
   },
   {
     title: 'COMMUNITY AFTER WORK & NETZWERK',
-    desc: 'Event-Begleitung & Networking-Highlights für lokale Begegnungsstätten.',
-    kpi: 'Verdopplung der Event-Teilnehmerzahl',
+    desc: 'Event-Begleitung & Begegnungsmomente für lokale Initiativen und Treffpunkte.',
+    kpi: 'Lokale Begegnungsstätte als lebendiger Treffpunkt sichtbar gemacht',
     company: 'Begegnungszentrum',
     badge: 'Community',
     videoId: 'IiEUmU2I0ZE',
@@ -110,8 +110,8 @@ export const shortformReels: ShortformReel[] = [
   },
   {
     title: 'JUBILÄUM & FESTLICHE HIGHLIGHTS',
-    desc: 'Feierliches Vereinsjubiläum & Besucher-Highlights dynamisch dokumentiert.',
-    kpi: '35.000 lokale Shares & Interaktionen',
+    desc: 'Feierliches Vereinsjubiläum & ehrenamtliche Helfer dynamisch dokumentiert.',
+    kpi: 'Jahrzehntelange Vereinsgeschichte mit Stolz und Herz gewürdigt',
     company: 'Regionalzentrum',
     badge: 'Jubiläum',
     videoId: 'UEQg-nbto7o',
@@ -119,8 +119,8 @@ export const shortformReels: ShortformReel[] = [
   },
   {
     title: 'GEMEINWESEN & KOMMUNALER DIALOG',
-    desc: 'Modernes Gemeinschaftserlebnis dynamisch auf Kamera festgehalten.',
-    kpi: '+175% Reichweite in der Heimatregion',
+    desc: 'Modernes Gemeinschaftserlebnis und bürgerschaftlicher Zusammenhalt vor Ort.',
+    kpi: 'Bürgerschaftliches Engagement und Dialog auf Augenhöhe transportiert',
     company: 'Kommunalverband',
     badge: 'Kommunal',
     videoId: 'PaBuvUkvseE',
@@ -129,7 +129,7 @@ export const shortformReels: ShortformReel[] = [
   {
     title: 'VEREINSGASTRONOMIE & BEGEGNUNG',
     desc: 'Einladende Kulinarik- und Geselligkeitsmomente im Vereinsheim in Szene gesetzt.',
-    kpi: '+40% mehr Gäste & Veranstaltungsbuchungen',
+    kpi: 'Gemütlichkeit & Geselligkeit im Vereinsheim greifbar gemacht',
     company: 'Vereinsheim',
     badge: 'Gastronomie',
     videoId: 'gOVPWVikbyM',
@@ -141,7 +141,7 @@ export const longformProjects: LongformProject[] = [
   {
     title: 'AUSBILDUNG, GEMEINSCHAFT & ERZIEHUNG',
     desc: 'Persönliche Einblicke und emotionale Erfahrungsberichte über gemeinnützige Bildungsarbeit zur gezielten Fachkräfte- & Nachwuchsgewinnung.',
-    kpi: 'Verdopplung der qualifizierten Bewerbungen im Kampagnenzeitraum',
+    kpi: 'Soziales Engagement und Berufung mit Herz authentisch porträtiert',
     company: 'Berufskolleg Bleibergquelle',
     duration: '03:45 Min',
     videoId: 'HZQn5xHfyOM',
@@ -150,7 +150,7 @@ export const longformProjects: LongformProject[] = [
   {
     title: 'VEREINSPORTRAIT & BILDUNGSINITIATIVE',
     desc: 'Authentischer Einblick in Bildung, Gemeinschaft und modernen Campus-Alltag zur nachhaltigen Schüler- & Ehrenamtsförderung.',
-    kpi: '+280% mehr Anmeldungen und neue Förderer',
+    kpi: 'Gemeinschaft, Campusleben & Bildungschancen nahbar vermittelt',
     company: 'Berufskolleg Bleibergquelle',
     duration: '04:12 Min',
     videoId: '1srCmXos4lk',
@@ -162,7 +162,7 @@ export const webProjects: WebProject[] = [
   {
     title: 'PI JUGENDHILFE WEB EXPERIENCE & CMS',
     desc: 'Ambulante Hilfen zur Erziehung im regionalen Raum. Psychologisch fundiert, strukturiert und vertrauensvoll digital dargestellt.',
-    kpi: '+160% mehr qualifizierte Erstkontakte von Familien & Ämtern',
+    kpi: 'Niedrigschwelliger, vertrauensvoller Erstkontakt für Familien & Ämter geschaffen',
     company: 'Praxis für interdisziplinäre Jugendhilfe',
     url: 'https://www.pi-jugendhilfe.com/',
     displayUrl: 'www.pi-jugendhilfe.com',
@@ -178,20 +178,20 @@ export const testimonials: Testimonial[] = [
     name: 'Thomas Becker',
     role: '1. Vorsitzender',
     organization: 'TSV & Jugendförderung e.V.',
-    highlight: '90% DSEE-Zuschuss bewilligt · 40% mehr Neumitglieder',
+    highlight: '90% DSEE-Zuschuss bewilligt · Ehrenamt voll entlastet',
   },
   {
     quote: 'Für einen kleinen Verein im ländlichen Raum sind 1.500 € Projektbudget ein enormer Hebel. Wir mussten lediglich 150 € Eigenanteil beisteuern und haben dafür eine topaktuelle, barrierefreie Website und hochwertige Videoinhalte erhalten. Höchste Empfehlung!',
     name: 'Dr. Marianne Weber',
     role: 'Vorstand Öffentlichkeitsarbeit',
     organization: 'Kultur- & Heimatverein Sonnenwald',
-    highlight: '150 € Eigenanteil · 100% Zufriedenheit',
+    highlight: '150 € Eigenanteil · Authentischer Auftritt',
   },
   {
-    quote: 'Das Team hat uns von der ersten DSEE-Prüfung bis zur finalen Ausspielung der Reels begleitet. Unsere Reichweite in der Region hat sich verdreifacht, und wir konnten endlich neue Trainerinnen und Trainer gewinnen.',
+    quote: 'Das Team hat uns von der ersten DSEE-Prüfung bis zur finalen Ausspielung der Reels begleitet. Unsere Sichtbarkeit in der Region ist enorm gestiegen, und wir konnten endlich neue Helfer und Trainer gewinnen.',
     name: 'Markus Lindner',
     role: 'Abteilungsleiter',
     organization: 'Freiwillige Helfer & Sportgemeinschaft',
-    highlight: '+320% Social-Media-Reichweite',
+    highlight: 'Neue Ehrenamtliche & Trainer im Ort gewonnen',
   },
 ];
