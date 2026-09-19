@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import imgRow from './assets/imgRow.svg';
 import heroVideo from './assets/header-video.mp4';
+import logoWhite from './assets/logo-white.svg';
 import { 
   shortformReels, 
   longformProjects, 
@@ -179,7 +180,7 @@ export default function App() {
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
           <img 
-            src="/Logo Weiß.svg" 
+            src={logoWhite} 
             alt="SichtbarGutes - Digitalisierung des Ehrenamts" 
             className="h-[38px] sm:h-[44px] w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]" 
           />
@@ -1623,7 +1624,7 @@ export default function App() {
         <div className="flex flex-col sm:flex-row items-start justify-between w-full gap-8">
           <div className="flex flex-col gap-[16px] items-start w-full max-w-[320px]">
             <img 
-              src="/Logo Weiß.svg" 
+              src={logoWhite} 
               alt="SichtbarGutes" 
               className="h-[34px] w-auto object-contain" 
             />

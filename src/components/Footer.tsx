@@ -1,4 +1,5 @@
 import React from 'react';
+import logoWhite from '../assets/logo-white.svg';
 
 export const Footer: React.FC = () => {
   return (
@@ -8,7 +9,7 @@ export const Footer: React.FC = () => {
           {/* Brand */}
           <div className="flex flex-col gap-2 max-w-sm">
             <img 
-              src="/Logo Weiß.svg" 
+              src={logoWhite} 
               alt="SichtbarGutes" 
               className="h-8 w-auto object-contain self-start" 
             />

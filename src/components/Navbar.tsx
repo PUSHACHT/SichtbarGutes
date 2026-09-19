@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X, ArrowRight } from 'lucide-react';
+import logoWhite from '../assets/logo-white.svg';
 
 interface NavbarProps {
   onCheckClick: () => void;
@@ -25,7 +26,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onCheckClick }) => {
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
           <img 
-            src="/Logo Weiß.svg" 
+            src={logoWhite} 
             alt="SichtbarGutes - Digitalisierung des Ehrenamts" 
             className="h-9 sm:h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]" 
           />
