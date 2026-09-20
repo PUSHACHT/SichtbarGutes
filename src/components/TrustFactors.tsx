@@ -29,10 +29,10 @@ export const TrustFactors: React.FC = () => {
           <div className="bg-white border border-[#dcd8cf] rounded-xl p-8 shadow-sm">
             <div className="flex items-center gap-3 mb-4">
               <ShieldAlert className="w-6 h-6 text-emerald-600" />
-              <h3 className="text-xl font-bold text-[#162d50]">Null Risiko & Keine Vorkasse</h3>
+              <h3 className="text-xl font-bold text-[#162d50]">Faire Abrechnung & Keine Vorkasse</h3>
             </div>
             <p className="text-base text-[#706e65] leading-relaxed">
-              Der 10%-Eigenanteil (max. 150 €) wird erst nach rechtskräftigem Zuwendungsbescheid fällig. Wird der Antrag abgelehnt, tragen wir das Risiko – für Sie bleibt es 100% kostenlos.
+              Der 10%-Eigenanteil (max. 150 €) wird erst nach rechtskräftigem Zuwendungsbescheid der DSEE fällig. Sie leisten zu keinem Zeitpunkt eine Vorauszahlung.
             </p>
           </div>
 

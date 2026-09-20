@@ -190,7 +190,7 @@ export const SchnellCheckForm: React.FC<SchnellCheckFormProps> = ({ initialPlz =
                 </button>
 
                 <p className="text-[11px] text-[#706e65] text-center pt-2">
-                  🔒 100% DSGVO-konform. Keine Weitergabe an Dritte. 0 € Kosten bei Ablehnung.
+                  🔒 100% DSGVO-konform. Keine Weitergabe an Dritte. Kostenlose Ersteinschätzung.
                 </p>
               </form>
             )}

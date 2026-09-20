@@ -23,7 +23,7 @@ export const FAQSection: React.FC = () => {
     },
     {
       q: 'Was passiert, wenn der Antrag abgelehnt wird?',
-      a: 'Sollte ein Antrag wider Erwarten von der DSEE abgelehnt werden, tragen wir das Risiko: Für Ihren Verein entstehen in diesem Fall exakt 0,00 € Kosten. Keine Vorkasse, kein Risiko.'
+      a: 'Die Umsetzung der Maßnahmen und die Zahlung des vertraglichen 10%-Eigenanteils erfolgen erst nach offiziellem, rechtskräftigem Bewilligungsbescheid der DSEE. Sie leisten zu keinem Zeitpunkt eine Vorauszahlung.'
     }
   ];
 

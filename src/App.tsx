@@ -166,7 +166,7 @@ export default function App() {
     },
     {
       q: "Was passiert, wenn der Antrag abgelehnt wird?",
-      a: "Sollte ein Antrag wider Erwarten von der DSEE abgelehnt werden, tragen wir das Risiko: Für Ihren Verein entstehen in diesem Fall exakt 0,00 € Kosten. Keine Vorkasse, kein Risiko."
+      a: "Die Umsetzung der Maßnahmen und die Zahlung des vertraglichen 10%-Eigenanteils erfolgen erst nach offiziellem, rechtskräftigem Bewilligungsbescheid der DSEE. Sie leisten zu keinem Zeitpunkt eine Vorauszahlung."
     }
   ];
 
@@ -723,7 +723,7 @@ export default function App() {
               <Reveal direction="right" delay={250} className="w-full lg:w-[475px]">
                 <div className="bg-white border border-[#dcd8cf] p-[32px] flex flex-col gap-[16px] items-start w-full h-full shadow-sm">
                   <p className="text-[#162d50] text-[18px] font-bold">
-                    Null Risiko
+                    Keine Vorkasse
                   </p>
                   <p className="text-[#706e65] text-[14px] leading-[1.6]">
                     Sie zahlen ausschließlich den vertraglichen Eigenanteil von 10% nach erfolgreicher Bewilligung. Keine Vorkasse.

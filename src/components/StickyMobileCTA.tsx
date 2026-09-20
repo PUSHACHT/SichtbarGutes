@@ -10,7 +10,7 @@ export const StickyMobileCTA: React.FC<StickyMobileCTAProps> = ({ onCheckClick }
     <div className="fixed bottom-0 inset-x-0 z-40 bg-[#162d50]/95 backdrop-blur-md border-t border-[#2f5b7a] p-3 sm:hidden shadow-2xl flex items-center justify-between gap-3">
       <div className="text-white text-xs">
         <span className="font-bold block">1.500 € Förderung</span>
-        <span className="text-[#d8e2f0] text-[10px]">0 € Kosten bei Ablehnung</span>
+        <span className="text-[#d8e2f0] text-[10px]">Eigenanteil erst nach Bewilligung</span>
       </div>
       <button
         onClick={onCheckClick}

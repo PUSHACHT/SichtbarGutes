@@ -66,7 +66,7 @@ export const Hero: React.FC<HeroProps> = ({ onStartQuickCheck }) => {
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-              <span>0 € Kosten bei Ablehnung</span>
+              <span>Eigenanteil erst nach Bewilligung</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -122,7 +122,7 @@ export const Hero: React.FC<HeroProps> = ({ onStartQuickCheck }) => {
             {/* Zero Risk Assurance Banner */}
             <div className="mt-6 pt-4 border-t border-[#2f5b7a] flex items-center gap-3 text-xs text-[#d8e2f0] bg-[#162d50]/60 p-3 rounded-lg">
               <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
-              <span><strong>100% Risikofrei:</strong> Wird der Antrag wider Erwarten abgelehnt, entstehen Ihnen <strong>0,00 € Kosten</strong>.</span>
+              <span><strong>Transparente Abwicklung:</strong> Keine Vorkasse – der 10%-Eigenanteil wird erst nach offizieller DSEE-Bewilligung fällig.</span>
             </div>
           </div>
         </div>
