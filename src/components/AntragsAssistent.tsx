@@ -245,95 +245,92 @@ export const AntragsAssistent: React.FC<Props> = ({ onClose, isModal = false }) 
 
       {/* 2. STARTSCREEN */}
       {currentChapter === 'start' && (
-        <div className="p-6 sm:p-12 flex flex-col gap-8 max-w-4xl mx-auto">
-          <div className="flex flex-col gap-3 text-center sm:text-left">
-            <div className="inline-block bg-[#f4f7fa] text-[#162d50] border border-[#dcd8cf] px-3 py-1 text-xs font-bold uppercase tracking-wider w-max">
-              100% Client-Side · DSGVO-konform · Sofortiger PDF-Download
+        <div className="p-6 sm:p-12 flex flex-col items-center justify-center max-w-3xl mx-auto text-center gap-8">
+          
+          <div className="flex flex-col items-center gap-4">
+            <div className="inline-flex items-center gap-2 bg-[#f4f7fa] text-[#162d50] border border-[#dcd8cf] px-3.5 py-1 text-xs font-bold uppercase tracking-wider">
+              <ShieldCheck className="size-3.5 text-[#2f5b7a]" />
+              <span>100% Client-Side · DSGVO-konform · Sofortiger PDF-Download</span>
             </div>
-            <h2 className="text-2xl sm:text-4xl font-bold text-[#162d50] leading-tight">
+            <h2 className="text-2xl sm:text-4xl font-bold text-[#162d50] tracking-tight leading-tight max-w-2xl">
               In wenigen Minuten zum prüffähigen DSEE-Förderantrag
             </h2>
-            <p className="text-[#706e65] text-base sm:text-lg leading-relaxed">
-              Erfassen Sie alle erforderlichen Angaben des 14-seitigen DSEE-Mikroförderantrags in 5 übersichtlichen Schritten. Am Ende erhalten Sie Ihr fertiges, formelles Antrags-PDF zur Einreichung.
+            <p className="text-[#706e65] text-base sm:text-lg leading-relaxed max-w-2xl">
+              Erfassen Sie alle erforderlichen Angaben des offiziellen DSEE-Mikroförderantrags in 5 geführten Schritten. Ihr fertiges Antrags-PDF steht am Ende sofort zum Ausdrucken und Einreichen bereit.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
-            {/* Action 1: Musterdaten laden */}
-            <div className="bg-[#f4f7fa] border-2 border-[#2f5b7a] p-6 flex flex-col justify-between gap-6 hover:shadow-md transition-shadow relative group">
-              <div className="flex flex-col gap-3">
-                <div className="size-10 bg-[#2f5b7a] text-white flex items-center justify-center">
-                  <Sparkles className="size-5" />
-                </div>
-                <div className="flex items-center gap-2">
-                  <h4 className="text-lg font-bold text-[#162d50]">Musterdaten laden</h4>
-                  <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.5">Empfohlen für Test</span>
-                </div>
-                <p className="text-xs text-[#706e65] leading-relaxed">
-                  Füllt alle Felder sofort mit realistischen Beispieldaten (*Förderverein Kultur & Sport e.V.*, Website + Film-Paket). Perfekt, um den Assistenten und PDF-Export sofort auszuprobieren.
-                </p>
+          {/* Central Hero CTA Card */}
+          <div className="w-full bg-gradient-to-b from-white to-[#f4f7fa] border-2 border-[#162d50] p-8 sm:p-10 shadow-lg flex flex-col items-center gap-6">
+            <div className="size-16 bg-[#162d50] text-white flex items-center justify-center shadow-md">
+              <FileText className="size-8 text-white" />
+            </div>
+
+            <div className="flex flex-col items-center gap-2">
+              <h3 className="text-xl sm:text-2xl font-bold text-[#162d50]">
+                Neuen Förderantrag starten
+              </h3>
+              <p className="text-sm text-[#706e65] max-w-md">
+                Kostenlos, ohne Registrierung. Ihre Eingaben werden automatisch lokal im Browser zwischengespeichert.
+              </p>
+            </div>
+
+            {/* Main Primary CTA Button */}
+            <button
+              onClick={handleStartFresh}
+              className="w-full sm:w-auto min-w-[280px] bg-[#162d50] hover:bg-[#2f5b7a] text-white font-bold py-4 px-8 text-base uppercase tracking-wider flex items-center justify-center gap-3 transition-all duration-200 shadow-md hover:shadow-xl cursor-pointer group"
+            >
+              <Plus className="size-5 transition-transform group-hover:rotate-90 duration-300" />
+              <span>Jetzt Antrag erstellen</span>
+              <ArrowRight className="size-5 transition-transform group-hover:translate-x-1" />
+            </button>
+
+            {/* Trust & Features Strip */}
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 pt-4 border-t border-[#dcd8cf] w-full text-xs text-[#2b2a27]">
+              <div className="flex items-center gap-1.5 font-medium">
+                <CheckCircle2 className="size-4 text-emerald-600 shrink-0" />
+                <span>5 übersichtliche Schritte</span>
               </div>
+              <div className="flex items-center gap-1.5 font-medium">
+                <CheckCircle2 className="size-4 text-emerald-600 shrink-0" />
+                <span>Automatischer PDF-Export</span>
+              </div>
+              <div className="flex items-center gap-1.5 font-medium">
+                <CheckCircle2 className="size-4 text-emerald-600 shrink-0" />
+                <span>100% kostenfrei & privat</span>
+              </div>
+            </div>
+
+            {/* Secondary Option: Sample data / Resume draft */}
+            <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-[#706e65] pt-1">
               <button
                 onClick={handleLoadSample}
-                className="w-full bg-[#2f5b7a] hover:bg-[#162d50] text-white font-bold py-3 px-4 text-sm flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                className="hover:text-[#162d50] font-semibold underline flex items-center gap-1 cursor-pointer transition-colors"
               >
-                <span>Muster laden & testen</span>
-                <ArrowRight className="size-4" />
+                <Sparkles className="size-3.5 text-[#2f5b7a]" />
+                <span>Mit Beispieldaten testen</span>
               </button>
+
+              {hasSavedDraft && (
+                <>
+                  <span className="text-[#dcd8cf]">·</span>
+                  <button
+                    onClick={handleResumeDraft}
+                    className="text-[#2f5b7a] hover:text-[#162d50] font-bold underline flex items-center gap-1 cursor-pointer transition-colors"
+                  >
+                    <RotateCcw className="size-3.5" />
+                    <span>Gespeicherten Entwurf fortsetzen</span>
+                  </button>
+                </>
+              )}
             </div>
 
-            {/* Action 2: Neuen Antrag starten */}
-            <div className="bg-white border border-[#dcd8cf] p-6 flex flex-col justify-between gap-6 hover:border-[#162d50] transition-colors">
-              <div className="flex flex-col gap-3">
-                <div className="size-10 bg-[#162d50] text-white flex items-center justify-center">
-                  <Plus className="size-5" />
-                </div>
-                <h4 className="text-lg font-bold text-[#162d50]">Neuen Antrag starten</h4>
-                <p className="text-xs text-[#706e65] leading-relaxed">
-                  Startet mit einem leeren Formular für Ihren eigenen Verein. Ihre Eingaben werden automatisch lokal im Browser gespeichert.
-                </p>
-              </div>
-              <button
-                onClick={handleStartFresh}
-                className="w-full bg-[#162d50] hover:bg-[#2f5b7a] text-white font-bold py-3 px-4 text-sm flex items-center justify-center gap-2 transition-colors cursor-pointer"
-              >
-                <span>Leer starten</span>
-                <ArrowRight className="size-4" />
-              </button>
-            </div>
-
-            {/* Action 3: Entwurf fortsetzen */}
-            <div className={`border p-6 flex flex-col justify-between gap-6 transition-colors ${
-              hasSavedDraft 
-                ? 'bg-white border-[#dcd8cf] hover:border-[#162d50]' 
-                : 'bg-gray-50 border-gray-200 opacity-60'
-            }`}>
-              <div className="flex flex-col gap-3">
-                <div className="size-10 bg-gray-200 text-gray-700 flex items-center justify-center">
-                  <RotateCcw className="size-5" />
-                </div>
-                <h4 className="text-lg font-bold text-[#162d50]">Entwurf fortsetzen</h4>
-                <p className="text-xs text-[#706e65] leading-relaxed">
-                  {hasSavedDraft 
-                    ? 'Es wurde ein gespeicherter Entwurf in Ihrem Browser gefunden. Machen Sie nahtlos an der letzten Stelle weiter.' 
-                    : 'Aktuell ist kein gespeicherter Zwischenstand vorhanden.'}
-                </p>
-              </div>
-              <button
-                onClick={handleResumeDraft}
-                disabled={!hasSavedDraft}
-                className="w-full bg-white border border-[#2f5b7a] text-[#2f5b7a] hover:bg-[#2f5b7a] hover:text-white font-bold py-3 px-4 text-sm flex items-center justify-center gap-2 transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
-              >
-                <span>Entwurf laden</span>
-                <ArrowRight className="size-4" />
-              </button>
-            </div>
           </div>
 
-          <div className="bg-[#f4f7fa] p-4 border border-[#dcd8cf] flex items-center gap-3 text-xs text-[#706e65]">
+          <div className="bg-[#f4f7fa] p-4 border border-[#dcd8cf] flex items-center gap-3 text-xs text-[#706e65] max-w-2xl text-left">
             <Info className="size-5 text-[#2f5b7a] shrink-0" />
             <p>
-              <strong>Wichtiger Hinweis:</strong> Diese Arbeitshilfe basiert auf den offiziellen Richtlinien des DSEE-Mikroförderprogramms. Alle Daten verbleiben lokal auf Ihrem Endgerät und werden nicht an Dritte übertragen.
+              <strong>Hinweis:</strong> Diese Arbeitshilfe basiert auf den offiziellen Richtlinien des DSEE-Mikroförderprogramms. Alle Daten verbleiben lokal auf Ihrem Endgerät und werden nicht an Dritte übertragen.
             </p>
           </div>
         </div>
