@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
           <div className="flex flex-wrap gap-6 text-sm text-[#d8e2f0] font-medium">
             <a href="#kompass" className="hover:text-white transition-colors">Förderkompass</a>
             <a href="#ablauf" className="hover:text-white transition-colors">Ablauf</a>
-            <a href="#massnahmen" className="hover:text-white transition-colors">Leistungen</a>
+            <a href="#referenzen" className="hover:text-white transition-colors">Referenzen</a>
             <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
             <a href="#schnell-check" className="hover:text-white transition-colors">Antragsservice</a>
           </div>

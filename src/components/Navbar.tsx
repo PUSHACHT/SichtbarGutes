@@ -36,7 +36,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onCheckClick }) => {
         <nav className="hidden md:flex items-center gap-8 text-[#d8e2f0] text-sm font-medium">
           <button onClick={() => scrollTo('kompass')} className="hover:text-white transition-colors">Förderkompass</button>
           <button onClick={() => scrollTo('ablauf')} className="hover:text-white transition-colors">Ablauf</button>
-          <button onClick={() => scrollTo('massnahmen')} className="hover:text-white transition-colors">Leistungen</button>
           <button onClick={() => scrollTo('referenzen')} className="hover:text-white transition-colors">Referenzen</button>
           <button onClick={() => scrollTo('faq')} className="hover:text-white transition-colors">FAQ</button>
         </nav>
@@ -67,9 +66,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onCheckClick }) => {
         <div className="md:hidden bg-[#0b1a3a] border-b border-[#2f5b7a] px-6 py-4 flex flex-col gap-4 text-[#d8e2f0]">
           <button onClick={() => scrollTo('kompass')} className="text-left py-2 hover:text-white">01 / Förderkompass</button>
           <button onClick={() => scrollTo('ablauf')} className="text-left py-2 hover:text-white">02 / Ablauf</button>
-          <button onClick={() => scrollTo('massnahmen')} className="text-left py-2 hover:text-white">03 / Leistungen</button>
-          <button onClick={() => scrollTo('referenzen')} className="text-left py-2 hover:text-white">04 / Referenzen</button>
-          <button onClick={() => scrollTo('faq')} className="text-left py-2 hover:text-white">05 / FAQ</button>
+          <button onClick={() => scrollTo('referenzen')} className="text-left py-2 hover:text-white">03 / Referenzen</button>
+          <button onClick={() => scrollTo('faq')} className="text-left py-2 hover:text-white">04 / FAQ</button>
           <button
             onClick={() => { setMobileMenuOpen(false); onCheckClick(); }}
             className="w-full bg-[#2f5b7a] text-white text-center py-3 rounded font-bold mt-2"

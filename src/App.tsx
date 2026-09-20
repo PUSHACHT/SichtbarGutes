@@ -13,8 +13,6 @@ import {
   TrendingUp,
   ExternalLink,
   Monitor,
-  Globe,
-  Video,
   Phone
 } from 'lucide-react';
 import imgRow from './assets/imgRow.svg';
@@ -189,8 +187,9 @@ export default function App() {
 
         {/* Desktop Links */}
         <nav className="hidden lg:flex items-center gap-[32px] text-[#d8e2f0] text-[15px] font-medium whitespace-nowrap">
-          <button onClick={() => scrollToSection('massnahmen')} className="hover:text-white transition-colors">Leistungen</button>
+          <button onClick={() => scrollToSection('kompass')} className="hover:text-white transition-colors">Förderkompass</button>
           <button onClick={() => scrollToSection('ablauf')} className="hover:text-white transition-colors">So funktioniert's</button>
+          <button onClick={() => scrollToSection('referenzen')} className="hover:text-white transition-colors">Referenzen</button>
           <button onClick={() => scrollToSection('antrag-assistent')} className="hover:text-white text-[#d8e2f0] transition-colors flex items-center gap-1.5 font-semibold">
             <span className="size-2 rounded-full bg-emerald-400" />
             <span>Antragsassistent</span>
@@ -227,8 +226,9 @@ export default function App() {
         {/* Mobile Menu Dropdown */}
         {mobileMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 w-full bg-[#0b1a3a] border-t border-[#2f5b7a] p-6 flex flex-col gap-4 text-[#d8e2f0] text-sm">
-            <button onClick={() => scrollToSection('massnahmen')} className="text-left py-2 hover:text-white">Leistungen</button>
-            <button onClick={() => scrollToSection('ablauf')} className="text-left py-2 hover:text-white">So funktioniert's</button>
+            <button onClick={() => scrollToSection('kompass')} className="text-left py-2 hover:text-white">01 / Förderkompass</button>
+            <button onClick={() => scrollToSection('ablauf')} className="text-left py-2 hover:text-white">02 / So funktioniert's</button>
+            <button onClick={() => scrollToSection('referenzen')} className="text-left py-2 hover:text-white">03 / Referenzen</button>
             <button onClick={() => scrollToSection('antrag-assistent')} className="text-left py-2 hover:text-white font-bold text-white flex items-center gap-2">
               <span className="size-2 rounded-full bg-emerald-400" />
               <span>DSEE-Antragsassistent (PDF)</span>
@@ -492,210 +492,13 @@ export default function App() {
         </div>
       </section>
 
-      {/* 6. SEKTION 03 / FÖRDERFÄHIGE DSEE-LEISTUNGSPAKETE */}
-      <section id="massnahmen" className="bg-white w-full px-6 sm:px-12 lg:px-[64px] py-[72px]">
-        <div className="max-w-[1360px] mx-auto flex flex-col gap-[40px] items-start">
-          <Reveal direction="up" className="w-full">
-            <div className="border-b-2 border-[#162d50] py-[12px] w-full">
-              <p className="text-[#162d50] text-[12px] font-bold uppercase tracking-wider">
-                03 / FÖRDERFÄHIGE DSEE-LEISTUNGSPAKETE
-              </p>
-            </div>
-          </Reveal>
-
-          <Reveal direction="up" delay={100} className="w-full">
-            <div className="flex flex-col gap-[16px] items-start w-full">
-              <h2 className="text-[#162d50] text-3xl sm:text-[40px] font-bold tracking-tight">
-                Maßgeschneiderte 1.500 € Förderpakete für Ihren Verein
-              </h2>
-              <p className="text-[#706e65] text-[16px] leading-[1.6] max-w-3xl">
-                Unsere Pakete schöpfen den maximalen DSEE-Förderrahmen von 1.500 € exakt aus. Ihr Verein profitiert von 90 % staatlicher Förderung (1.350 €) und trägt lediglich 10 % Eigenanteil (150 €) – fällig erst nach offizieller Bewilligung.
-              </p>
-            </div>
-          </Reveal>
-
-          {/* 2 Package Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-[24px] items-stretch w-full">
-            
-            {/* Paket 01: Digitale Vereins-Präsenz */}
-            <Reveal direction="up" delay={150} className="h-full">
-              <div className="bg-white border-2 border-[#162d50] p-[32px] flex flex-col justify-between gap-[24px] relative shadow-md h-full">
-                <div className="flex flex-col gap-[20px] items-start">
-                  <div className="flex items-center justify-between w-full">
-                    <span className="bg-[#162d50] text-white text-[10px] font-bold px-2.5 py-1 uppercase tracking-wider">
-                      Beliebtestes Paket
-                    </span>
-                    <div className="size-8 bg-[#f4f7fa] border border-[#dcd8cf] flex items-center justify-center text-[#162d50]">
-                      <Globe className="size-4 text-[#2f5b7a]" />
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col gap-1">
-                    <h3 className="text-[#162d50] text-[22px] font-bold leading-snug">
-                      Digitale Vereins-Präsenz
-                    </h3>
-                    <p className="text-[#706e65] text-[13px] leading-relaxed">
-                      Website-Relaunch kombiniert mit einem authentischen Imagefilm zur modernen Außendarstellung.
-                    </p>
-                  </div>
-
-                  {/* Price Box */}
-                  <div className="bg-[#f4f7fa] border border-[#dcd8cf] p-4 w-full flex flex-col gap-2">
-                    <div className="flex items-baseline justify-between">
-                      <span className="text-xs text-[#706e65]">Gesamtprojektwert:</span>
-                      <span className="text-base font-bold text-[#162d50]">1.500,00 €</span>
-                    </div>
-                    <div className="flex items-baseline justify-between border-t border-[#dcd8cf] pt-2">
-                      <span className="text-xs text-[#2f5b7a] font-bold">DSEE-Zuschuss (90 %):</span>
-                      <span className="text-base font-bold text-emerald-700">1.350,00 €</span>
-                    </div>
-                    <div className="flex items-baseline justify-between border-t border-[#dcd8cf] pt-2">
-                      <span className="text-xs text-[#162d50] font-bold">Eigenanteil Verein (10 %):</span>
-                      <span className="text-base font-bold text-[#162d50]">150,00 €</span>
-                    </div>
-                    <p className="text-[10px] text-[#706e65] pt-1 border-t border-[#dcd8cf]">
-                      Eigenanteil erst nach Bewilligung fällig
-                    </p>
-                  </div>
-
-                  {/* Deliverables */}
-                  <div className="flex flex-col gap-2.5 w-full pt-2">
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-[#162d50]">Enthaltene Leistungen:</p>
-                    {[
-                      "Barrierefreie Website (mobil-optimiert & DSGVO-konform)",
-                      "4K-Imagefilm (2–5 Min.) mit Drehtag vor Ort",
-                      "Digitale Kontakt- & Helferformulare",
-                      "Print-Design: Infoflyer mit QR-Code zum Portal",
-                      "Vollständige Antragserstellung durch SichtbarGutes"
-                    ].map((feat, idx) => (
-                      <div key={idx} className="flex items-start gap-2 text-[13px] text-[#2b2a27]">
-                        <div className="bg-[#2f5b7a] flex items-center justify-center size-[16px] shrink-0 mt-0.5 text-white">
-                          <Check className="size-[10px] stroke-[3]" />
-                        </div>
-                        <span className="leading-tight">{feat}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-2 pt-4 border-t border-[#dcd8cf] w-full">
-                  <button
-                    onClick={() => scrollToSection('kontakt')}
-                    className="w-full bg-[#162d50] hover:bg-[#2f5b7a] text-white font-bold py-3 px-4 text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors cursor-pointer"
-                  >
-                    <span>Paket im Schnell-Check anfragen</span>
-                    <ArrowRight className="size-3.5" />
-                  </button>
-                </div>
-              </div>
-            </Reveal>
-
-            {/* Paket 02: Media & Video-Recruiting */}
-            <Reveal direction="up" delay={300} className="h-full">
-              <div className="bg-white border border-[#dcd8cf] hover:border-[#2f5b7a] p-[32px] flex flex-col justify-between gap-[24px] relative shadow-sm transition-all h-full">
-                <div className="flex flex-col gap-[20px] items-start">
-                  <div className="flex items-center justify-between w-full">
-                    <span className="bg-[#2f5b7a] text-white text-[10px] font-bold px-2.5 py-1 uppercase tracking-wider">
-                      Nachwuchs-Fokus
-                    </span>
-                    <div className="size-8 bg-[#f4f7fa] border border-[#dcd8cf] flex items-center justify-center text-[#162d50]">
-                      <Video className="size-4 text-[#2f5b7a]" />
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col gap-1">
-                    <h3 className="text-[#162d50] text-[22px] font-bold leading-snug">
-                      Media & Video-Recruiting
-                    </h3>
-                    <p className="text-[#706e65] text-[13px] leading-relaxed">
-                      Professionelle Videoproduktion zur zielgerichteten Ansprache junger Mitglieder auf Social Media.
-                    </p>
-                  </div>
-
-                  {/* Price Box */}
-                  <div className="bg-[#f4f7fa] border border-[#dcd8cf] p-4 w-full flex flex-col gap-2">
-                    <div className="flex items-baseline justify-between">
-                      <span className="text-xs text-[#706e65]">Gesamtprojektwert:</span>
-                      <span className="text-base font-bold text-[#162d50]">1.500,00 €</span>
-                    </div>
-                    <div className="flex items-baseline justify-between border-t border-[#dcd8cf] pt-2">
-                      <span className="text-xs text-[#2f5b7a] font-bold">DSEE-Zuschuss (90 %):</span>
-                      <span className="text-base font-bold text-emerald-700">1.350,00 €</span>
-                    </div>
-                    <div className="flex items-baseline justify-between border-t border-[#dcd8cf] pt-2">
-                      <span className="text-xs text-[#162d50] font-bold">Eigenanteil Verein (10 %):</span>
-                      <span className="text-base font-bold text-[#162d50]">150,00 €</span>
-                    </div>
-                    <p className="text-[10px] text-[#706e65] pt-1 border-t border-[#dcd8cf]">
-                      Eigenanteil erst nach Bewilligung fällig
-                    </p>
-                  </div>
-
-                  {/* Deliverables */}
-                  <div className="flex flex-col gap-2.5 w-full pt-2">
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-[#162d50]">Enthaltene Leistungen:</p>
-                    {[
-                      "4K-Hauptfilm (2–5 Min.) für lokale Präsentationen",
-                      "2x Social-Media Reels (9:16) für Instagram & TikTok",
-                      "Mittelformat-Porträt (1–3 Min.) für Helferporträts",
-                      "Professionelle Drohnen-Aufnahmen inklusive",
-                      "Social-Media Redaktionsplan & Veröffentlichungs-Leitfaden"
-                    ].map((feat, idx) => (
-                      <div key={idx} className="flex items-start gap-2 text-[13px] text-[#2b2a27]">
-                        <div className="bg-[#2f5b7a] flex items-center justify-center size-[16px] shrink-0 mt-0.5 text-white">
-                          <Check className="size-[10px] stroke-[3]" />
-                        </div>
-                        <span className="leading-tight">{feat}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-2 pt-4 border-t border-[#dcd8cf] w-full">
-                  <button
-                    onClick={() => scrollToSection('kontakt')}
-                    className="w-full bg-[#2f5b7a] hover:bg-[#162d50] text-white font-bold py-3 px-4 text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors cursor-pointer"
-                  >
-                    <span>Paket im Schnell-Check anfragen</span>
-                    <ArrowRight className="size-3.5" />
-                  </button>
-                </div>
-              </div>
-            </Reveal>
-
-          </div>
-
-          {/* Individual Configuration Bottom Banner */}
-          <Reveal direction="up" delay={400} className="w-full">
-            <div className="bg-[#162d50] border border-[#162d50] p-[28px] sm:p-[36px] flex flex-col sm:flex-row items-center justify-between gap-6 w-full text-white shadow-lg">
-              <div className="flex flex-col gap-2 text-center sm:text-left">
-                <p className="text-xl sm:text-2xl font-bold">
-                  Individuelle Maßnahmen-Kombination gewünscht?
-                </p>
-                <p className="text-[#d8e2f0] text-sm max-w-2xl leading-relaxed">
-                  Stellen Sie Ihre bevorzugten Bausteine im interaktiven DSEE-Antragsassistenten passgenau zusammen und exportieren Sie Ihren fertigen Antrag direkt als PDF.
-                </p>
-              </div>
-              <button
-                onClick={() => scrollToSection('antrag-assistent')}
-                className="bg-[#2f5b7a] hover:bg-[#3b6d91] text-white font-bold text-xs uppercase tracking-wider px-6 py-3.5 flex items-center gap-2 whitespace-nowrap transition-colors shrink-0 cursor-pointer"
-              >
-                <span>Zum Antragsassistenten</span>
-                <ArrowRight className="size-4" />
-              </button>
-            </div>
-          </Reveal>
-
-        </div>
-      </section>
-
-      {/* 7. SEKTION 04 / VERTRAUENSFAKTOREN */}
+      {/* 6. SEKTION 03 / VERTRAUENSFAKTOREN */}
       <section className="bg-white w-full px-6 sm:px-12 lg:px-[64px] py-[72px]">
         <div className="max-w-[1360px] mx-auto flex flex-col gap-[40px] items-start">
           <Reveal direction="up" className="w-full">
             <div className="border-b-2 border-[#162d50] py-[12px] w-full">
               <p className="text-[#162d50] text-[12px] font-bold uppercase tracking-wider">
-                04 / VERTRAUENSFAKTOREN
+                03 / VERTRAUENSFAKTOREN
               </p>
             </div>
           </Reveal>
@@ -761,7 +564,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 8. SEKTION 05 / PORTFOLIO & REFERENZEN */}
+      {/* 7. SEKTION 04 / PORTFOLIO & REFERENZEN */}
       <section id="referenzen" className="bg-white w-full px-6 sm:px-12 lg:px-[64px] py-[72px] overflow-hidden">
         <div className="max-w-[1360px] mx-auto flex flex-col gap-[56px] items-start">
           
@@ -770,7 +573,7 @@ export default function App() {
             <div className="flex flex-col gap-[16px] items-start w-full">
               <div className="border-b-2 border-[#162d50] py-[12px] w-full">
                 <p className="text-[#162d50] text-[12px] font-bold uppercase tracking-wider">
-                  05 / PORTFOLIO & REFERENZEN
+                  04 / PORTFOLIO & REFERENZEN
                 </p>
               </div>
               <h2 className="text-[#162d50] text-3xl sm:text-[40px] font-bold tracking-tight">
@@ -1414,13 +1217,13 @@ export default function App() {
         </div>
       </section>
 
-      {/* 9. SEKTION 06 / DSEE-ANTRAGSASSISTENT (GEFÜHRTER ONLINE-ANTRAG & PDF-EXPORT) */}
+      {/* 8. SEKTION 05 / DSEE-ANTRAGSASSISTENT (GEFÜHRTER ONLINE-ANTRAG & PDF-EXPORT) */}
       <section id="antrag-assistent" className="bg-[#f4f7fa] w-full px-6 sm:px-12 lg:px-[64px] py-[72px] border-t border-b border-[#dcd8cf]">
         <div className="max-w-[1360px] mx-auto flex flex-col gap-[36px] items-start">
           <Reveal direction="up" className="w-full">
             <div className="border-b-2 border-[#162d50] py-[12px] w-full">
               <p className="text-[#162d50] text-[12px] font-bold uppercase tracking-wider">
-                06 / DSEE-MIKROANTRAG ONLINE-ASSISTENT
+                05 / DSEE-MIKROANTRAG ONLINE-ASSISTENT
               </p>
             </div>
           </Reveal>
@@ -1443,13 +1246,13 @@ export default function App() {
         </div>
       </section>
 
-      {/* 10. SEKTION 07 / HÄUFIG GESTELLTE FRAGEN (FAQ) */}
+      {/* 9. SEKTION 06 / HÄUFIG GESTELLTE FRAGEN (FAQ) */}
       <section id="faq" className="bg-white w-full px-6 sm:px-12 lg:px-[64px] py-[72px]">
         <div className="max-w-[1360px] mx-auto flex flex-col gap-[40px] items-start">
           <Reveal direction="up" className="w-full">
             <div className="border-b-2 border-[#162d50] py-[12px] w-full">
               <p className="text-[#162d50] text-[12px] font-bold uppercase tracking-wider">
-                07 / HÄUFIG GESTELLTE FRAGEN
+                06 / HÄUFIG GESTELLTE FRAGEN
               </p>
             </div>
           </Reveal>
@@ -1492,7 +1295,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 11. SEKTION 08 / ANTRAGSSERVICE STARTEN (CONTACT & FORM) */}
+      {/* 10. SEKTION 07 / ANTRAGSSERVICE STARTEN (CONTACT & FORM) */}
       <section id="kontakt" className="bg-[#162d50] w-full px-6 sm:px-12 lg:px-[64px] py-[72px] text-white">
         <div className="max-w-[1360px] mx-auto flex flex-col lg:flex-row gap-[32px] items-start">
           
@@ -1500,7 +1303,7 @@ export default function App() {
           <Reveal direction="left" delay={100} className="w-full lg:w-[813px] shrink-0">
             <div className="flex flex-col gap-[24px] items-start w-full">
               <p className="text-[#d8e2f0] text-[12px] uppercase font-bold tracking-wider">
-                ANTRAGSSERVICE STARTEN
+                07 / ANTRAGSSERVICE STARTEN
               </p>
               <div className="text-3xl sm:text-4xl lg:text-[48px] font-bold leading-[1.1]">
                 <p>Jetzt Förderfähigkeit</p>
@@ -1644,7 +1447,8 @@ export default function App() {
           <div className="flex flex-wrap gap-[32px] items-start text-[#d8e2f0] text-[14px] font-medium">
             <a href="#kompass" className="hover:text-white transition-colors">Förderkompass</a>
             <a href="#ablauf" className="hover:text-white transition-colors">Ablauf</a>
-            <a href="#massnahmen" className="hover:text-white transition-colors">Leistungen</a>
+            <a href="#referenzen" className="hover:text-white transition-colors">Referenzen</a>
+            <a href="#antrag-assistent" className="hover:text-white transition-colors">Antragsassistent</a>
             <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
             <a href="#kontakt" className="hover:text-white transition-colors">DSEE-Schnittstelle</a>
           </div>
