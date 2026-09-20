@@ -19,7 +19,6 @@ import imgRow from './assets/imgRow.svg';
 import heroVideo from './assets/header-video.mp4';
 import logoWhite from './assets/logo-white.svg';
 import { 
-  shortformReels, 
   longformProjects, 
   webProjects, 
   testimonials 
@@ -48,60 +47,10 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   
-  // Responsive Items Per Page for Shortform Slider
-  const [itemsPerPage, setItemsPerPage] = useState(3);
-  const [shortformIndex, setShortformIndex] = useState(0);
-  const [playingShortIdx, setPlayingShortIdx] = useState<number | null>(null);
   const [longformIndex, setLongformIndex] = useState(0);
   const [isPlayingLongform, setIsPlayingLongform] = useState(false);
   const [webIndex, setWebIndex] = useState(0);
   const [activeLiveIframe, setActiveLiveIframe] = useState<number | null>(null);
-
-  useEffect(() => {
-    const updateItemsPerPage = () => {
-      if (window.innerWidth >= 1024) {
-        setItemsPerPage(3);
-      } else if (window.innerWidth >= 768) {
-        setItemsPerPage(2);
-      } else {
-        setItemsPerPage(1);
-      }
-    };
-    updateItemsPerPage();
-    window.addEventListener('resize', updateItemsPerPage);
-    return () => window.removeEventListener('resize', updateItemsPerPage);
-  }, []);
-
-  // Shortform Carousel Handlers
-  const totalShortformPages = Math.ceil(shortformReels.length / itemsPerPage);
-  const currentShortformPage = Math.min(
-    Math.floor(shortformIndex / itemsPerPage),
-    totalShortformPages - 1
-  );
-
-  const handleShortformNext = () => {
-    setPlayingShortIdx(null);
-    setShortformIndex((prev) => {
-      const maxStart = Math.max(0, shortformReels.length - itemsPerPage);
-      if (prev >= maxStart) return 0;
-      return Math.min(prev + itemsPerPage, maxStart);
-    });
-  };
-
-  const handleShortformPrev = () => {
-    setPlayingShortIdx(null);
-    setShortformIndex((prev) => {
-      const maxStart = Math.max(0, shortformReels.length - itemsPerPage);
-      if (prev <= 0) return maxStart;
-      return Math.max(0, prev - itemsPerPage);
-    });
-  };
-
-  const handleShortformDotClick = (page: number) => {
-    setPlayingShortIdx(null);
-    const maxStart = Math.max(0, shortformReels.length - itemsPerPage);
-    setShortformIndex(Math.min(page * itemsPerPage, maxStart));
-  };
 
   // Longform Carousel Handlers
   const handleLongformPrev = () => {
@@ -1003,171 +952,7 @@ export default function App() {
             </div>
           </Reveal>
 
-          {/* C. SHOWCASES SHORTFORM (9:16) */}
-          <Reveal direction="up" delay={250} className="w-full">
-            <div className="flex flex-col gap-[24px] items-start w-full relative pt-[24px]">
-              <div className="flex items-center justify-between w-full border-b border-[#dcd8cf] pb-[12px]">
-                <div className="flex items-center gap-3">
-                  <span className="text-[#2f5b7a] text-[14px] font-bold uppercase tracking-wider">
-                    Showcases Shortform (9:16 Reels & TikToks)
-                  </span>
-                  <span className="bg-[#d8e2f0] text-[#162d50] text-[11px] font-bold px-2 py-0.5 uppercase">
-                    Mobile First
-                  </span>
-                </div>
-
-                {/* Mobile / Header Controls */}
-                <div className="flex items-center gap-2 lg:hidden">
-                  <button
-                    onClick={handleShortformPrev}
-                    className="size-[36px] bg-white border border-[#dcd8cf] hover:border-[#162d50] hover:bg-[#f4f7fa] flex items-center justify-center text-[#162d50] transition-colors"
-                    aria-label="Vorheriges Reel"
-                  >
-                    <ChevronLeft className="size-5" />
-                  </button>
-                  <button
-                    onClick={handleShortformNext}
-                    className="size-[36px] bg-white border border-[#dcd8cf] hover:border-[#162d50] hover:bg-[#f4f7fa] flex items-center justify-center text-[#162d50] transition-colors"
-                    aria-label="Nächstes Reel"
-                  >
-                    <ChevronRight className="size-5" />
-                  </button>
-                </div>
-              </div>
-
-              {/* Slider Container with Desktop Floating Side Arrows */}
-              <div className="relative w-full">
-                {/* Desktop Left Float Arrow */}
-                <button
-                  onClick={handleShortformPrev}
-                  className="hidden lg:flex absolute -left-5 xl:-left-7 top-1/2 -translate-y-1/2 z-20 size-12 rounded-full bg-white/95 hover:bg-[#162d50] text-[#162d50] hover:text-white border border-[#dcd8cf] hover:border-[#162d50] items-center justify-center transition-all duration-300 hover:shadow-xl cursor-pointer shadow-md group"
-                  aria-label="Vorherige Reels"
-                >
-                  <ChevronLeft className="size-6 transition-transform group-hover:-translate-x-0.5" />
-                </button>
-
-                {/* Desktop Right Float Arrow */}
-                <button
-                  onClick={handleShortformNext}
-                  className="hidden lg:flex absolute -right-5 xl:-right-7 top-1/2 -translate-y-1/2 z-20 size-12 rounded-full bg-white/95 hover:bg-[#162d50] text-[#162d50] hover:text-white border border-[#dcd8cf] hover:border-[#162d50] items-center justify-center transition-all duration-300 hover:shadow-xl cursor-pointer shadow-md group"
-                  aria-label="Nächste Reels"
-                >
-                  <ChevronRight className="size-6 transition-transform group-hover:translate-x-0.5" />
-                </button>
-
-                {/* Animated Slider Track */}
-                <div className="overflow-hidden w-full py-2">
-                  <div 
-                    className="flex transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] items-stretch"
-                    style={{
-                      transform: `translate3d(-${shortformIndex * (100 / itemsPerPage)}%, 0, 0)`,
-                    }}
-                  >
-                    {shortformReels.map((reel, idx) => {
-                      const isPlaying = playingShortIdx === idx;
-
-                      return (
-                        <div 
-                          key={`${reel.videoId}-${idx}`} 
-                          className="w-full min-w-full md:w-1/2 md:min-w-[50%] lg:w-1/3 lg:min-w-[33.333333%] shrink-0 px-2 sm:px-3"
-                        >
-                          <div className="bg-white border border-[#dcd8cf] p-[20px] flex flex-col justify-between gap-[16px] hover:border-[#2f5b7a] transition-all group h-full shadow-sm">
-                            {/* 9:16 Video Frame Card */}
-                            <div className="bg-[#0b1a3a] w-full aspect-[9/16] relative overflow-hidden border border-[#2f5b7a]/30 shadow-inner">
-                              {isPlaying ? (
-                                <iframe
-                                  className="absolute inset-0 w-full h-full border-0"
-                                  src={`https://www.youtube-nocookie.com/embed/${reel.videoId}?autoplay=1&rel=0`}
-                                  title={reel.title}
-                                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                  allowFullScreen
-                                />
-                              ) : (
-                                <div 
-                                  onClick={() => setPlayingShortIdx(idx)}
-                                  className="absolute inset-0 w-full h-full p-4 flex flex-col justify-between cursor-pointer"
-                                >
-                                  <img 
-                                    src={reel.thumb} 
-                                    alt={reel.company} 
-                                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                                  />
-                                  <div className="absolute inset-0 bg-gradient-to-t from-[#0b1a3a]/90 via-black/20 to-black/40" />
-
-                                  {/* Badge */}
-                                  <div className="flex items-center justify-end z-10">
-                                    <span className="bg-[#2f5b7a] text-white text-[10px] font-bold px-2.5 py-1 uppercase tracking-wider">
-                                      {reel.badge}
-                                    </span>
-                                  </div>
-
-                                  {/* Play Icon */}
-                                  <div className="absolute inset-0 flex items-center justify-center z-10">
-                                    <div className="size-[48px] bg-[#162d50]/90 border border-[#d8e2f0] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#2f5b7a] transition-all shadow-xl">
-                                      <Play className="size-[20px] text-white fill-white ml-0.5" />
-                                    </div>
-                                  </div>
-
-                                  {/* Footer Privacy Info */}
-                                  <div className="z-10 bg-[#0b1a3a]/90 backdrop-blur-sm p-2.5 border border-[#2f5b7a]/50">
-                                    <p className="text-white text-xs font-bold truncate">{reel.company}</p>
-                                    <p className="text-[#d8e2f0] text-[10px] flex items-center gap-1.5 mt-0.5">
-                                      <span className="size-1.5 rounded-full bg-emerald-400" />
-                                      <span>2-Klick YouTube (DSGVO)</span>
-                                    </p>
-                                  </div>
-                                </div>
-                              )}
-                            </div>
-
-                            {/* Meta & KPI Box */}
-                            <div className="flex flex-col gap-3 justify-between flex-1">
-                              <div className="flex flex-col gap-2">
-                                <h3 className="text-[#162d50] text-[16px] font-bold leading-snug">
-                                  {reel.title}
-                                </h3>
-                                <p className="text-[#706e65] text-[13px] leading-[1.5]">
-                                  {reel.desc}
-                                </p>
-                              </div>
-
-                              <div className="pt-3 border-t border-[#dcd8cf] flex flex-col gap-1 bg-[#f4f7fa] p-3">
-                                <p className="text-[11px] font-bold uppercase tracking-wider text-[#2f5b7a] flex items-center gap-1.5">
-                                  <TrendingUp className="size-3.5 text-[#2f5b7a]" />
-                                  <span>Gutes eingefangen & Wirkung:</span>
-                                </p>
-                                <p className="text-[#162d50] text-[13px] font-medium leading-[1.4]">
-                                  {reel.kpi}
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                {/* Dots Indicator */}
-                <div className="flex justify-center items-center gap-2 pt-4">
-                  {Array.from({ length: totalShortformPages }).map((_, page) => (
-                    <button
-                      key={page}
-                      onClick={() => handleShortformDotClick(page)}
-                      className={`transition-all cursor-pointer rounded-full ${
-                        page === currentShortformPage 
-                          ? 'w-8 h-2.5 bg-[#162d50]' 
-                          : 'w-2.5 h-2.5 bg-[#dcd8cf] hover:bg-[#2f5b7a]'
-                      }`}
-                      aria-label={`Slide ${page + 1}`}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-          </Reveal>
-
-          {/* D. KUNDENSTIMMEN & VEREINSFEEDBACK */}
+          {/* C. KUNDENSTIMMEN & VEREINSFEEDBACK */}
           <div className="flex flex-col gap-[28px] items-start w-full pt-[32px] border-t border-[#dcd8cf]">
             <Reveal direction="up" className="w-full">
               <div className="flex flex-col gap-2 items-start w-full">
