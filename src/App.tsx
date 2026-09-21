@@ -25,6 +25,7 @@ import {
 } from './data/portfolioData';
 import { AntragsAssistent } from './components/AntragsAssistent';
 import { Reveal } from './components/Reveal';
+import { LegalModal, LegalTab } from './components/LegalModal';
 
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -80,6 +81,27 @@ export default function App() {
   const [isGemeinnuetzig, setIsGemeinnuetzig] = useState(true);
   const [isUnter50k, setIsUnter50k] = useState(true);
   const [submitted, setSubmitted] = useState(false);
+
+  // Legal Modal State
+  const [legalModalOpen, setLegalModalOpen] = useState(false);
+  const [activeLegalTab, setActiveLegalTab] = useState<LegalTab>('impressum');
+
+  const openLegal = (tab: LegalTab) => {
+    setActiveLegalTab(tab);
+    setLegalModalOpen(true);
+  };
+
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash.toLowerCase();
+      if (hash === '#impressum') openLegal('impressum');
+      else if (hash === '#datenschutz') openLegal('datenschutz');
+      else if (hash === '#agb') openLegal('agb');
+    };
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
 
   const scrollToSection = (id: string) => {
     setMobileMenuOpen(false);
@@ -1207,6 +1229,27 @@ export default function App() {
                     <span>Antragsberechtigung jetzt absenden</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
+
+                  {/* Datenschutz- & AGB-Hinweis */}
+                  <p className="text-[11px] text-[#706e65] text-center mt-1 leading-normal">
+                    Mit dem Absenden erklären Sie sich mit unserer{' '}
+                    <button
+                      type="button"
+                      onClick={() => openLegal('datenschutz')}
+                      className="text-[#2f5b7a] font-semibold underline hover:text-[#162d50] cursor-pointer"
+                    >
+                      Datenschutzerklärung
+                    </button>{' '}
+                    und unseren{' '}
+                    <button
+                      type="button"
+                      onClick={() => openLegal('agb')}
+                      className="text-[#2f5b7a] font-semibold underline hover:text-[#162d50] cursor-pointer"
+                    >
+                      AGB
+                    </button>{' '}
+                    einverstanden.
+                  </p>
                 </form>
               )}
             </div>
@@ -1229,7 +1272,7 @@ export default function App() {
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-[32px] items-start text-[#d8e2f0] text-[14px] font-medium">
+          <div className="flex flex-wrap gap-[24px] sm:gap-[32px] items-start text-[#d8e2f0] text-[14px] font-medium">
             <a href="#kompass" className="hover:text-white transition-colors">Förderkompass</a>
             <a href="#ablauf" className="hover:text-white transition-colors">Ablauf</a>
             <a href="#referenzen" className="hover:text-white transition-colors">Referenzen</a>
@@ -1239,11 +1282,45 @@ export default function App() {
           </div>
         </div>
 
-        <div className="border-t border-[#162d50] pt-[24px] flex flex-col sm:flex-row items-start sm:items-center justify-between w-full text-[#706e65] text-[12px] gap-2">
-          <p>© 2026 SichtbarGutes. Ein privatwirtschaftliches Angebot für eingetragene Vereine. Keine offizielle Behördenseite.</p>
-          <p>Plattform-Version 4.1-DBA · Lighthouse 99</p>
+        <div className="border-t border-[#162d50] pt-[24px] flex flex-col md:flex-row items-start md:items-center justify-between w-full text-[#706e65] text-[12px] gap-4">
+          <div className="flex flex-col gap-1">
+            <p>© 2026 SichtbarGutes (Klaas Herting). Ein privatwirtschaftliches Angebot für eingetragene Vereine. Keine offizielle Behördenseite.</p>
+            <p className="text-[11px] opacity-80">Plattform-Version 4.1-DBA · Lighthouse 99 · DSGVO-konform</p>
+          </div>
+
+          {/* Rechtliche Links (Impressum, Datenschutz, AGB) */}
+          <div className="flex items-center gap-4 text-[#d8e2f0] text-[13px] font-medium shrink-0">
+            <button
+              onClick={() => openLegal('impressum')}
+              className="hover:text-white transition-colors underline-offset-4 hover:underline cursor-pointer"
+            >
+              Impressum
+            </button>
+            <span className="text-[#2f5b7a]">·</span>
+            <button
+              onClick={() => openLegal('datenschutz')}
+              className="hover:text-white transition-colors underline-offset-4 hover:underline cursor-pointer"
+            >
+              Datenschutz
+            </button>
+            <span className="text-[#2f5b7a]">·</span>
+            <button
+              onClick={() => openLegal('agb')}
+              className="hover:text-white transition-colors underline-offset-4 hover:underline cursor-pointer"
+            >
+              AGB
+            </button>
+          </div>
         </div>
       </footer>
+
+      {/* 13. RECHTLICHE MODALS (IMPRESSUM, DATENSCHUTZ, AGB) */}
+      <LegalModal
+        isOpen={legalModalOpen}
+        activeTab={activeLegalTab}
+        onClose={() => setLegalModalOpen(false)}
+        onSelectTab={(tab) => setActiveLegalTab(tab)}
+      />
 
     </div>
   );
