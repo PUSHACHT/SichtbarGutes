@@ -160,13 +160,13 @@ export const longformProjects: LongformProject[] = [
 
 export const webProjects: WebProject[] = [
   {
-    title: 'PI JUGENDHILFE WEB EXPERIENCE & CMS',
+    title: 'PI JUGENDHILFE · MODERNE WEBSITE & BÜRGERPORTAL',
     desc: 'Ambulante Hilfen zur Erziehung im regionalen Raum. Psychologisch fundiert, strukturiert und vertrauensvoll digital dargestellt.',
     kpi: 'Niedrigschwelliger, vertrauensvoller Erstkontakt für Familien & Ämter geschaffen',
     company: 'Praxis für interdisziplinäre Jugendhilfe',
     url: 'https://www.pi-jugendhilfe.com/',
     displayUrl: 'www.pi-jugendhilfe.com',
-    badge: 'Jugendhilfe & CMS',
+    badge: 'Webseite & Bürgernähe',
     previewImage: piJugendhilfeImg,
     allowsIframe: true,
   },

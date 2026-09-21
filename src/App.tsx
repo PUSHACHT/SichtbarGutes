@@ -131,7 +131,7 @@ export default function App() {
     },
     {
       q: "Welche Pflichten hat der Verein?",
-      a: "Es gilt das Besserstellungs- und Jährlichkeitsprinzip. Wir strukturieren Ihr Vorhaben so, dass alle formalen Dokumentationspflichten ohne Aufwand für Ihren Vorstand erfüllt werden."
+      a: "Keine versteckten bürokratischen Hürden: Das Projekt muss lediglich im laufenden Kalenderjahr umgesetzt werden. Den gesamten Verwendungsnachweis und alle Abrechnungsunterlagen für die Stiftung bereiten wir komplett schlüsselfertig für Ihren Vorstand vor."
     },
     {
       q: "Was passiert, wenn der Antrag abgelehnt wird?",
@@ -287,11 +287,11 @@ export default function App() {
                 <ArrowRight className="w-4 h-4" />
               </button>
               <a
-                href="tel:0800000000"
+                href="tel:+4915221765943"
                 className="bg-emerald-600/90 hover:bg-emerald-600 border border-emerald-400/40 text-[14px] sm:text-[15px] font-bold px-5 sm:px-6 py-3 sm:py-3.5 text-white flex items-center gap-2 whitespace-nowrap transition-colors cursor-pointer shadow-sm"
               >
                 <Phone className="w-4 h-4 text-emerald-100" />
-                <span>Jetzt anrufen</span>
+                <span>Mit Klaas sprechen (+49 152 21765943)</span>
               </a>
             </div>
           </div>
@@ -548,7 +548,7 @@ export default function App() {
                 </p>
               </div>
               <h2 className="text-[#162d50] text-3xl sm:text-[40px] font-bold tracking-tight">
-                Unsere realisierten Projekte & Video-Showcases
+                Echte Beispiele aus der Praxis: Filme & Websites
               </h2>
               <p className="text-[#706e65] text-[16px] leading-[1.6] max-w-3xl">
                 Authentische, DSEE-förderfähige Medienproduktionen für Vereine, Stiftungen und Kommunen im ländlichen Raum – ehrenamtliches Engagement lebendig eingefangen und sichtbar gemacht.
@@ -556,16 +556,16 @@ export default function App() {
             </div>
           </Reveal>
 
-          {/* A. SHOWCASES LONGFORM (16:9 IMAGEFILME) */}
+          {/* A. VEREINS-IMAGEFILME (16:9 QUERFORMAT) */}
           <Reveal direction="up" delay={150} className="w-full">
             <div className="flex flex-col gap-[24px] items-start w-full">
               <div className="flex items-center justify-between w-full border-b border-[#dcd8cf] pb-[12px]">
                 <div className="flex items-center gap-3">
                   <span className="text-[#2f5b7a] text-[14px] font-bold uppercase tracking-wider">
-                    Showcases Longform (16:9 Imagefilme & Porträts)
+                    Große Vereins-Imagefilme & Porträts (16:9 Querformat)
                   </span>
                   <span className="bg-[#d8e2f0] text-[#162d50] text-[11px] font-bold px-2 py-0.5 uppercase">
-                    4K Master
+                    Hochauflösend in 4K
                   </span>
                 </div>
 
@@ -752,13 +752,13 @@ export default function App() {
             </div>
           </Reveal>
 
-          {/* B. SHOWCASES WEBPROJEKTE (PI JUGENDHILFE REFERENZ-WEBSITE) */}
+          {/* B. REFERENZ-WEBSITES (PI JUGENDHILFE) */}
           <Reveal direction="up" delay={200} className="w-full">
             <div className="flex flex-col gap-[24px] items-start w-full pt-[24px]">
               <div className="flex items-center justify-between w-full border-b border-[#dcd8cf] pb-[12px]">
                 <div className="flex items-center gap-3">
                   <span className="text-[#2f5b7a] text-[14px] font-bold uppercase tracking-wider">
-                    Showcases Webprojekte & Digitale Portale
+                    Referenz-Websites & Digitale Portale
                   </span>
                   <span className="bg-[#d8e2f0] text-[#162d50] text-[11px] font-bold px-2 py-0.5 uppercase">
                     Referenz-Website
@@ -876,10 +876,10 @@ export default function App() {
                                         ? 'bg-[#2f5b7a] text-white font-bold border-white'
                                         : 'bg-[#0b1a3a] text-[#d8e2f0] hover:bg-[#2f5b7a] border-[#2f5b7a]'
                                     }`}
-                                    title={activeLiveIframe === idx ? "Zurück zur Vorschau" : "Live-Interaktivität aktivieren"}
+                                    title={activeLiveIframe === idx ? "Zurück zur Übersicht" : "Webseite direkt hier im Fenster testen"}
                                   >
                                     <Monitor className="size-3" />
-                                    <span className="hidden sm:inline">{activeLiveIframe === idx ? "Vorschau" : "Live View"}</span>
+                                    <span className="hidden sm:inline">{activeLiveIframe === idx ? "Übersicht" : "Interaktiv testen"}</span>
                                   </button>
                                 )}
                               </div>
@@ -910,7 +910,7 @@ export default function App() {
                                   <div className="relative z-10 p-4 sm:p-5 flex flex-wrap items-center justify-between gap-2 backdrop-blur-[2px]">
                                     <div className="hidden sm:block">
                                       <p className="text-white text-xs font-bold drop-shadow">{project.company}</p>
-                                      <p className="text-[#d8e2f0] text-[10px] font-medium drop-shadow">Echtzeit Web-Showcase</p>
+                                      <p className="text-[#d8e2f0] text-[10px] font-medium drop-shadow">Live-Einblick in das Portal</p>
                                     </div>
 
                                     <div className="flex items-center gap-2">
@@ -930,7 +930,7 @@ export default function App() {
                                           className="h-8 sm:h-9 px-3 bg-[#0b1a3a]/90 hover:bg-[#162d50] border border-[#2f5b7a] text-white text-xs font-medium flex items-center justify-center transition-colors cursor-pointer"
                                         >
                                           <Monitor className="size-3.5 sm:mr-1.5 text-[#d8e2f0]" />
-                                          <span className="hidden sm:inline">Interaktiv</span>
+                                          <span className="hidden sm:inline">Hier testen</span>
                                         </button>
                                       )}
 
@@ -1278,14 +1278,14 @@ export default function App() {
             <a href="#referenzen" className="hover:text-white transition-colors">Referenzen</a>
             <a href="#antrag-assistent" className="hover:text-white transition-colors">Antragsassistent</a>
             <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
-            <a href="#kontakt" className="hover:text-white transition-colors">DSEE-Schnittstelle</a>
+            <a href="#kontakt" className="hover:text-white transition-colors">Förderberatung & Kontakt</a>
           </div>
         </div>
 
         <div className="border-t border-[#162d50] pt-[24px] flex flex-col md:flex-row items-start md:items-center justify-between w-full text-[#706e65] text-[12px] gap-4">
           <div className="flex flex-col gap-1">
             <p>© 2026 SichtbarGutes (Klaas Herting). Ein privatwirtschaftliches Angebot für eingetragene Vereine. Keine offizielle Behördenseite.</p>
-            <p className="text-[11px] opacity-80">Plattform-Version 4.1-DBA · Lighthouse 99 · DSGVO-konform</p>
+            <p className="text-[11px] opacity-80">100% Ehrenamts-gerecht · Geprüfte Förderqualität · DSGVO-konform</p>
           </div>
 
           {/* Rechtliche Links (Impressum, Datenschutz, AGB) */}

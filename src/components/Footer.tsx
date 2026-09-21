@@ -30,8 +30,8 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Legal Notice */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#706e65]">
-          <p>© 2026 SichtbarGutes. Ein privatwirtschaftliches Angebot für eingetragene Vereine. Keine offizielle Behördenseite.</p>
-          <p className="font-mono text-[11px]">Plattform-Version 4.1-DBA · Lighthouse 99 · DSGVO-konform</p>
+          <p>© 2026 SichtbarGutes (Klaas Herting). Ein privatwirtschaftliches Angebot für eingetragene Vereine. Keine offizielle Behördenseite.</p>
+          <p className="font-mono text-[11px]">100% Ehrenamts-gerecht · Geprüfte Förderqualität · DSGVO-konform</p>
         </div>
       </div>
     </footer>

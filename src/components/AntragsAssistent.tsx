@@ -250,7 +250,7 @@ export const AntragsAssistent: React.FC<Props> = ({ onClose, isModal = false }) 
           <div className="flex flex-col items-center gap-4">
             <div className="inline-flex items-center gap-2 bg-[#f4f7fa] text-[#162d50] border border-[#dcd8cf] px-3.5 py-1 text-xs font-bold uppercase tracking-wider">
               <ShieldCheck className="size-3.5 text-[#2f5b7a]" />
-              <span>100% Client-Side · DSGVO-konform · Sofortiger PDF-Download</span>
+              <span>100% Sicher · Daten bleiben auf Ihrem PC · Sofortiger PDF-Download</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-bold text-[#162d50] tracking-tight leading-tight max-w-2xl">
               In wenigen Minuten zum prüffähigen DSEE-Förderantrag
