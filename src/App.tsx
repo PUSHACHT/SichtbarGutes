@@ -357,41 +357,177 @@ export default function App() {
             </div>
           </Reveal>
 
-          <Reveal direction="up" delay={100} className="w-full max-w-4xl">
-            <div className="flex flex-col gap-[28px] items-start w-full">
-              <div className="flex flex-col gap-[16px] items-start w-full">
-                <h2 className="text-[#162d50] text-3xl sm:text-[40px] font-bold leading-[1.15]">
-                  Ist Ihr Verein förderfähig?
-                </h2>
-                <p className="text-[#706e65] text-[16px] sm:text-[17px] leading-[1.6]">
-                  Die Richtlinien der Deutschen Stiftung für Engagement und Ehrenamt (DSEE) sind präzise formuliert. Wir helfen Ihnen, die Kriterien rechtssicher zu erfüllen.
-                </p>
-              </div>
+          <div className="flex flex-col lg:flex-row gap-[32px] lg:gap-[48px] items-start w-full justify-between">
+            {/* Left Column: Text & Criteria without box */}
+            <Reveal direction="left" delay={100} className="w-full lg:flex-1">
+              <div className="flex flex-col gap-[28px] items-start w-full">
+                <div className="flex flex-col gap-[16px] items-start w-full">
+                  <h2 className="text-[#162d50] text-3xl sm:text-[40px] font-bold leading-[1.15]">
+                    Ist Ihr Verein förderfähig?
+                  </h2>
+                  <p className="text-[#706e65] text-[16px] sm:text-[17px] leading-[1.6]">
+                    Die Richtlinien der Deutschen Stiftung für Engagement und Ehrenamt (DSEE) sind präzise formuliert. Wir helfen Ihnen, die Kriterien rechtssicher zu erfüllen.
+                  </p>
+                </div>
 
-              <div className="flex flex-col gap-[16px] items-start w-full">
-                <p className="text-[#162d50] text-[18px] font-bold">
-                  Zulassungskriterien der DSEE:
-                </p>
-                <div className="flex flex-col gap-[14px] items-start w-full">
-                  {[
-                    { label: "Gemeinnützigkeit", text: "Der Verein besitzt einen gültigen Freistellungsbescheid des Finanzamts." },
-                    { label: "Regionale Lage", text: "Sitz in einer deutschen Kommune oder Gemeinde mit weniger als 50.000 Einwohnern." },
-                    { label: "Ehrenamt", text: "Der Vorstand agiert überwiegend ehrenamtlich organisiert." },
-                    { label: "Verwendungszweck", text: "Fokus auf Verbesserung der digitalen Mitglieder- oder Öffentlichkeitsarbeit." }
-                  ].map((item, idx) => (
-                    <div key={idx} className="flex gap-[12px] items-start w-full">
-                      <div className="bg-[#4a6e8a] flex items-center justify-center p-[4px] size-[20px] shrink-0 mt-0.5 text-white">
-                        <Check className="size-[12px] stroke-[3]" />
+                <div className="flex flex-col gap-[16px] items-start w-full">
+                  <p className="text-[#162d50] text-[18px] font-bold">
+                    Zulassungskriterien der DSEE:
+                  </p>
+                  <div className="flex flex-col gap-[14px] items-start w-full">
+                    {[
+                      { label: "Gemeinnützigkeit", text: "Der Verein besitzt einen gültigen Freistellungsbescheid des Finanzamts." },
+                      { label: "Regionale Lage", text: "Sitz in einer deutschen Kommune oder Gemeinde mit weniger als 50.000 Einwohnern." },
+                      { label: "Ehrenamt", text: "Der Vorstand agiert überwiegend ehrenamtlich organisiert." },
+                      { label: "Verwendungszweck", text: "Fokus auf Verbesserung der digitalen Mitglieder- oder Öffentlichkeitsarbeit." }
+                    ].map((item, idx) => (
+                      <div key={idx} className="flex gap-[12px] items-start w-full">
+                        <div className="bg-[#4a6e8a] flex items-center justify-center p-[4px] size-[20px] shrink-0 mt-0.5 text-white">
+                          <Check className="size-[12px] stroke-[3]" />
+                        </div>
+                        <p className="text-[#2b2a27] text-[15px] sm:text-[16px] leading-[1.5] flex-1">
+                          <strong>{item.label}:</strong> {item.text}
+                        </p>
                       </div>
-                      <p className="text-[#2b2a27] text-[16px] leading-[1.5] flex-1">
-                        <strong>{item.label}:</strong> {item.text}
-                      </p>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          </Reveal>
+            </Reveal>
+
+            {/* Right Column: Schnell-Check Formular im Kasten */}
+            <Reveal direction="right" delay={200} className="w-full lg:w-[480px] shrink-0">
+              <div className="bg-white border border-[#dcd8cf] p-6 sm:p-8 flex flex-col gap-[20px] items-start w-full text-[#2b2a27] shadow-xl">
+                {submitted ? (
+                  <div className="text-center py-6 w-full space-y-3">
+                    <div className="size-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
+                      <CheckCircle2 className="size-8" />
+                    </div>
+                    <h3 className="text-xl font-bold text-[#162d50]">Antrag eingegangen!</h3>
+                    <p className="text-sm text-[#706e65]">
+                      Vielen Dank. Wir prüfen die Förderfähigkeit für <strong>{verein || 'Ihren Verein'}</strong> und melden uns schnellstmöglich bei Ihnen.
+                    </p>
+                    <button
+                      onClick={() => setSubmitted(false)}
+                      className="text-xs text-[#2f5b7a] font-bold underline cursor-pointer"
+                    >
+                      Neue Prüfung starten
+                    </button>
+                  </div>
+                ) : (
+                  <form onSubmit={handleFormSubmit} className="flex flex-col gap-[16px] w-full">
+                    <p className="text-[#162d50] text-[18px] font-bold">
+                      Schnell-Check für Vereine
+                    </p>
+
+                    {/* Qualifikations-Prüfung */}
+                    <div className="bg-[#f7f8fb] p-3 border border-[#dcd8cf] space-y-2 text-xs">
+                      <label className="flex items-center gap-2 cursor-pointer font-medium text-[#162d50]">
+                        <input
+                          type="checkbox"
+                          checked={isGemeinnuetzig}
+                          onChange={(e) => setIsGemeinnuetzig(e.target.checked)}
+                          className="accent-[#2f5b7a]"
+                        />
+                        <span>Eingetragener Verein (e.V.) / Freistellung</span>
+                      </label>
+                      <label className="flex items-center gap-2 cursor-pointer font-medium text-[#162d50]">
+                        <input
+                          type="checkbox"
+                          checked={isUnter50k}
+                          onChange={(e) => setIsUnter50k(e.target.checked)}
+                          className="accent-[#2f5b7a]"
+                        />
+                        <span>Gemeinde unter 50.000 Einwohner</span>
+                      </label>
+                    </div>
+
+                    {/* Field: Vereinsname */}
+                    <div className="flex flex-col gap-[6px] items-start w-full">
+                      <label className="text-[#2b2a27] text-[13px] font-bold">Vereinsname</label>
+                      <input
+                        type="text"
+                        required
+                        value={verein}
+                        onChange={(e) => setVerein(e.target.value)}
+                        placeholder="z.B. Freiwillige Feuerwehr Musterdorf e.V."
+                        className="border border-[#dcd8cf] p-[12px] text-[14px] text-[#2b2a27] placeholder:text-[#706e65] w-full focus:outline-none focus:border-[#2f5b7a]"
+                      />
+                    </div>
+
+                    {/* Field: Postleitzahl & Ort */}
+                    <div className="flex flex-col gap-[6px] items-start w-full">
+                      <label className="text-[#2b2a27] text-[13px] font-bold">Postleitzahl & Ort</label>
+                      <input
+                        type="text"
+                        required
+                        value={plz}
+                        onChange={(e) => setPlz(e.target.value)}
+                        placeholder="z.B. 12345 Schöna"
+                        className="border border-[#dcd8cf] p-[12px] text-[14px] text-[#2b2a27] placeholder:text-[#706e65] w-full focus:outline-none focus:border-[#2f5b7a]"
+                      />
+                    </div>
+
+                    {/* Field: Ansprechpartner */}
+                    <div className="flex flex-col gap-[6px] items-start w-full">
+                      <label className="text-[#2b2a27] text-[13px] font-bold">Ansprechpartner</label>
+                      <input
+                        type="text"
+                        required
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="Vor- und Nachname"
+                        className="border border-[#dcd8cf] p-[12px] text-[14px] text-[#2b2a27] placeholder:text-[#706e65] w-full focus:outline-none focus:border-[#2f5b7a]"
+                      />
+                    </div>
+
+                    {/* Field: E-Mail-Adresse */}
+                    <div className="flex flex-col gap-[6px] items-start w-full">
+                      <label className="text-[#2b2a27] text-[13px] font-bold">E-Mail-Adresse</label>
+                      <input
+                        type="email"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="name@verein.de"
+                        className="border border-[#dcd8cf] p-[12px] text-[14px] text-[#2b2a27] placeholder:text-[#706e65] w-full focus:outline-none focus:border-[#2f5b7a]"
+                      />
+                    </div>
+
+                    {/* Submit Button */}
+                    <button
+                      type="submit"
+                      className="bg-[#2f5b7a] hover:bg-[#162d50] text-white text-[15px] font-bold px-[28px] py-[14px] flex items-center justify-center gap-[10px] w-full transition-colors mt-2 cursor-pointer"
+                    >
+                      <span>Antragsberechtigung jetzt absenden</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+
+                    {/* Datenschutz- & AGB-Hinweis */}
+                    <p className="text-[11px] text-[#706e65] text-center mt-1 leading-normal">
+                      Mit dem Absenden erklären Sie sich mit unserer{' '}
+                      <button
+                        type="button"
+                        onClick={() => openLegal('datenschutz')}
+                        className="text-[#2f5b7a] font-semibold underline hover:text-[#162d50] cursor-pointer"
+                      >
+                        Datenschutzerklärung
+                      </button>{' '}
+                      und unseren{' '}
+                      <button
+                        type="button"
+                        onClick={() => openLegal('agb')}
+                        className="text-[#2f5b7a] font-semibold underline hover:text-[#162d50] cursor-pointer"
+                      >
+                        AGB
+                      </button>{' '}
+                      einverstanden.
+                    </p>
+                  </form>
+                )}
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
