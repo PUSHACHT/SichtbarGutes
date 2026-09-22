@@ -357,43 +357,41 @@ export default function App() {
             </div>
           </Reveal>
 
-          <div className="flex flex-col lg:flex-row gap-[32px] items-start w-full">
-            <Reveal direction="left" delay={100} className="w-full lg:w-[813px]">
+          <Reveal direction="up" delay={100} className="w-full max-w-4xl">
+            <div className="flex flex-col gap-[28px] items-start w-full">
               <div className="flex flex-col gap-[16px] items-start w-full">
                 <h2 className="text-[#162d50] text-3xl sm:text-[40px] font-bold leading-[1.15]">
                   Ist Ihr Verein förderfähig?
                 </h2>
-                <p className="text-[#706e65] text-[16px] leading-[1.6]">
+                <p className="text-[#706e65] text-[16px] sm:text-[17px] leading-[1.6]">
                   Die Richtlinien der Deutschen Stiftung für Engagement und Ehrenamt (DSEE) sind präzise formuliert. Wir helfen Ihnen, die Kriterien rechtssicher zu erfüllen.
                 </p>
               </div>
-            </Reveal>
 
-            <Reveal direction="right" delay={200} className="w-full lg:w-[475px]">
-              <div className="bg-white border border-[#dcd8cf] p-[32px] flex flex-col gap-[24px] items-start w-full shadow-sm">
-                <p className="text-[#162d50] text-[16px] font-bold">
+              <div className="flex flex-col gap-[16px] items-start w-full">
+                <p className="text-[#162d50] text-[18px] font-bold">
                   Zulassungskriterien der DSEE:
                 </p>
-                <div className="flex flex-col gap-[16px] items-start w-full">
+                <div className="flex flex-col gap-[14px] items-start w-full">
                   {[
-                    "Gemeinnützigkeit: Der Verein besitzt einen gültigen Freistellungsbescheid des Finanzamts.",
-                    "Regionale Lage: Sitz in einer deutschen Kommune oder Gemeinde mit weniger als 50.000 Einwohnern.",
-                    "Ehrenamt: Der Vorstand agiert überwiegend ehrenamtlich organisiert.",
-                    "Verwendungszweck: Fokus auf Verbesserung der digitalen Mitglieder- oder Öffentlichkeitsarbeit."
-                  ].map((text, idx) => (
+                    { label: "Gemeinnützigkeit", text: "Der Verein besitzt einen gültigen Freistellungsbescheid des Finanzamts." },
+                    { label: "Regionale Lage", text: "Sitz in einer deutschen Kommune oder Gemeinde mit weniger als 50.000 Einwohnern." },
+                    { label: "Ehrenamt", text: "Der Vorstand agiert überwiegend ehrenamtlich organisiert." },
+                    { label: "Verwendungszweck", text: "Fokus auf Verbesserung der digitalen Mitglieder- oder Öffentlichkeitsarbeit." }
+                  ].map((item, idx) => (
                     <div key={idx} className="flex gap-[12px] items-start w-full">
                       <div className="bg-[#4a6e8a] flex items-center justify-center p-[4px] size-[20px] shrink-0 mt-0.5 text-white">
                         <Check className="size-[12px] stroke-[3]" />
                       </div>
                       <p className="text-[#2b2a27] text-[16px] leading-[1.5] flex-1">
-                        {text}
+                        <strong>{item.label}:</strong> {item.text}
                       </p>
                     </div>
                   ))}
                 </div>
               </div>
-            </Reveal>
-          </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
