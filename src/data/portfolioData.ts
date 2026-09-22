@@ -47,12 +47,12 @@ export interface WebProject {
 }
 
 export interface Testimonial {
-  quoteShort: string;
-  quoteFull: string;
+  quote: string;
   name: string;
+  role: string;
   organization: string;
-  logo: string;
-  rating: number;
+  highlight: string;
+  logo?: string;
 }
 
 export const shortformReels: ShortformReel[] = [
@@ -176,11 +176,11 @@ export const webProjects: WebProject[] = [
 
 export const testimonials: Testimonial[] = [
   {
-    quoteShort: '„Smith Visuals hat einen ganzen Drehtag von acht Stunden bei uns übernommen und in dieser Zeit acht Imagefilme professionell umgesetzt. Von der ersten Minute an war de...',
-    quoteFull: '„Smith Visuals hat einen ganzen Drehtag von acht Stunden bei uns übernommen und in dieser Zeit acht Imagefilme professionell umgesetzt. Von der ersten Minute an war der Ablauf perfekt strukturiert, zielgerichtet und hochprofessionell. Das Team hat unsere Arbeit und Werte mit höchster Sorgfalt und Empathie in Szene gesetzt.“',
+    quote: 'Smith Visuals hat einen ganzen Drehtag von acht Stunden bei uns übernommen und in dieser Zeit acht Imagefilme professionell umgesetzt. Von der ersten Minute an war der Ablauf perfekt strukturiert, zielgerichtet und hochprofessionell. Das Team hat unsere Arbeit und Werte mit höchster Sorgfalt und Empathie in Szene gesetzt.',
     name: 'Berufskolleg Bleibergquelle',
-    organization: 'Berufskolleg Bleibergquelle',
+    role: 'Bildungs- & Gemeinweseninitiative',
+    organization: 'Velbert',
+    highlight: '8 professionelle Imagefilme an 1 Drehtag umgesetzt',
     logo: bleibergLogo,
-    rating: 5,
   },
 ];
