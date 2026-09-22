@@ -178,7 +178,7 @@ export default function App() {
             Antrag erstellen
           </button>
           <button
-            onClick={() => scrollToSection('kontakt')}
+            onClick={() => scrollToSection('kompass')}
             className="bg-[#2f5b7a] hover:bg-[#3b6d91] text-white text-[14px] font-bold px-[20px] py-[12px] whitespace-nowrap transition-colors"
           >
             Förderfähigkeit prüfen
@@ -213,7 +213,7 @@ export default function App() {
               Antrag online vorbereiten
             </button>
             <button 
-              onClick={() => scrollToSection('kontakt')}
+              onClick={() => scrollToSection('kompass')}
               className="bg-[#2f5b7a] text-white text-center py-3 font-bold"
             >
               Förderfähigkeit prüfen
@@ -597,79 +597,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 6. SEKTION 03 / VERTRAUENSFAKTOREN */}
-      <section className="bg-white w-full px-6 sm:px-12 lg:px-[64px] py-[72px]">
-        <div className="max-w-[1360px] mx-auto flex flex-col gap-[40px] items-start">
-          <Reveal direction="up" className="w-full">
-            <div className="border-b-2 border-[#162d50] py-[12px] w-full">
-              <p className="text-[#162d50] text-[12px] font-bold uppercase tracking-wider">
-                03 / VERTRAUENSFAKTOREN
-              </p>
-            </div>
-          </Reveal>
-
-          <div className="flex flex-col gap-[32px] items-start w-full">
-            <Reveal direction="up" delay={100}>
-              <h2 className="text-[#162d50] text-3xl sm:text-[40px] font-bold">
-                Warum SichtbarGutes wählen?
-              </h2>
-            </Reveal>
-
-            {/* Row 1: Left 813px, Right 475px */}
-            <div className="flex flex-col lg:flex-row gap-[32px] items-stretch w-full">
-              <Reveal direction="left" delay={150} className="w-full lg:w-[813px]">
-                <div className="bg-white border border-[#dcd8cf] p-[32px] flex flex-col gap-[16px] items-start w-full h-full shadow-sm">
-                  <p className="text-[#162d50] text-[20px] font-bold">
-                    DSEE-Expertise
-                  </p>
-                  <p className="text-[#2b2a27] text-[15px] leading-[1.6]">
-                    Wir arbeiten konsequent nach den strengen Vergaberichtlinien der Stiftung. Fehlerfreie Anträge garantieren hohe Bewilligungsquoten.
-                  </p>
-                </div>
-              </Reveal>
-
-              <Reveal direction="right" delay={250} className="w-full lg:w-[475px]">
-                <div className="bg-white border border-[#dcd8cf] p-[32px] flex flex-col gap-[16px] items-start w-full h-full shadow-sm">
-                  <p className="text-[#162d50] text-[18px] font-bold">
-                    Keine Vorkasse
-                  </p>
-                  <p className="text-[#706e65] text-[14px] leading-[1.6]">
-                    Sie zahlen ausschließlich den vertraglichen Eigenanteil von 10% nach erfolgreicher Bewilligung. Keine Vorkasse.
-                  </p>
-                </div>
-              </Reveal>
-            </div>
-
-            {/* Row 2: Left 475px, Right 813px */}
-            <div className="flex flex-col lg:flex-row gap-[32px] items-stretch w-full">
-              <Reveal direction="left" delay={200} className="w-full lg:w-[475px]">
-                <div className="bg-white border border-[#dcd8cf] p-[32px] flex flex-col gap-[16px] items-start w-full h-full shadow-sm">
-                  <p className="text-[#162d50] text-[18px] font-bold">
-                    Persönlicher Support
-                  </p>
-                  <p className="text-[#706e65] text-[14px] leading-[1.6]">
-                    Ein qualifizierter Berater steht Ihrem Vereinsvorstand während der gesamten Antrags- und Umsetzungsphase direkt zur Seite.
-                  </p>
-                </div>
-              </Reveal>
-
-              <Reveal direction="right" delay={300} className="w-full lg:w-[813px]">
-                <div className="bg-[#162d50] border border-[#162d50] p-[32px] flex flex-col gap-[16px] items-start w-full h-full text-white shadow-md">
-                  <p className="text-[20px] font-bold">
-                    Kommunale Basis
-                  </p>
-                  <p className="text-[#d8e2f0] text-[15px] leading-[1.6]">
-                    Wir verstehen ländliche Gegebenheiten und richten Webdesigns und Kampagnen exakt auf ländliche Zielgruppen aus.
-                  </p>
-                </div>
-              </Reveal>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* 7. SEKTION 04 / PORTFOLIO & REFERENZEN */}
+      {/* 6. SEKTION 03 / PORTFOLIO & REFERENZEN */}
       <section id="referenzen" className="bg-white w-full px-6 sm:px-12 lg:px-[64px] py-[72px] overflow-hidden">
         <div className="max-w-[1360px] mx-auto flex flex-col gap-[56px] items-start">
           
@@ -678,7 +606,7 @@ export default function App() {
             <div className="flex flex-col gap-[16px] items-start w-full">
               <div className="border-b-2 border-[#162d50] py-[12px] w-full">
                 <p className="text-[#162d50] text-[12px] font-bold uppercase tracking-wider">
-                  04 / PORTFOLIO & REFERENZEN
+                  03 / PORTFOLIO & REFERENZEN
                 </p>
               </div>
               <h2 className="text-[#162d50] text-3xl sm:text-[40px] font-bold tracking-tight">
@@ -1236,159 +1164,75 @@ export default function App() {
         </div>
       </section>
 
-      {/* 10. SEKTION 07 / ANTRAGSSERVICE STARTEN (CONTACT & FORM) */}
+      {/* 10. VERTRAUENSFAKTOREN (BLAUE SEKTION) */}
       <section id="kontakt" className="bg-[#162d50] w-full px-6 sm:px-12 lg:px-[64px] py-[72px] text-white">
-        <div className="max-w-[1360px] mx-auto flex flex-col lg:flex-row gap-[32px] items-start">
-          
-          {/* Left Text (813px in Figma) */}
-          <Reveal direction="left" delay={100} className="w-full lg:w-[813px] shrink-0">
-            <div className="flex flex-col gap-[24px] items-start w-full">
-              <p className="text-[#d8e2f0] text-[12px] uppercase font-bold tracking-wider">
-                07 / ANTRAGSSERVICE STARTEN
-              </p>
-              <div className="text-3xl sm:text-4xl lg:text-[48px] font-bold leading-[1.1]">
-                <p>Jetzt Förderfähigkeit</p>
-                <p>kostenneutral prüfen.</p>
-              </div>
-              <p className="text-[#d8e2f0] text-[18px] leading-[1.6]">
-                Kostenlos und unverbindlich – innerhalb von 48 Stunden erhalten Sie Ihre formelle behördliche Förderungsanalyse.
+        <div className="max-w-[1360px] mx-auto flex flex-col gap-[40px] items-start w-full">
+          <Reveal direction="up" className="w-full">
+            <div className="border-b-2 border-[#2f5b7a] py-[12px] w-full">
+              <p className="text-[#d8e2f0] text-[12px] font-bold uppercase tracking-wider">
+                VERTRAUENSFAKTOREN
               </p>
             </div>
           </Reveal>
 
-          {/* Right Form Box (475px in Figma) */}
-          <Reveal direction="right" delay={200} className="w-full lg:w-[475px] shrink-0">
-            <div className="bg-white border border-[#dcd8cf] p-[32px] flex flex-col gap-[20px] items-start w-full text-[#2b2a27] shadow-xl">
-              {submitted ? (
-                <div className="text-center py-6 w-full space-y-3">
-                  <div className="size-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
-                    <CheckCircle2 className="size-8" />
-                  </div>
-                  <h3 className="text-xl font-bold text-[#162d50]">Antrag eingegangen!</h3>
-                  <p className="text-sm text-[#706e65]">
-                    Vielen Dank. Wir prüfen die Förderfähigkeit für <strong>{verein || 'Ihren Verein'}</strong> und melden uns schnellstmöglich bei Ihnen.
+          <div className="flex flex-col gap-[32px] items-start w-full">
+            <Reveal direction="up" delay={100}>
+              <h2 className="text-white text-3xl sm:text-[40px] font-bold">
+                Warum SichtbarGutes wählen?
+              </h2>
+            </Reveal>
+
+            {/* Row 1: Left 813px, Right 475px */}
+            <div className="flex flex-col lg:flex-row gap-[32px] items-stretch w-full">
+              <Reveal direction="left" delay={150} className="w-full lg:w-[813px]">
+                <div className="bg-white border border-[#dcd8cf] p-[32px] flex flex-col gap-[16px] items-start w-full h-full shadow-md text-[#2b2a27]">
+                  <p className="text-[#162d50] text-[20px] font-bold">
+                    DSEE-Expertise
                   </p>
-                  <button
-                    onClick={() => setSubmitted(false)}
-                    className="text-xs text-[#2f5b7a] font-bold underline"
-                  >
-                    Neue Prüfung starten
-                  </button>
+                  <p className="text-[#2b2a27] text-[15px] leading-[1.6]">
+                    Wir arbeiten konsequent nach den strengen Vergaberichtlinien der Stiftung. Fehlerfreie Anträge garantieren hohe Bewilligungsquoten.
+                  </p>
                 </div>
-              ) : (
-                <form onSubmit={handleFormSubmit} className="flex flex-col gap-[16px] w-full">
+              </Reveal>
+
+              <Reveal direction="right" delay={250} className="w-full lg:w-[475px]">
+                <div className="bg-white border border-[#dcd8cf] p-[32px] flex flex-col gap-[16px] items-start w-full h-full shadow-md text-[#2b2a27]">
                   <p className="text-[#162d50] text-[18px] font-bold">
-                    Schnell-Check für Vereine
+                    Keine Vorkasse
                   </p>
-
-                  {/* Qualifikations-Prüfung */}
-                  <div className="bg-[#f7f8fb] p-3 border border-[#dcd8cf] space-y-2 text-xs">
-                    <label className="flex items-center gap-2 cursor-pointer font-medium text-[#162d50]">
-                      <input
-                        type="checkbox"
-                        checked={isGemeinnuetzig}
-                        onChange={(e) => setIsGemeinnuetzig(e.target.checked)}
-                        className="accent-[#2f5b7a]"
-                      />
-                      <span>Eingetragener Verein (e.V.) / Freistellung</span>
-                    </label>
-                    <label className="flex items-center gap-2 cursor-pointer font-medium text-[#162d50]">
-                      <input
-                        type="checkbox"
-                        checked={isUnter50k}
-                        onChange={(e) => setIsUnter50k(e.target.checked)}
-                        className="accent-[#2f5b7a]"
-                      />
-                      <span>Gemeinde unter 50.000 Einwohner</span>
-                    </label>
-                  </div>
-
-                  {/* Field: Vereinsname */}
-                  <div className="flex flex-col gap-[6px] items-start w-full">
-                    <label className="text-[#2b2a27] text-[13px] font-bold">Vereinsname</label>
-                    <input
-                      type="text"
-                      required
-                      value={verein}
-                      onChange={(e) => setVerein(e.target.value)}
-                      placeholder="z.B. Freiwillige Feuerwehr Musterdorf e.V."
-                      className="border border-[#dcd8cf] p-[12px] text-[14px] text-[#2b2a27] placeholder:text-[#706e65] w-full focus:outline-none focus:border-[#2f5b7a]"
-                    />
-                  </div>
-
-                  {/* Field: Postleitzahl & Ort */}
-                  <div className="flex flex-col gap-[6px] items-start w-full">
-                    <label className="text-[#2b2a27] text-[13px] font-bold">Postleitzahl & Ort</label>
-                    <input
-                      type="text"
-                      required
-                      value={plz}
-                      onChange={(e) => setPlz(e.target.value)}
-                      placeholder="z.B. 12345 Schöna"
-                      className="border border-[#dcd8cf] p-[12px] text-[14px] text-[#2b2a27] placeholder:text-[#706e65] w-full focus:outline-none focus:border-[#2f5b7a]"
-                    />
-                  </div>
-
-                  {/* Field: Ansprechpartner */}
-                  <div className="flex flex-col gap-[6px] items-start w-full">
-                    <label className="text-[#2b2a27] text-[13px] font-bold">Ansprechpartner</label>
-                    <input
-                      type="text"
-                      required
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      placeholder="Vor- und Nachname"
-                      className="border border-[#dcd8cf] p-[12px] text-[14px] text-[#2b2a27] placeholder:text-[#706e65] w-full focus:outline-none focus:border-[#2f5b7a]"
-                    />
-                  </div>
-
-                  {/* Field: E-Mail-Adresse */}
-                  <div className="flex flex-col gap-[6px] items-start w-full">
-                    <label className="text-[#2b2a27] text-[13px] font-bold">E-Mail-Adresse</label>
-                    <input
-                      type="email"
-                      required
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="name@verein.de"
-                      className="border border-[#dcd8cf] p-[12px] text-[14px] text-[#2b2a27] placeholder:text-[#706e65] w-full focus:outline-none focus:border-[#2f5b7a]"
-                    />
-                  </div>
-
-                  {/* Submit Button */}
-                  <button
-                    type="submit"
-                    className="bg-[#2f5b7a] hover:bg-[#162d50] text-white text-[15px] font-bold px-[28px] py-[14px] flex items-center justify-center gap-[10px] w-full transition-colors mt-2"
-                  >
-                    <span>Antragsberechtigung jetzt absenden</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-
-                  {/* Datenschutz- & AGB-Hinweis */}
-                  <p className="text-[11px] text-[#706e65] text-center mt-1 leading-normal">
-                    Mit dem Absenden erklären Sie sich mit unserer{' '}
-                    <button
-                      type="button"
-                      onClick={() => openLegal('datenschutz')}
-                      className="text-[#2f5b7a] font-semibold underline hover:text-[#162d50] cursor-pointer"
-                    >
-                      Datenschutzerklärung
-                    </button>{' '}
-                    und unseren{' '}
-                    <button
-                      type="button"
-                      onClick={() => openLegal('agb')}
-                      className="text-[#2f5b7a] font-semibold underline hover:text-[#162d50] cursor-pointer"
-                    >
-                      AGB
-                    </button>{' '}
-                    einverstanden.
+                  <p className="text-[#706e65] text-[14px] leading-[1.6]">
+                    Sie zahlen ausschließlich den vertraglichen Eigenanteil von 10% nach erfolgreicher Bewilligung. Keine Vorkasse.
                   </p>
-                </form>
-              )}
+                </div>
+              </Reveal>
             </div>
-          </Reveal>
 
+            {/* Row 2: Left 475px, Right 813px */}
+            <div className="flex flex-col lg:flex-row gap-[32px] items-stretch w-full">
+              <Reveal direction="left" delay={200} className="w-full lg:w-[475px]">
+                <div className="bg-white border border-[#dcd8cf] p-[32px] flex flex-col gap-[16px] items-start w-full h-full shadow-md text-[#2b2a27]">
+                  <p className="text-[#162d50] text-[18px] font-bold">
+                    Persönlicher Support
+                  </p>
+                  <p className="text-[#706e65] text-[14px] leading-[1.6]">
+                    Ein qualifizierter Berater steht Ihrem Vereinsvorstand während der gesamten Antrags- und Umsetzungsphase direkt zur Seite.
+                  </p>
+                </div>
+              </Reveal>
+
+              <Reveal direction="right" delay={300} className="w-full lg:w-[813px]">
+                <div className="bg-[#0b1a3a] border border-[#2f5b7a] p-[32px] flex flex-col gap-[16px] items-start w-full h-full text-white shadow-md">
+                  <p className="text-[20px] font-bold text-white">
+                    Kommunale Basis
+                  </p>
+                  <p className="text-[#d8e2f0] text-[15px] leading-[1.6]">
+                    Wir verstehen ländliche Gegebenheiten und richten Webdesigns und Kampagnen exakt auf ländliche Zielgruppen aus.
+                  </p>
+                </div>
+              </Reveal>
+            </div>
+
+          </div>
         </div>
       </section>
 
