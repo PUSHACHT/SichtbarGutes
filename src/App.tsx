@@ -165,8 +165,8 @@ export default function App() {
             <span className="size-2 rounded-full bg-emerald-400" />
             <span>Antragsassistent</span>
           </button>
-          <button onClick={() => scrollToSection('faq')} className="hover:text-white transition-colors">FAQ</button>
           <button onClick={() => scrollToSection('kontakt')} className="hover:text-white transition-colors">Kontakt</button>
+          <button onClick={() => scrollToSection('faq')} className="hover:text-white transition-colors">FAQ</button>
         </nav>
 
         {/* CTA Button */}
@@ -204,8 +204,8 @@ export default function App() {
               <span className="size-2 rounded-full bg-emerald-400" />
               <span>DSEE-Antragsassistent (PDF)</span>
             </button>
-            <button onClick={() => scrollToSection('faq')} className="text-left py-2 hover:text-white">FAQ</button>
-            <button onClick={() => scrollToSection('kontakt')} className="text-left py-2 hover:text-white">Kontakt</button>
+            <button onClick={() => scrollToSection('kontakt')} className="text-left py-2 hover:text-white">06 / Kontakt</button>
+            <button onClick={() => scrollToSection('faq')} className="text-left py-2 hover:text-white">07 / FAQ</button>
             <button 
               onClick={() => scrollToSection('antrag-assistent')}
               className="bg-white text-[#162d50] text-center py-2.5 font-bold mt-2"
@@ -1119,62 +1119,13 @@ export default function App() {
         </div>
       </section>
 
-      {/* 9. SEKTION 06 / HÄUFIG GESTELLTE FRAGEN (FAQ) */}
-      <section id="faq" className="bg-white w-full px-6 sm:px-12 lg:px-[64px] py-[72px]">
-        <div className="max-w-[1360px] mx-auto flex flex-col gap-[40px] items-start">
-          <Reveal direction="up" className="w-full">
-            <div className="border-b-2 border-[#162d50] py-[12px] w-full">
-              <p className="text-[#162d50] text-[12px] font-bold uppercase tracking-wider">
-                06 / HÄUFIG GESTELLTE FRAGEN
-              </p>
-            </div>
-          </Reveal>
-
-          <div className="flex flex-col gap-[24px] items-start w-full">
-            <Reveal direction="up" delay={100}>
-              <h2 className="text-[#162d50] text-3xl sm:text-[40px] font-bold">
-                Antworten für Vereinsvorstände
-              </h2>
-            </Reveal>
-
-            <div className="flex flex-col items-start w-full divide-y divide-[#dcd8cf]">
-              {faqs.map((faq, idx) => {
-                const isOpen = openFaqIndex === idx;
-                return (
-                  <Reveal key={idx} direction="up" delay={idx * 60} className="w-full">
-                    <div className="py-[24px] flex flex-col gap-[12px] items-start w-full">
-                      <button
-                        onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                        className="flex items-center justify-between w-full text-left cursor-pointer group"
-                      >
-                        <p className="text-[#162d50] text-[18px] font-bold group-hover:text-[#2f5b7a] transition-colors">
-                          {faq.q}
-                        </p>
-                        <div className="size-[16px] shrink-0 text-[#162d50]">
-                          {isOpen ? <Minus className="size-4" /> : <Plus className="size-4" />}
-                        </div>
-                      </button>
-                      {isOpen && (
-                        <p className="text-[#706e65] text-[15px] leading-[1.6] w-full pr-8">
-                          {faq.a}
-                        </p>
-                      )}
-                    </div>
-                  </Reveal>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 10. VERTRAUENSFAKTOREN (BLAUE SEKTION) */}
+      {/* 9. VERTRAUENSFAKTOREN (BLAUE SEKTION) */}
       <section id="kontakt" className="bg-[#162d50] w-full px-6 sm:px-12 lg:px-[64px] py-[72px] text-white">
         <div className="max-w-[1360px] mx-auto flex flex-col gap-[40px] items-start w-full">
           <Reveal direction="up" className="w-full">
             <div className="border-b-2 border-[#2f5b7a] py-[12px] w-full">
               <p className="text-[#d8e2f0] text-[12px] font-bold uppercase tracking-wider">
-                VERTRAUENSFAKTOREN
+                06 / VERTRAUENSFAKTOREN
               </p>
             </div>
           </Reveal>
@@ -1240,6 +1191,55 @@ export default function App() {
         </div>
       </section>
 
+      {/* 10. SEKTION 07 / HÄUFIG GESTELLTE FRAGEN (FAQ) */}
+      <section id="faq" className="bg-white w-full px-6 sm:px-12 lg:px-[64px] py-[72px]">
+        <div className="max-w-[1360px] mx-auto flex flex-col gap-[40px] items-start">
+          <Reveal direction="up" className="w-full">
+            <div className="border-b-2 border-[#162d50] py-[12px] w-full">
+              <p className="text-[#162d50] text-[12px] font-bold uppercase tracking-wider">
+                07 / HÄUFIG GESTELLTE FRAGEN
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="flex flex-col gap-[24px] items-start w-full">
+            <Reveal direction="up" delay={100}>
+              <h2 className="text-[#162d50] text-3xl sm:text-[40px] font-bold">
+                Antworten für Vereinsvorstände
+              </h2>
+            </Reveal>
+
+            <div className="flex flex-col items-start w-full divide-y divide-[#dcd8cf]">
+              {faqs.map((faq, idx) => {
+                const isOpen = openFaqIndex === idx;
+                return (
+                  <Reveal key={idx} direction="up" delay={idx * 60} className="w-full">
+                    <div className="py-[24px] flex flex-col gap-[12px] items-start w-full">
+                      <button
+                        onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
+                        className="flex items-center justify-between w-full text-left cursor-pointer group"
+                      >
+                        <p className="text-[#162d50] text-[18px] font-bold group-hover:text-[#2f5b7a] transition-colors">
+                          {faq.q}
+                        </p>
+                        <div className="size-[16px] shrink-0 text-[#162d50]">
+                          {isOpen ? <Minus className="size-4" /> : <Plus className="size-4" />}
+                        </div>
+                      </button>
+                      {isOpen && (
+                        <p className="text-[#706e65] text-[15px] leading-[1.6] w-full pr-8">
+                          {faq.a}
+                        </p>
+                      )}
+                    </div>
+                  </Reveal>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 12. FOOTER */}
       <footer className="bg-[#0b1a3a] text-white w-full px-6 sm:px-12 lg:px-[64px] pt-[40px] pb-[32px] flex flex-col gap-[24px] items-start">
         <div className="flex flex-col sm:flex-row items-start justify-between w-full gap-8">
@@ -1259,8 +1259,8 @@ export default function App() {
             <a href="#ablauf" className="hover:text-white transition-colors">Ablauf</a>
             <a href="#referenzen" className="hover:text-white transition-colors">Referenzen</a>
             <a href="#antrag-assistent" className="hover:text-white transition-colors">Antragsassistent</a>
-            <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
             <a href="#kontakt" className="hover:text-white transition-colors">Förderberatung & Kontakt</a>
+            <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
           </div>
         </div>
 
