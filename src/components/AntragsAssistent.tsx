@@ -71,7 +71,6 @@ export const AntragsAssistent: React.FC<Props> = ({ onClose, isModal = false }) 
     localStorage.setItem(STORAGE_KEY, JSON.stringify(musterAntragData));
     setHasSavedDraft(true);
     setCurrentChapter('basisdaten');
-    scrollToAssistantTop();
   };
 
   const handleResumeDraft = () => {
@@ -84,7 +83,6 @@ export const AntragsAssistent: React.FC<Props> = ({ onClose, isModal = false }) 
       console.error(e);
     }
     setCurrentChapter('basisdaten');
-    scrollToAssistantTop();
   };
 
   const handleStartFresh = () => {
@@ -92,7 +90,6 @@ export const AntragsAssistent: React.FC<Props> = ({ onClose, isModal = false }) 
     localStorage.removeItem(STORAGE_KEY);
     setHasSavedDraft(false);
     setCurrentChapter('basisdaten');
-    scrollToAssistantTop();
   };
 
   // Calculations for Financial Chapter
@@ -175,33 +172,17 @@ export const AntragsAssistent: React.FC<Props> = ({ onClose, isModal = false }) 
 
   const currentChapterIndex = chapters.findIndex((c) => c.id === currentChapter);
 
-  const scrollToAssistantTop = () => {
-    const el = document.getElementById('antrag-assistent') || document.getElementById('antrags-assistent');
-    if (el) {
-      const navOffset = 90;
-      const elementPosition = el.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + (window.scrollY || window.pageYOffset || 0) - navOffset;
-      window.scrollTo({
-        top: Math.max(0, offsetPosition),
-        behavior: 'smooth'
-      });
-    }
-  };
-
   const goToNextChapter = () => {
     if (currentChapterIndex < chapters.length - 1) {
       setCurrentChapter(chapters[currentChapterIndex + 1].id);
-      scrollToAssistantTop();
     }
   };
 
   const goToPrevChapter = () => {
     if (currentChapterIndex > 0) {
       setCurrentChapter(chapters[currentChapterIndex - 1].id);
-      scrollToAssistantTop();
     } else {
       setCurrentChapter('start');
-      scrollToAssistantTop();
     }
   };
 
@@ -242,10 +223,7 @@ export const AntragsAssistent: React.FC<Props> = ({ onClose, isModal = false }) 
 
           {currentChapter !== 'start' && (
             <button
-              onClick={() => {
-                setCurrentChapter('start');
-                scrollToAssistantTop();
-              }}
+              onClick={() => setCurrentChapter('start')}
               className="text-xs bg-[#162d50] hover:bg-[#2f5b7a] text-[#d8e2f0] hover:text-white px-3 py-1.5 border border-[#2f5b7a] transition-colors cursor-pointer"
             >
               Startscreen
