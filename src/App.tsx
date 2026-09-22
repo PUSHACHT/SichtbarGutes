@@ -1080,11 +1080,6 @@ export default function App() {
                           />
                         )}
                       </div>
-
-                      <div className="bg-[#d8e2f0]/60 text-[#162d50] text-[11px] font-semibold px-2.5 py-1 flex items-center gap-1.5 border border-[#2f5b7a]/20 w-fit">
-                        <CheckCircle2 className="size-3.5 text-emerald-700 shrink-0" />
-                        <span>{item.highlight}</span>
-                      </div>
                     </div>
                   </div>
                 </Reveal>

@@ -51,7 +51,7 @@ export interface Testimonial {
   name: string;
   role: string;
   organization: string;
-  highlight: string;
+  highlight?: string;
   logo?: string;
 }
 
@@ -180,7 +180,6 @@ export const testimonials: Testimonial[] = [
     name: 'Berufskolleg Bleibergquelle',
     role: 'Bildungs- & Gemeinweseninitiative',
     organization: 'Velbert',
-    highlight: '8 professionelle Imagefilme an 1 Drehtag umgesetzt',
     logo: bleibergLogo,
   },
 ];
