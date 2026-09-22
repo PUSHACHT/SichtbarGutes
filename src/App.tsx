@@ -13,7 +13,8 @@ import {
   TrendingUp,
   ExternalLink,
   Monitor,
-  Phone
+  Phone,
+  Star
 } from 'lucide-react';
 import imgRow from './assets/imgRow.svg';
 import heroVideo from './assets/header-video.mp4';
@@ -31,6 +32,7 @@ export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const [scrollY, setScrollY] = useState(0);
+  const [isTestimonialExpanded, setIsTestimonialExpanded] = useState(false);
 
   // Parallax Scroll Listener
   useEffect(() => {
@@ -1041,41 +1043,54 @@ export default function App() {
             <Reveal direction="up" className="w-full">
               <div className="flex flex-col gap-2 items-start w-full">
                 <span className="text-[#2f5b7a] text-[12px] font-bold uppercase tracking-wider">
-                  ERFAHRUNGSBERICHTE AUS DER PRAXIS
+                  ERFAHRUNGSBERICHT AUS DER PRAXIS
                 </span>
                 <h3 className="text-[#162d50] text-2xl sm:text-[32px] font-bold">
-                  Was Vereinsvorstände über SichtbarGutes berichten
+                  Was unsere Partner über die Zusammenarbeit berichten
                 </h3>
               </div>
             </Reveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-[24px] items-stretch w-full">
+            <div className="w-full flex justify-start">
               {testimonials.map((item, idx) => (
-                <Reveal key={idx} direction="up" delay={idx * 150} className="h-full">
-                  <div className="bg-white border border-[#dcd8cf] p-[28px] flex flex-col justify-between gap-6 hover:border-[#162d50] transition-all relative shadow-sm h-full">
-                    <div className="flex flex-col gap-4">
-                      <span className="text-5xl font-serif font-bold text-[#2f5b7a] leading-none select-none">
+                <Reveal key={idx} direction="up" delay={150} className="w-full max-w-[640px]">
+                  <div className="bg-white border border-[#e5e1da] p-8 sm:p-10 flex flex-col justify-between gap-6 shadow-sm hover:shadow-md transition-shadow w-full">
+                    {/* Header: Quote mark & Rating stars */}
+                    <div className="flex items-center justify-between w-full">
+                      <span className="text-4xl sm:text-5xl font-serif font-black text-[#a31e1e] leading-none select-none">
                         „
                       </span>
-                      <p className="text-[#2b2a27] text-[15px] leading-[1.6] italic">
-                        "{item.quote}"
-                      </p>
+                      <div className="flex items-center gap-1.5 text-[#a31e1e]">
+                        {[...Array(item.rating || 5)].map((_, i) => (
+                          <Star key={i} className="size-4 sm:size-[18px] fill-current" />
+                        ))}
+                      </div>
                     </div>
 
-                    <div className="flex flex-col gap-3 pt-4 border-t border-[#dcd8cf]">
-                      <div className="flex flex-col">
-                        <p className="text-[#162d50] font-bold text-[16px]">
-                          {item.name}
-                        </p>
-                        <p className="text-[#706e65] text-[13px]">
-                          {item.role} · <span className="text-[#162d50] font-medium">{item.organization}</span>
-                        </p>
-                      </div>
+                    {/* Quote Text + Toggle */}
+                    <div className="flex flex-col gap-4">
+                      <p className="text-[#111827] text-[16px] sm:text-[18px] leading-[1.6]">
+                        {isTestimonialExpanded ? item.quoteFull : item.quoteShort}
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => setIsTestimonialExpanded(!isTestimonialExpanded)}
+                        className="text-[#a31e1e] font-bold underline hover:opacity-80 transition-opacity text-left w-fit cursor-pointer text-[15px]"
+                      >
+                        {isTestimonialExpanded ? 'Weniger anzeigen' : 'Mehr lesen'}
+                      </button>
+                    </div>
 
-                      <div className="bg-[#d8e2f0]/60 text-[#162d50] text-[11px] font-semibold px-2.5 py-1 flex items-center gap-1.5 border border-[#2f5b7a]/20">
-                        <CheckCircle2 className="size-3.5 text-emerald-700 shrink-0" />
-                        <span>{item.highlight}</span>
-                      </div>
+                    {/* Footer: Divider, Logo & Name */}
+                    <div className="pt-6 border-t border-[#f0eee9] flex items-center gap-4">
+                      <img 
+                        src={item.logo} 
+                        alt={item.organization} 
+                        className="h-7 sm:h-8 w-auto object-contain shrink-0" 
+                      />
+                      <span className="font-bold text-[#111827] text-[18px] sm:text-[20px] tracking-tight">
+                        {item.organization}
+                      </span>
                     </div>
                   </div>
                 </Reveal>

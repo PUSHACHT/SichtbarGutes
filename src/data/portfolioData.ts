@@ -12,6 +12,7 @@ import thumbHZQ from '../assets/thumbnails/long-HZQn5xHfyOM.jpg';
 import thumb1sr from '../assets/thumbnails/long-1srCmXos4lk.jpg';
 
 import piJugendhilfeImg from '../assets/web-previews/pi-jugendhilfe.png';
+import bleibergLogo from '../assets/bleibergquelle-logo.png';
 
 export interface ShortformReel {
   title: string;
@@ -46,11 +47,12 @@ export interface WebProject {
 }
 
 export interface Testimonial {
-  quote: string;
+  quoteShort: string;
+  quoteFull: string;
   name: string;
-  role: string;
   organization: string;
-  highlight: string;
+  logo: string;
+  rating: number;
 }
 
 export const shortformReels: ShortformReel[] = [
@@ -174,24 +176,11 @@ export const webProjects: WebProject[] = [
 
 export const testimonials: Testimonial[] = [
   {
-    quote: 'Dank SichtbarGutes und der 90%-Förderung der DSEE haben wir endlich einen professionellen Imagefilm und Social-Media-Clips, die unsere Jugendarbeit genau so zeigen, wie sie ist. Die Antragstellung war in wenigen Tagen erledigt – ohne jeglichen bürokratischen Stress für unseren Vorstand.',
-    name: 'Thomas Becker',
-    role: '1. Vorsitzender',
-    organization: 'TSV & Jugendförderung e.V.',
-    highlight: '90% DSEE-Zuschuss bewilligt · Ehrenamt voll entlastet',
-  },
-  {
-    quote: 'Für einen kleinen Verein im ländlichen Raum sind 1.500 € Projektbudget ein enormer Hebel. Wir mussten lediglich 150 € Eigenanteil beisteuern und haben dafür eine topaktuelle, barrierefreie Website und hochwertige Videoinhalte erhalten. Höchste Empfehlung!',
-    name: 'Dr. Marianne Weber',
-    role: 'Vorstand Öffentlichkeitsarbeit',
-    organization: 'Kultur- & Heimatverein Sonnenwald',
-    highlight: '150 € Eigenanteil · Authentischer Auftritt',
-  },
-  {
-    quote: 'Das Team hat uns von der ersten DSEE-Prüfung bis zur finalen Ausspielung der Reels begleitet. Unsere Sichtbarkeit in der Region ist enorm gestiegen, und wir konnten endlich neue Helfer und Trainer gewinnen.',
-    name: 'Markus Lindner',
-    role: 'Abteilungsleiter',
-    organization: 'Freiwillige Helfer & Sportgemeinschaft',
-    highlight: 'Neue Ehrenamtliche & Trainer im Ort gewonnen',
+    quoteShort: '„Smith Visuals hat einen ganzen Drehtag von acht Stunden bei uns übernommen und in dieser Zeit acht Imagefilme professionell umgesetzt. Von der ersten Minute an war de...',
+    quoteFull: '„Smith Visuals hat einen ganzen Drehtag von acht Stunden bei uns übernommen und in dieser Zeit acht Imagefilme professionell umgesetzt. Von der ersten Minute an war der Ablauf perfekt strukturiert, zielgerichtet und hochprofessionell. Das Team hat unsere Arbeit und Werte mit höchster Sorgfalt und Empathie in Szene gesetzt.“',
+    name: 'Berufskolleg Bleibergquelle',
+    organization: 'Berufskolleg Bleibergquelle',
+    logo: bleibergLogo,
+    rating: 5,
   },
 ];
