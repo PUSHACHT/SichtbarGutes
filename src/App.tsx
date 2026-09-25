@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { 
   ArrowRight, 
   Check, 
   Play, 
   Plus, 
   Minus, 
-  Menu, 
+  Menu,
   X,
-  CheckCircle2,
   ChevronLeft,
   ChevronRight,
   TrendingUp,
@@ -84,15 +83,6 @@ export default function App() {
     setWebIndex((prev) => (prev + 1) % webProjects.length);
   };
 
-  // Form State
-  const [verein, setVerein] = useState('');
-  const [plz, setPlz] = useState('');
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [isGemeinnuetzig, setIsGemeinnuetzig] = useState(true);
-  const [isUnter50k, setIsUnter50k] = useState(true);
-  const [submitted, setSubmitted] = useState(false);
-
   // Legal Page Routing (Impressum / Datenschutz / AGB als echte Unterseiten)
   const [route, setRoute] = useState<Route>(getRouteFromHash);
 
@@ -117,11 +107,6 @@ export default function App() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-  };
-
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
   };
 
   const faqs = [
@@ -413,136 +398,35 @@ export default function App() {
               </div>
             </Reveal>
 
-            {/* Right Column: Schnell-Check Formular im Kasten */}
+            {/* Right Column: Echtes Kontaktformular im Kasten */}
             <Reveal direction="right" delay={200} className="w-full lg:w-[480px] shrink-0">
               <div className="bg-white border border-[#dcd8cf] p-6 sm:p-8 flex flex-col gap-[20px] items-start w-full text-[#2b2a27] shadow-xl">
-                {submitted ? (
-                  <div className="text-center py-6 w-full space-y-3">
-                    <div className="size-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
-                      <CheckCircle2 className="size-8" />
-                    </div>
-                    <h3 className="text-xl font-bold text-[#162d50]">Antrag eingegangen!</h3>
-                    <p className="text-sm text-[#706e65]">
-                      Vielen Dank. Wir prüfen die Förderfähigkeit für <strong>{verein || 'Ihren Verein'}</strong> und melden uns schnellstmöglich bei Ihnen.
-                    </p>
-                    <button
-                      onClick={() => setSubmitted(false)}
-                      className="text-xs text-[#2f5b7a] font-bold underline cursor-pointer"
-                    >
-                      Neue Prüfung starten
-                    </button>
-                  </div>
-                ) : (
-                  <form onSubmit={handleFormSubmit} className="flex flex-col gap-[16px] w-full">
-                    <p className="text-[#162d50] text-[18px] font-bold">
-                      Schnell-Check für Vereine
-                    </p>
+                <p className="text-[#162d50] text-[18px] font-bold">
+                  Schnell-Check für Vereine
+                </p>
 
-                    {/* Qualifikations-Prüfung */}
-                    <div className="bg-[#f7f8fb] p-3 border border-[#dcd8cf] space-y-2 text-xs">
-                      <label className="flex items-center gap-2 cursor-pointer font-medium text-[#162d50]">
-                        <input
-                          type="checkbox"
-                          checked={isGemeinnuetzig}
-                          onChange={(e) => setIsGemeinnuetzig(e.target.checked)}
-                          className="accent-[#2f5b7a]"
-                        />
-                        <span>Eingetragener Verein (e.V.) / Freistellung</span>
-                      </label>
-                      <label className="flex items-center gap-2 cursor-pointer font-medium text-[#162d50]">
-                        <input
-                          type="checkbox"
-                          checked={isUnter50k}
-                          onChange={(e) => setIsUnter50k(e.target.checked)}
-                          className="accent-[#2f5b7a]"
-                        />
-                        <span>Gemeinde unter 50.000 Einwohner</span>
-                      </label>
-                    </div>
+                <ContactForm />
 
-                    {/* Field: Vereinsname */}
-                    <div className="flex flex-col gap-[6px] items-start w-full">
-                      <label className="text-[#2b2a27] text-[13px] font-bold">Vereinsname</label>
-                      <input
-                        type="text"
-                        required
-                        value={verein}
-                        onChange={(e) => setVerein(e.target.value)}
-                        placeholder="z.B. Freiwillige Feuerwehr Musterdorf e.V."
-                        className="border border-[#dcd8cf] p-[12px] text-[14px] text-[#2b2a27] placeholder:text-[#706e65] w-full focus:outline-none focus:border-[#2f5b7a]"
-                      />
-                    </div>
-
-                    {/* Field: Postleitzahl & Ort */}
-                    <div className="flex flex-col gap-[6px] items-start w-full">
-                      <label className="text-[#2b2a27] text-[13px] font-bold">Postleitzahl & Ort</label>
-                      <input
-                        type="text"
-                        required
-                        value={plz}
-                        onChange={(e) => setPlz(e.target.value)}
-                        placeholder="z.B. 12345 Schöna"
-                        className="border border-[#dcd8cf] p-[12px] text-[14px] text-[#2b2a27] placeholder:text-[#706e65] w-full focus:outline-none focus:border-[#2f5b7a]"
-                      />
-                    </div>
-
-                    {/* Field: Ansprechpartner */}
-                    <div className="flex flex-col gap-[6px] items-start w-full">
-                      <label className="text-[#2b2a27] text-[13px] font-bold">Ansprechpartner</label>
-                      <input
-                        type="text"
-                        required
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        placeholder="Vor- und Nachname"
-                        className="border border-[#dcd8cf] p-[12px] text-[14px] text-[#2b2a27] placeholder:text-[#706e65] w-full focus:outline-none focus:border-[#2f5b7a]"
-                      />
-                    </div>
-
-                    {/* Field: E-Mail-Adresse */}
-                    <div className="flex flex-col gap-[6px] items-start w-full">
-                      <label className="text-[#2b2a27] text-[13px] font-bold">E-Mail-Adresse</label>
-                      <input
-                        type="email"
-                        required
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="name@verein.de"
-                        className="border border-[#dcd8cf] p-[12px] text-[14px] text-[#2b2a27] placeholder:text-[#706e65] w-full focus:outline-none focus:border-[#2f5b7a]"
-                      />
-                    </div>
-
-                    {/* Submit Button */}
-                    <button
-                      type="submit"
-                      className="bg-[#2f5b7a] hover:bg-[#162d50] text-white text-[15px] font-bold px-[28px] py-[14px] flex items-center justify-center gap-[10px] w-full transition-colors mt-2 cursor-pointer"
-                    >
-                      <span>Antragsberechtigung jetzt absenden</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </button>
-
-                    {/* Datenschutz- & AGB-Hinweis */}
-                    <p className="text-[11px] text-[#706e65] text-center mt-1 leading-normal">
-                      Mit dem Absenden erklären Sie sich mit unserer{' '}
-                      <button
-                        type="button"
-                        onClick={() => openLegal('datenschutz')}
-                        className="text-[#2f5b7a] font-semibold underline hover:text-[#162d50] cursor-pointer"
-                      >
-                        Datenschutzerklärung
-                      </button>{' '}
-                      und unseren{' '}
-                      <button
-                        type="button"
-                        onClick={() => openLegal('agb')}
-                        className="text-[#2f5b7a] font-semibold underline hover:text-[#162d50] cursor-pointer"
-                      >
-                        AGB
-                      </button>{' '}
-                      einverstanden.
-                    </p>
-                  </form>
-                )}
+                {/* Datenschutz- & AGB-Hinweis */}
+                <p className="text-[11px] text-[#706e65] text-center w-full leading-normal">
+                  Mit dem Absenden erklären Sie sich mit unserer{' '}
+                  <button
+                    type="button"
+                    onClick={() => openLegal('datenschutz')}
+                    className="text-[#2f5b7a] font-semibold underline hover:text-[#162d50] cursor-pointer"
+                  >
+                    Datenschutzerklärung
+                  </button>{' '}
+                  und unseren{' '}
+                  <button
+                    type="button"
+                    onClick={() => openLegal('agb')}
+                    className="text-[#2f5b7a] font-semibold underline hover:text-[#162d50] cursor-pointer"
+                  >
+                    AGB
+                  </button>{' '}
+                  einverstanden.
+                </p>
               </div>
             </Reveal>
           </div>
@@ -1204,19 +1088,6 @@ export default function App() {
                 </div>
               </Reveal>
             </div>
-
-            {/* Kontaktformular */}
-            <Reveal direction="up" delay={350} className="w-full pt-[16px]">
-              <div className="bg-white border border-[#dcd8cf] p-6 sm:p-8 flex flex-col gap-[16px] items-start w-full max-w-2xl shadow-md text-[#2b2a27]">
-                <div className="flex flex-col gap-[6px] items-start">
-                  <h3 className="text-[#162d50] text-xl sm:text-[22px] font-bold">Kontaktformular</h3>
-                  <p className="text-[#706e65] text-[14px] leading-[1.6]">
-                    Schreiben Sie uns direkt – wir melden uns kurzfristig bei Ihrem Verein zurück.
-                  </p>
-                </div>
-                <ContactForm />
-              </div>
-            </Reveal>
 
           </div>
         </div>
