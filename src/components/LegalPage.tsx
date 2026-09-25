@@ -1,91 +1,82 @@
 import React, { useEffect } from 'react';
-import { X, Shield, FileText, Scale, Printer, ExternalLink, AlertCircle } from 'lucide-react';
+import { ArrowLeft, Shield, FileText, Scale, Printer, ExternalLink, AlertCircle } from 'lucide-react';
+import logoWhite from '../assets/logo-white.svg';
 
 export type LegalTab = 'impressum' | 'datenschutz' | 'agb';
 
-interface LegalModalProps {
-  isOpen: boolean;
+interface LegalPageProps {
   activeTab: LegalTab;
-  onClose: () => void;
+  onBack: () => void;
   onSelectTab: (tab: LegalTab) => void;
 }
 
-export const LegalModal: React.FC<LegalModalProps> = ({
-  isOpen,
+export const LegalPage: React.FC<LegalPageProps> = ({
   activeTab,
-  onClose,
+  onBack,
   onSelectTab,
 }) => {
-  // Close on Escape key and handle body scroll lock
+  // Legal pages open at the top and scroll independently of the homepage
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-      window.addEventListener('keydown', handleKeyDown);
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isOpen, onClose]);
-
-  if (!isOpen) return null;
+    window.scrollTo({ top: 0 });
+  }, [activeTab]);
 
   return (
-    <div 
-      className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-black/75 backdrop-blur-sm animate-fadeIn"
-      onClick={onClose}
-      aria-modal="true"
-      role="dialog"
-    >
-      <div 
-        className="bg-white w-full max-w-4xl max-h-[90vh] flex flex-col shadow-2xl border border-[#dcd8cf] relative overflow-hidden animate-scaleUp"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Modal Header */}
-        <div className="bg-[#0b1a3a] px-6 py-4 flex items-center justify-between border-b border-[#162d50] text-white shrink-0">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded bg-[#162d50] flex items-center justify-center text-[#d8e2f0] border border-[#2f5b7a]">
-              {activeTab === 'impressum' && <FileText className="w-5 h-5" />}
-              {activeTab === 'datenschutz' && <Shield className="w-5 h-5" />}
-              {activeTab === 'agb' && <Scale className="w-5 h-5" />}
-            </div>
-            <div>
-              <p className="text-xs font-mono uppercase tracking-wider text-[#d8e2f0]">SichtbarGutes · Rechtliche Dokumente</p>
-              <h2 className="text-lg font-bold text-white">
-                {activeTab === 'impressum' && 'Impressum'}
-                {activeTab === 'datenschutz' && 'Datenschutzerklärung'}
-                {activeTab === 'agb' && 'Allgemeine Geschäftsbedingungen (AGB)'}
-              </h2>
-            </div>
-          </div>
+    <div className="bg-white min-h-screen flex flex-col items-start w-full font-sans text-[#2b2a27]">
+      {/* Page Header */}
+      <header className="bg-[#162d50] w-full px-6 sm:px-12 lg:px-[64px] py-[20px] flex items-center justify-between sticky top-0 z-50">
+        <button
+          onClick={onBack}
+          className="flex items-center cursor-pointer select-none group"
+          aria-label="Zurück zur Startseite"
+        >
+          <img
+            src={logoWhite}
+            alt="SichtbarGutes - Digitalisierung des Ehrenamts"
+            className="h-[38px] sm:h-[44px] w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
+          />
+        </button>
 
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => window.print()}
-              className="p-2 text-[#d8e2f0] hover:text-white hover:bg-[#162d50] transition-colors rounded"
-              title="Drucken"
-              aria-label="Drucken"
-            >
-              <Printer className="w-4 h-4" />
-            </button>
-            <button
-              onClick={onClose}
-              className="p-2 text-[#d8e2f0] hover:text-white hover:bg-[#162d50] transition-colors rounded"
-              title="Schließen"
-              aria-label="Schließen"
-            >
-              <X className="w-5 h-5" />
-            </button>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => window.print()}
+            className="p-2 text-[#d8e2f0] hover:text-white hover:bg-[#162d50] transition-colors rounded"
+            title="Drucken"
+            aria-label="Drucken"
+          >
+            <Printer className="w-4 h-4" />
+          </button>
+          <button
+            onClick={onBack}
+            className="border border-[#d8e2f0] hover:bg-white hover:text-[#162d50] text-white text-[13px] font-bold px-[16px] py-[10px] whitespace-nowrap transition-colors flex items-center gap-2"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span>Zurück zur Startseite</span>
+          </button>
+        </div>
+      </header>
+
+      {/* Page Title */}
+      <div className="bg-[#0b1a3a] w-full px-6 sm:px-12 lg:px-[64px] py-8 sm:py-10 text-white">
+        <div className="max-w-4xl mx-auto flex items-center gap-3">
+          <div className="w-9 h-9 rounded bg-[#162d50] flex items-center justify-center text-[#d8e2f0] border border-[#2f5b7a] shrink-0">
+            {activeTab === 'impressum' && <FileText className="w-5 h-5" />}
+            {activeTab === 'datenschutz' && <Shield className="w-5 h-5" />}
+            {activeTab === 'agb' && <Scale className="w-5 h-5" />}
+          </div>
+          <div>
+            <p className="text-xs font-mono uppercase tracking-wider text-[#d8e2f0]">SichtbarGutes · Rechtliche Dokumente</p>
+            <h1 className="text-xl sm:text-2xl font-bold text-white">
+              {activeTab === 'impressum' && 'Impressum'}
+              {activeTab === 'datenschutz' && 'Datenschutzerklärung'}
+              {activeTab === 'agb' && 'Allgemeine Geschäftsbedingungen (AGB)'}
+            </h1>
           </div>
         </div>
+      </div>
 
-        {/* Tab Navigation */}
-        <div className="bg-[#f4f7fa] border-b border-[#dcd8cf] px-6 flex items-center gap-2 sm:gap-4 overflow-x-auto shrink-0">
+      {/* Tab Navigation */}
+      <div className="bg-[#f4f7fa] border-b border-[#dcd8cf] w-full px-6 sm:px-12 lg:px-[64px] flex items-center gap-2 sm:gap-4 overflow-x-auto sticky top-[76px] sm:top-[84px] z-40">
+        <div className="max-w-4xl mx-auto w-full flex items-center gap-2 sm:gap-4">
           <button
             onClick={() => onSelectTab('impressum')}
             className={`py-3 px-3 sm:px-4 text-xs sm:text-sm font-bold border-b-2 flex items-center gap-2 whitespace-nowrap transition-colors ${
@@ -120,10 +111,12 @@ export const LegalModal: React.FC<LegalModalProps> = ({
             <span>AGB</span>
           </button>
         </div>
+      </div>
 
-        {/* Content Body */}
-        <div className="flex-1 overflow-y-auto p-6 sm:p-8 text-[#2b2a27] text-sm leading-relaxed space-y-6">
-          
+      {/* Content Body */}
+      <div className="w-full px-6 sm:px-12 lg:px-[64px] py-8 sm:py-10 text-[#2b2a27] text-sm leading-relaxed">
+        <div className="max-w-4xl mx-auto space-y-6">
+
           {/* TAB 1: IMPRESSUM */}
           {activeTab === 'impressum' && (
             <div className="space-y-6 max-w-3xl">
@@ -459,18 +452,19 @@ export const LegalModal: React.FC<LegalModalProps> = ({
           )}
 
         </div>
-
-        {/* Modal Footer */}
-        <div className="bg-[#f4f7fa] px-6 py-3 border-t border-[#dcd8cf] flex items-center justify-between text-xs text-[#706e65] shrink-0">
-          <span>SichtbarGutes · Rechtliche Dokumente</span>
-          <button
-            onClick={onClose}
-            className="bg-[#162d50] hover:bg-[#2f5b7a] text-white px-4 py-1.5 font-bold transition-colors"
-          >
-            Schließen
-          </button>
-        </div>
       </div>
+
+      {/* Page Footer */}
+      <footer className="bg-[#0b1a3a] text-white w-full px-6 sm:px-12 lg:px-[64px] py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#d8e2f0] mt-auto">
+        <span>© 2026 SichtbarGutes (Klaas Herting) · Rechtliche Dokumente</span>
+        <button
+          onClick={onBack}
+          className="bg-[#2f5b7a] hover:bg-[#3b6d91] text-white px-4 py-2 font-bold transition-colors flex items-center gap-2"
+        >
+          <ArrowLeft className="w-3.5 h-3.5" />
+          <span>Zurück zur Startseite</span>
+        </button>
+      </footer>
     </div>
   );
 };
