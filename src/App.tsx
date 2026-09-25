@@ -26,6 +26,7 @@ import {
 import { AntragsAssistent } from './components/AntragsAssistent';
 import { Reveal } from './components/Reveal';
 import { LegalPage, LegalTab } from './components/LegalPage';
+import { ContactForm } from './components/ContactForm';
 
 type Route = 'home' | LegalTab;
 
@@ -1203,6 +1204,19 @@ export default function App() {
                 </div>
               </Reveal>
             </div>
+
+            {/* Kontaktformular */}
+            <Reveal direction="up" delay={350} className="w-full pt-[16px]">
+              <div className="bg-white border border-[#dcd8cf] p-6 sm:p-8 flex flex-col gap-[16px] items-start w-full max-w-2xl shadow-md text-[#2b2a27]">
+                <div className="flex flex-col gap-[6px] items-start">
+                  <h3 className="text-[#162d50] text-xl sm:text-[22px] font-bold">Kontaktformular</h3>
+                  <p className="text-[#706e65] text-[14px] leading-[1.6]">
+                    Schreiben Sie uns direkt – wir melden uns kurzfristig bei Ihrem Verein zurück.
+                  </p>
+                </div>
+                <ContactForm />
+              </div>
+            </Reveal>
 
           </div>
         </div>
