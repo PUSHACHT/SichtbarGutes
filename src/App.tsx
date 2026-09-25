@@ -400,7 +400,7 @@ export default function App() {
 
             {/* Right Column: Echtes Kontaktformular im Kasten */}
             <Reveal direction="right" delay={200} className="w-full lg:w-[480px] shrink-0">
-              <div className="bg-white border border-[#dcd8cf] p-6 sm:p-8 flex flex-col gap-[20px] items-start w-full text-[#2b2a27] shadow-xl">
+              <div className="bg-white border border-[#dcd8cf] p-6 sm:p-8 flex flex-col gap-[20px] items-stretch w-full text-[#2b2a27] shadow-xl">
                 <p className="text-[#162d50] text-[18px] font-bold">
                   Schnell-Check für Vereine
                 </p>
