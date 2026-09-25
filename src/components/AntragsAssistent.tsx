@@ -1023,76 +1023,80 @@ export const AntragsAssistent: React.FC<Props> = ({ onClose, isModal = false }) 
       )}
 
       {/* SUPPORT-ANGEBOT VOR DEM PDF-DOWNLOAD */}
-      {showSupportOffer && (
+      {/*
+        Bleibt immer im DOM (nur per CSS ein-/ausgeblendet, nicht bedingt gerendert):
+        Das Genie-Embed-Script scannt die Seite offenbar nur einmal beim Laden nach
+        data-genie-form-Containern. Würde der Container hier erst bei Bedarf gemountet,
+        käme er zu spät und bliebe leer.
+      */}
+      <div
+        className={`fixed inset-0 z-[100] items-center justify-center p-4 bg-black/70 backdrop-blur-sm ${
+          showSupportOffer ? 'flex' : 'hidden'
+        }`}
+        onClick={handleCloseSupportOfferAndDownload}
+        role="dialog"
+        aria-modal="true"
+      >
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
-          onClick={handleCloseSupportOfferAndDownload}
-          role="dialog"
-          aria-modal="true"
+          className="bg-white w-full max-w-md shadow-2xl border border-[#dcd8cf] overflow-hidden max-h-[90vh] flex flex-col"
+          onClick={(e) => e.stopPropagation()}
         >
-          <div
-            className="bg-white w-full max-w-md shadow-2xl border border-[#dcd8cf] overflow-hidden max-h-[90vh] flex flex-col"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="bg-[#0b1a3a] px-6 py-5 flex items-start justify-between gap-4 shrink-0">
-              <div className="flex items-center gap-3">
-                <div className="size-9 rounded bg-[#162d50] flex items-center justify-center text-[#d8e2f0] border border-[#2f5b7a] shrink-0">
-                  <Handshake className="size-5" />
-                </div>
-                <h3 className="text-lg font-bold text-white leading-snug">
-                  Können wir Sie dabei unterstützen?
-                </h3>
+          <div className="bg-[#0b1a3a] px-6 py-5 flex items-start justify-between gap-4 shrink-0">
+            <div className="flex items-center gap-3">
+              <div className="size-9 rounded bg-[#162d50] flex items-center justify-center text-[#d8e2f0] border border-[#2f5b7a] shrink-0">
+                <Handshake className="size-5" />
               </div>
-              <button
-                onClick={handleCloseSupportOfferAndDownload}
-                className="text-[#d8e2f0] hover:text-white p-1 shrink-0"
-                aria-label="Schließen und PDF herunterladen"
-              >
-                <X className="size-5" />
-              </button>
+              <h3 className="text-lg font-bold text-white leading-snug">
+                Können wir Sie dabei unterstützen?
+              </h3>
+            </div>
+            <button
+              onClick={handleCloseSupportOfferAndDownload}
+              className="text-[#d8e2f0] hover:text-white p-1 shrink-0"
+              aria-label="Schließen und PDF herunterladen"
+            >
+              <X className="size-5" />
+            </button>
+          </div>
+
+          <div className="p-6 flex flex-col gap-5 overflow-y-auto">
+            <div className={`flex-col gap-5 ${!supportRequested ? 'flex' : 'hidden'}`}>
+              <p className="text-sm text-[#2b2a27] leading-relaxed">
+                Bevor Sie Ihren Antrag herunterladen: Möchten Sie unverbindlich Kontakt zu SichtbarGutes aufnehmen und sich bei Umsetzung und Antragstellung beraten lassen?
+              </p>
+              <div className="flex flex-col gap-3">
+                <button
+                  onClick={() => setSupportRequested(true)}
+                  className="bg-[#2f5b7a] hover:bg-[#162d50] text-white font-bold text-sm px-5 py-3 flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                >
+                  <Handshake className="size-4" />
+                  <span>Ja, unverbindlich Kontakt aufnehmen</span>
+                </button>
+                <button
+                  onClick={handleCloseSupportOfferAndDownload}
+                  className="bg-white hover:bg-gray-50 border border-[#dcd8cf] text-[#2b2a27] font-bold text-sm px-5 py-3 flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                >
+                  <span>Nein danke, weiter zum Download</span>
+                  <ArrowRight className="size-4" />
+                </button>
+              </div>
             </div>
 
-            <div className="p-6 flex flex-col gap-5 overflow-y-auto">
-              {!supportRequested ? (
-                <>
-                  <p className="text-sm text-[#2b2a27] leading-relaxed">
-                    Bevor Sie Ihren Antrag herunterladen: Möchten Sie unverbindlich Kontakt zu SichtbarGutes aufnehmen und sich bei Umsetzung und Antragstellung beraten lassen?
-                  </p>
-                  <div className="flex flex-col gap-3">
-                    <button
-                      onClick={() => setSupportRequested(true)}
-                      className="bg-[#2f5b7a] hover:bg-[#162d50] text-white font-bold text-sm px-5 py-3 flex items-center justify-center gap-2 transition-colors cursor-pointer"
-                    >
-                      <Handshake className="size-4" />
-                      <span>Ja, unverbindlich Kontakt aufnehmen</span>
-                    </button>
-                    <button
-                      onClick={handleCloseSupportOfferAndDownload}
-                      className="bg-white hover:bg-gray-50 border border-[#dcd8cf] text-[#2b2a27] font-bold text-sm px-5 py-3 flex items-center justify-center gap-2 transition-colors cursor-pointer"
-                    >
-                      <span>Nein danke, weiter zum Download</span>
-                      <ArrowRight className="size-4" />
-                    </button>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <p className="text-xs text-[#706e65]">
-                    Schön! Füllen Sie das Formular aus, wir melden uns bei Ihnen – oder springen Sie direkt weiter zum Download.
-                  </p>
-                  <ContactForm />
-                  <button
-                    onClick={handleCloseSupportOfferAndDownload}
-                    className="text-xs text-[#2f5b7a] font-bold underline hover:text-[#162d50] cursor-pointer self-center"
-                  >
-                    Weiter zum Download
-                  </button>
-                </>
-              )}
+            <div className={`flex-col gap-5 ${supportRequested ? 'flex' : 'hidden'}`}>
+              <p className="text-xs text-[#706e65]">
+                Schön! Füllen Sie das Formular aus, wir melden uns bei Ihnen – oder springen Sie direkt weiter zum Download.
+              </p>
+              <ContactForm />
+              <button
+                onClick={handleCloseSupportOfferAndDownload}
+                className="text-xs text-[#2f5b7a] font-bold underline hover:text-[#162d50] cursor-pointer self-center"
+              >
+                Weiter zum Download
+              </button>
             </div>
           </div>
         </div>
-      )}
+      </div>
 
     </div>
   );
