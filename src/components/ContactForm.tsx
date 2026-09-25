@@ -12,5 +12,5 @@ export function ContactForm() {
     document.body.appendChild(script);
   }, []);
 
-  return <div data-genie-form={GENIE_FORM_ID} />;
+  return <div data-genie-form={GENIE_FORM_ID} className="w-full" />;
 }
