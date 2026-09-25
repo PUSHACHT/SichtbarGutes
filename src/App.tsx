@@ -406,27 +406,6 @@ export default function App() {
                 </p>
 
                 <ContactForm />
-
-                {/* Datenschutz- & AGB-Hinweis */}
-                <p className="text-[11px] text-[#706e65] text-center w-full leading-normal">
-                  Mit dem Absenden erklären Sie sich mit unserer{' '}
-                  <button
-                    type="button"
-                    onClick={() => openLegal('datenschutz')}
-                    className="text-[#2f5b7a] font-semibold underline hover:text-[#162d50] cursor-pointer"
-                  >
-                    Datenschutzerklärung
-                  </button>{' '}
-                  und unseren{' '}
-                  <button
-                    type="button"
-                    onClick={() => openLegal('agb')}
-                    className="text-[#2f5b7a] font-semibold underline hover:text-[#162d50] cursor-pointer"
-                  >
-                    AGB
-                  </button>{' '}
-                  einverstanden.
-                </p>
               </div>
             </Reveal>
           </div>
