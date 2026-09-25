@@ -1,25 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  FileText, 
-  Sparkles, 
-  RotateCcw, 
-  ArrowRight, 
-  ArrowLeft, 
-  Check, 
-  Download, 
-  Plus, 
-  Trash2, 
-  CheckCircle2, 
+import {
+  FileText,
+  Sparkles,
+  RotateCcw,
+  ArrowRight,
+  ArrowLeft,
+  Check,
+  Download,
+  Plus,
+  Trash2,
+  CheckCircle2,
   AlertCircle,
   Building2,
   Calculator,
   Target,
   ShieldCheck,
-  Info
+  Info,
+  X,
+  Handshake
 } from 'lucide-react';
 import { AntragData, AntragChapter, CostItem, BoardMember } from '../types/antrag';
 import { initialAntragState, musterAntragData } from '../data/antragMusterdaten';
 import { generateAntragPDF } from '../utils/pdfGenerator';
+import { ContactForm } from './ContactForm';
 
 const STORAGE_KEY = 'dsee-mikro-antrag';
 
@@ -34,6 +37,8 @@ export const AntragsAssistent: React.FC<Props> = ({ onClose, isModal = false }) 
   const [hasSavedDraft, setHasSavedDraft] = useState(false);
   const [saveToast, setSaveToast] = useState(false);
   const [pdfGenerated, setPdfGenerated] = useState(false);
+  const [showSupportOffer, setShowSupportOffer] = useState(false);
+  const [supportRequested, setSupportRequested] = useState(false);
 
   // Check LocalStorage on Mount
   useEffect(() => {
@@ -189,6 +194,21 @@ export const AntragsAssistent: React.FC<Props> = ({ onClose, isModal = false }) 
   const handleDownloadPDF = () => {
     generateAntragPDF(data);
     setPdfGenerated(true);
+  };
+
+  // Vor dem ersten Download fragen, ob unverbindlich Kontakt zur Beratung gewünscht ist
+  const handleDownloadClick = () => {
+    if (pdfGenerated) {
+      handleDownloadPDF();
+      return;
+    }
+    setShowSupportOffer(true);
+  };
+
+  const handleCloseSupportOfferAndDownload = () => {
+    setShowSupportOffer(false);
+    setSupportRequested(false);
+    handleDownloadPDF();
   };
 
   return (
@@ -912,7 +932,7 @@ export const AntragsAssistent: React.FC<Props> = ({ onClose, isModal = false }) 
                   </div>
 
                   <button
-                    onClick={handleDownloadPDF}
+                    onClick={handleDownloadClick}
                     className="bg-[#2f5b7a] hover:bg-[#3b6d91] text-white font-bold text-base px-6 py-4 flex items-center gap-3 transition-colors shrink-0 shadow-lg cursor-pointer"
                   >
                     <Download className="size-5" />
@@ -989,7 +1009,7 @@ export const AntragsAssistent: React.FC<Props> = ({ onClose, isModal = false }) 
                 </button>
               ) : (
                 <button
-                  onClick={handleDownloadPDF}
+                  onClick={handleDownloadClick}
                   className="bg-[#2f5b7a] hover:bg-[#162d50] text-white font-bold text-xs sm:text-sm px-6 sm:px-8 py-2.5 sm:py-3 flex items-center gap-2 transition-colors cursor-pointer"
                 >
                   <Download className="size-4" />
@@ -998,6 +1018,78 @@ export const AntragsAssistent: React.FC<Props> = ({ onClose, isModal = false }) 
               )}
             </div>
 
+          </div>
+        </div>
+      )}
+
+      {/* SUPPORT-ANGEBOT VOR DEM PDF-DOWNLOAD */}
+      {showSupportOffer && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+          onClick={handleCloseSupportOfferAndDownload}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            className="bg-white w-full max-w-md shadow-2xl border border-[#dcd8cf] overflow-hidden max-h-[90vh] flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="bg-[#0b1a3a] px-6 py-5 flex items-start justify-between gap-4 shrink-0">
+              <div className="flex items-center gap-3">
+                <div className="size-9 rounded bg-[#162d50] flex items-center justify-center text-[#d8e2f0] border border-[#2f5b7a] shrink-0">
+                  <Handshake className="size-5" />
+                </div>
+                <h3 className="text-lg font-bold text-white leading-snug">
+                  Können wir Sie dabei unterstützen?
+                </h3>
+              </div>
+              <button
+                onClick={handleCloseSupportOfferAndDownload}
+                className="text-[#d8e2f0] hover:text-white p-1 shrink-0"
+                aria-label="Schließen und PDF herunterladen"
+              >
+                <X className="size-5" />
+              </button>
+            </div>
+
+            <div className="p-6 flex flex-col gap-5 overflow-y-auto">
+              {!supportRequested ? (
+                <>
+                  <p className="text-sm text-[#2b2a27] leading-relaxed">
+                    Bevor Sie Ihren Antrag herunterladen: Möchten Sie unverbindlich Kontakt zu SichtbarGutes aufnehmen und sich bei Umsetzung und Antragstellung beraten lassen?
+                  </p>
+                  <div className="flex flex-col gap-3">
+                    <button
+                      onClick={() => setSupportRequested(true)}
+                      className="bg-[#2f5b7a] hover:bg-[#162d50] text-white font-bold text-sm px-5 py-3 flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                    >
+                      <Handshake className="size-4" />
+                      <span>Ja, unverbindlich Kontakt aufnehmen</span>
+                    </button>
+                    <button
+                      onClick={handleCloseSupportOfferAndDownload}
+                      className="bg-white hover:bg-gray-50 border border-[#dcd8cf] text-[#2b2a27] font-bold text-sm px-5 py-3 flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                    >
+                      <span>Nein danke, weiter zum Download</span>
+                      <ArrowRight className="size-4" />
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <p className="text-xs text-[#706e65]">
+                    Schön! Füllen Sie das Formular aus, wir melden uns bei Ihnen – oder springen Sie direkt weiter zum Download.
+                  </p>
+                  <ContactForm />
+                  <button
+                    onClick={handleCloseSupportOfferAndDownload}
+                    className="text-xs text-[#2f5b7a] font-bold underline hover:text-[#162d50] cursor-pointer self-center"
+                  >
+                    Weiter zum Download
+                  </button>
+                </>
+              )}
+            </div>
           </div>
         </div>
       )}
