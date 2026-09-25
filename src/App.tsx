@@ -25,7 +25,17 @@ import {
 } from './data/portfolioData';
 import { AntragsAssistent } from './components/AntragsAssistent';
 import { Reveal } from './components/Reveal';
-import { LegalModal, LegalTab } from './components/LegalModal';
+import { LegalPage, LegalTab } from './components/LegalPage';
+
+type Route = 'home' | LegalTab;
+
+const getRouteFromHash = (): Route => {
+  const hash = window.location.hash.toLowerCase();
+  if (hash === '#impressum' || hash === '#datenschutz' || hash === '#agb') {
+    return hash.slice(1) as LegalTab;
+  }
+  return 'home';
+};
 
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -82,26 +92,23 @@ export default function App() {
   const [isUnter50k, setIsUnter50k] = useState(true);
   const [submitted, setSubmitted] = useState(false);
 
-  // Legal Modal State
-  const [legalModalOpen, setLegalModalOpen] = useState(false);
-  const [activeLegalTab, setActiveLegalTab] = useState<LegalTab>('impressum');
-
-  const openLegal = (tab: LegalTab) => {
-    setActiveLegalTab(tab);
-    setLegalModalOpen(true);
-  };
+  // Legal Page Routing (Impressum / Datenschutz / AGB als echte Unterseiten)
+  const [route, setRoute] = useState<Route>(getRouteFromHash);
 
   useEffect(() => {
-    const handleHash = () => {
-      const hash = window.location.hash.toLowerCase();
-      if (hash === '#impressum') openLegal('impressum');
-      else if (hash === '#datenschutz') openLegal('datenschutz');
-      else if (hash === '#agb') openLegal('agb');
-    };
-    handleHash();
+    const handleHash = () => setRoute(getRouteFromHash());
     window.addEventListener('hashchange', handleHash);
     return () => window.removeEventListener('hashchange', handleHash);
   }, []);
+
+  const openLegal = (tab: LegalTab) => {
+    window.location.hash = tab;
+  };
+
+  const closeLegal = () => {
+    history.pushState('', document.title, window.location.pathname + window.location.search);
+    setRoute('home');
+  };
 
   const scrollToSection = (id: string) => {
     setMobileMenuOpen(false);
@@ -139,9 +146,19 @@ export default function App() {
     }
   ];
 
+  if (route !== 'home') {
+    return (
+      <LegalPage
+        activeTab={route}
+        onBack={closeLegal}
+        onSelectTab={(tab) => openLegal(tab)}
+      />
+    );
+  }
+
   return (
     <div className="bg-white flex flex-col items-start w-full font-sans text-[#2b2a27]">
-      
+
       {/* 1. NAVIGATION BAR */}
       <header className="bg-[#162d50] w-full px-6 sm:px-12 lg:px-[64px] py-[20px] flex items-center justify-between sticky top-0 z-50">
         {/* Logo */}
@@ -1295,14 +1312,6 @@ export default function App() {
           </div>
         </div>
       </footer>
-
-      {/* 13. RECHTLICHE MODALS (IMPRESSUM, DATENSCHUTZ, AGB) */}
-      <LegalModal
-        isOpen={legalModalOpen}
-        activeTab={activeLegalTab}
-        onClose={() => setLegalModalOpen(false)}
-        onSelectTab={(tab) => setActiveLegalTab(tab)}
-      />
 
     </div>
   );
