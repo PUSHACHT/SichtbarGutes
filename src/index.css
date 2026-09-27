@@ -55,7 +55,7 @@
 */
 @media (max-width: 640px) {
   [data-genie-form] iframe {
-    max-height: 70vh !important;
+    max-height: 93vh !important;
   }
 }
 
