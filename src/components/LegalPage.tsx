@@ -155,23 +155,17 @@ export const LegalPage: React.FC<LegalPageProps> = ({
                 <p>
                   SichtbarGutes ist ein privatwirtschaftliches Beratungs- und Medienangebot für gemeinnützige Vereine und Organisationen.
                 </p>
-                <div className="p-3 bg-amber-50 border border-amber-200 text-amber-900 text-xs flex items-start gap-2">
-                  <AlertCircle className="w-4 h-4 shrink-0 text-amber-600 mt-0.5" />
-                  <div>
-                    <strong>[Platzhalter Rechtsform / Handelsregister]:</strong> Einzelunternehmen / Freiberufliche Tätigkeit (Inhaber: Klaas Herting). Sofern eine Gesellschaft bürgerlichen Rechts (GbR) oder Eintragung im Handelsregister (z. B. Amtsgericht Bonn) erfolgt, bitte hier Handelsregisternummer und vertretungsberechtigte Gesellschafter ergänzen.
-                  </div>
-                </div>
+                <p>
+                  Selbstständiges Einzelunternehmen (freiberufliche/gewerbliche Tätigkeit), Inhaber: Klaas Herting.
+                </p>
               </section>
 
               {/* Umsatzsteuer-ID */}
               <section className="space-y-2">
                 <h3 className="text-base font-bold text-[#162d50]">Umsatzsteuer-Identifikationsnummer:</h3>
-                <div className="p-3 bg-amber-50 border border-amber-200 text-amber-900 text-xs flex items-start gap-2">
-                  <AlertCircle className="w-4 h-4 shrink-0 text-amber-600 mt-0.5" />
-                  <div>
-                    <strong>[Platzhalter USt-IdNr.]:</strong> Gemäß § 27 a Umsatzsteuergesetz: <em>USt-IdNr. beantragt / entfällt nach § 19 UStG (Kleinunternehmerregelung)</em>. Bei Zuteilung bitte hier eintragen (z. B. DE...).
-                  </div>
-                </div>
+                <p>
+                  Gemäß § 19 UStG (Kleinunternehmerregelung) wird keine Umsatzsteuer erhoben; eine Umsatzsteuer-Identifikationsnummer wird daher nicht ausgewiesen.
+                </p>
               </section>
 
               {/* Redaktionell Verantwortlich */}
@@ -269,31 +263,48 @@ export const LegalPage: React.FC<LegalPageProps> = ({
                 </ul>
               </section>
 
-              {/* 5. Geplanter CRM-Einsatz: Pipedrive */}
+              {/* 5. Kontaktformular: Supabase / Vercel */}
               <section className="space-y-3 bg-[#eef3f8] p-5 border border-[#2f5b7a]/30">
                 <div className="flex items-center gap-2 text-[#162d50] font-bold text-base">
                   <Shield className="w-5 h-5 text-[#2f5b7a]" />
-                  <h3>5. Kunden- & Interessentenverwaltung via CRM (Pipedrive)</h3>
+                  <h3>5. Kontakt- & Interessentenverwaltung (Supabase / Vercel)</h3>
                 </div>
                 <p>
-                  Zur professionellen, strukturierten und schnellen Abwicklung von Vereinsanfragen und Antragsbegleitungen nutzen wir bzw. binden wir künftig das Customer-Relationship-Management-System (CRM) <strong>Pipedrive</strong> ein.
+                  Zur Entgegennahme und Verwaltung von Anfragen über unser Kontaktformular nutzen wir eine Lösung, die auf <strong>Supabase</strong> (Datenbank) und <strong>Vercel</strong> (Hosting) basiert.
                 </p>
                 <div className="space-y-2 text-xs text-[#2b2a27]">
                   <p>
-                    <strong>Dienstanbieter:</strong> Pipedrive OÜ, Mustamäe tee 3a, 10615 Tallinn, Estland (EU) bzw. Pipedrive Inc., 460 Park Ave South, New York, NY 10016, USA.
+                    <strong>Dienstanbieter:</strong> Supabase, Inc. (USA) sowie Vercel Inc. (USA). Die Datenverarbeitung erfolgt auf Servern mit Standort in der EU (Region Irland bzw. Frankfurt am Main).
                   </p>
                   <p>
-                    <strong>Verarbeitete Datenkategorien:</strong> Kontaktdaten (Name, E-Mail, Telefonnummer), Vereinsdaten (Name, Anschrift, Vereinsregisternummer, PLZ), Bearbeitungsstatus des DSEE-Förderantrags sowie Dokumentations- und Gesprächsnotizen.
+                    <strong>Verarbeitete Datenkategorien:</strong> Kontaktdaten (Name, E-Mail, Telefonnummer, Firma) sowie der von Ihnen im Nachrichtenfeld übermittelte Freitext.
                   </p>
                   <p>
-                    <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer effizienten, strukturierten Verwaltung unserer Kundenbeziehungen und zügigen Beratung im Antragsverfahren) sowie Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung und Durchführung).
+                    <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Durchführung vorvertraglicher Maßnahmen auf Ihre Anfrage) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer effizienten Bearbeitung eingehender Anfragen).
                   </p>
                   <p>
-                    <strong>Auftragsverarbeitung & Garantien:</strong> Wir schließen mit Pipedrive einen Auftragsverarbeitungsvertrag (AVV / Data Processing Addendum) gemäß Art. 28 DSGVO ab. Soweit Daten in die USA übertragen werden, garantiert Pipedrive ein angemessenes Datenschutzniveau auf Basis von EU-Standardvertragsklauseln (SCC) und der Zertifizierung unter dem EU-U.S. Data Privacy Framework.
+                    <strong>Auftragsverarbeitung & Garantien:</strong> Mit beiden Anbietern bestehen Auftragsverarbeitungsverträge (AVV / Data Processing Addendum) gemäß Art. 28 DSGVO. Die jeweiligen Data-Processing-Addenda finden Sie unter{' '}
+                    <a
+                      href="https://supabase.com/legal/dpa"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#2f5b7a] hover:underline inline-flex items-center gap-1"
+                    >
+                      <span>supabase.com/legal/dpa</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>{' '}
+                    und{' '}
+                    <a
+                      href="https://vercel.com/legal/dpa"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#2f5b7a] hover:underline inline-flex items-center gap-1"
+                    >
+                      <span>vercel.com/legal/dpa</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                    . Soweit im Rahmen der Auftragsverarbeitung ein Datentransfer in die USA erfolgt, stützen sich beide Anbieter auf EU-Standardvertragsklauseln (SCC).
                   </p>
-                </div>
-                <div className="p-2.5 bg-white border border-[#dcd8cf] text-xs text-[#706e65]">
-                  <strong>[Placeholder CRM-Status]:</strong> Vor der finalen Live-Synchronisation der Formulare mit der Pipedrive-API wird das Data Processing Addendum in Pipedrive bestätigt und der genaue EU-Serverstandort (Frankfurt am Main / EU Data Center von Pipedrive) verankert.
                 </div>
               </section>
 
