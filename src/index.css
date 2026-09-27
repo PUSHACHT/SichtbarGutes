@@ -44,3 +44,18 @@
   background: #4a6e8a;
 }
 
+/*
+  Das eingebettete Genie-Kontaktformular läuft als Cross-Origin-Iframe und
+  setzt sich per Inline-Style selbst eine Höhe (Auto-Resize). Auf schmalen
+  Mobile-Breiten liefert dessen eigene Höhenberechnung offenbar einen viel
+  zu großen Wert, wodurch die Formularkarte die Seite dominiert. Da wir den
+  Iframe-Inhalt nicht kontrollieren können, deckeln wir seine Höhe von außen;
+  Iframes bleiben dabei unabhängig vom CSS-overflow der Eltern intern
+  scrollbar, der Rest des Formulars lässt sich also weiterhin erreichen.
+*/
+@media (max-width: 640px) {
+  [data-genie-form] iframe {
+    max-height: 70vh !important;
+  }
+}
+
