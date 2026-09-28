@@ -38,7 +38,6 @@ export const AntragsAssistent: React.FC<Props> = ({ onClose, isModal = false }) 
   const [saveToast, setSaveToast] = useState(false);
   const [pdfGenerated, setPdfGenerated] = useState(false);
   const [showSupportOffer, setShowSupportOffer] = useState(false);
-  const [supportRequested, setSupportRequested] = useState(false);
 
   // Check LocalStorage on Mount
   useEffect(() => {
@@ -196,7 +195,7 @@ export const AntragsAssistent: React.FC<Props> = ({ onClose, isModal = false }) 
     setPdfGenerated(true);
   };
 
-  // Vor dem ersten Download fragen, ob unverbindlich Kontakt zur Beratung gewünscht ist
+  // Vor dem ersten Download müssen die Kontaktdaten im Popup hinterlassen werden
   const handleDownloadClick = () => {
     if (pdfGenerated) {
       handleDownloadPDF();
@@ -205,9 +204,13 @@ export const AntragsAssistent: React.FC<Props> = ({ onClose, isModal = false }) 
     setShowSupportOffer(true);
   };
 
-  const handleCloseSupportOfferAndDownload = () => {
+  // Schließt das Popup nur, löst KEINEN Download aus (Kontaktformular ist Pflicht vor dem Download)
+  const handleCloseSupportOffer = () => {
     setShowSupportOffer(false);
-    setSupportRequested(false);
+  };
+
+  const handleProceedToDownload = () => {
+    setShowSupportOffer(false);
     handleDownloadPDF();
   };
 
@@ -1033,7 +1036,7 @@ export const AntragsAssistent: React.FC<Props> = ({ onClose, isModal = false }) 
         className={`fixed inset-0 z-[100] items-center justify-center p-4 bg-black/70 backdrop-blur-sm ${
           showSupportOffer ? 'flex' : 'hidden'
         }`}
-        onClick={handleCloseSupportOfferAndDownload}
+        onClick={handleCloseSupportOffer}
         role="dialog"
         aria-modal="true"
       >
@@ -1047,53 +1050,30 @@ export const AntragsAssistent: React.FC<Props> = ({ onClose, isModal = false }) 
                 <Handshake className="size-5" />
               </div>
               <h3 className="text-lg font-bold text-white leading-snug">
-                Können wir Sie dabei unterstützen?
+                Bevor Sie Ihren Antrag herunterladen
               </h3>
             </div>
             <button
-              onClick={handleCloseSupportOfferAndDownload}
+              onClick={handleCloseSupportOffer}
               className="text-[#d8e2f0] hover:text-white p-1 shrink-0"
-              aria-label="Schließen und PDF herunterladen"
+              aria-label="Schließen"
             >
               <X className="size-5" />
             </button>
           </div>
 
           <div className="p-6 flex flex-col gap-5 overflow-y-auto">
-            <div className={`flex-col gap-5 ${!supportRequested ? 'flex' : 'hidden'}`}>
-              <p className="text-sm text-[#2b2a27] leading-relaxed">
-                Bevor Sie Ihren Antrag herunterladen: Möchten Sie unverbindlich Kontakt zu SichtbarGutes aufnehmen und sich bei Umsetzung und Antragstellung beraten lassen?
-              </p>
-              <div className="flex flex-col gap-3">
-                <button
-                  onClick={() => setSupportRequested(true)}
-                  className="bg-[#2f5b7a] hover:bg-[#162d50] text-white font-bold text-sm px-5 py-3 flex items-center justify-center gap-2 transition-colors cursor-pointer"
-                >
-                  <Handshake className="size-4" />
-                  <span>Ja, unverbindlich Kontakt aufnehmen</span>
-                </button>
-                <button
-                  onClick={handleCloseSupportOfferAndDownload}
-                  className="bg-white hover:bg-gray-50 border border-[#dcd8cf] text-[#2b2a27] font-bold text-sm px-5 py-3 flex items-center justify-center gap-2 transition-colors cursor-pointer"
-                >
-                  <span>Nein danke, weiter zum Download</span>
-                  <ArrowRight className="size-4" />
-                </button>
-              </div>
-            </div>
-
-            <div className={`flex-col gap-5 ${supportRequested ? 'flex' : 'hidden'}`}>
-              <p className="text-xs text-[#706e65]">
-                Schön! Füllen Sie das Formular aus, wir melden uns bei Ihnen – oder springen Sie direkt weiter zum Download.
-              </p>
-              <ContactForm />
-              <button
-                onClick={handleCloseSupportOfferAndDownload}
-                className="text-xs text-[#2f5b7a] font-bold underline hover:text-[#162d50] cursor-pointer self-center"
-              >
-                Weiter zum Download
-              </button>
-            </div>
+            <p className="text-sm text-[#2b2a27] leading-relaxed">
+              Damit sich SichtbarGutes bei Ihnen melden und Sie bei Umsetzung und Antragstellung unterstützen kann, hinterlassen Sie bitte kurz Ihre Kontaktdaten.
+            </p>
+            <ContactForm />
+            <button
+              onClick={handleProceedToDownload}
+              className="bg-[#2f5b7a] hover:bg-[#162d50] text-white font-bold text-sm px-5 py-3 flex items-center justify-center gap-2 transition-colors cursor-pointer"
+            >
+              <span>Weiter zum Download</span>
+              <ArrowRight className="size-4" />
+            </button>
           </div>
         </div>
       </div>
